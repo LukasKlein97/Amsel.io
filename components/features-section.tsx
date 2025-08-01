@@ -8,9 +8,7 @@ import {
 import {
   CheckCircle,
   FileText,
-  Users,
   BarChart3,
-  Calendar,
   AlertTriangle,
   Beaker,
 } from "lucide-react";
