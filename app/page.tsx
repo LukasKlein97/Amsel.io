@@ -14,6 +14,7 @@ export default function HomePage() {
         <FeaturesSection />
         <PreviewAppSection />
         <SolutionsSection />
+        {/* <imPricingSection /> */}
       </main>
       <Footer />
     </div>
