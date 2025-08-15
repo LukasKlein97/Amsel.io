@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Menu, X, Globe } from "lucide-react";
@@ -13,6 +13,9 @@ import {
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMouseInHeader, setIsMouseInHeader] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
   const router = useRouter();
 
   const navigationItems = [
@@ -40,6 +43,31 @@ export function Header() {
   //   { name: "Unfall Management", href: "#accidents" },
   // ];
 
+  // Mouse tracking effect
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    const handleMouseLeave = () => {
+      setIsMouseInHeader(false);
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    if (headerRef.current) {
+      headerRef.current.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    const currentHeaderRef = headerRef.current;
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      if (currentHeaderRef) {
+        currentHeaderRef.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -52,9 +80,36 @@ export function Header() {
   };
 
   return (
-    <header className="relative z-50 text-white bg-transparent">
+    <header
+      ref={headerRef}
+      className="relative z-50 text-white bg-transparent overflow-hidden"
+      style={{
+        background: isMouseInHeader
+          ? `radial-gradient(circle 150px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%)`
+          : "transparent",
+      }}
+    >
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-slate-900/40"></div>
+
+      {/* Taschenlampen-Effekt */}
+      {isMouseInHeader && (
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            left: mousePosition.x - 75,
+            top: mousePosition.y - 75,
+            width: "150px",
+            height: "150px",
+            background:
+              "radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 70%)",
+            borderRadius: "50%",
+            filter: "blur(1px)",
+            zIndex: 5,
+          }}
+        />
+      )}
+
       <div className="container mx-auto px-4 py-4 relative z-10">
         <div className="flex items-center justify-between">
           {/* Logo */}

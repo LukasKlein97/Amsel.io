@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { FileText, ClipboardList, BarChart3 } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 export function PreviewAppSection() {
   const ref = useRef(null);
@@ -22,9 +23,11 @@ export function PreviewAppSection() {
           <div className="flex-1 flex justify-center lg:justify-start">
             <motion.div ref={ref} style={{ x }} className="relative">
               {/* Complete App Screenshot */}
-              <img
+              <Image
                 src="/images/app5.png"
                 alt="AMS Industrie App Screenshot"
+                width={384}
+                height={600}
                 className="w-96 h-auto"
               />
             </motion.div>
