@@ -12,16 +12,16 @@ export function HeroSection() {
   return (
     <section
       className="relative text-white py-20 lg:py-32 overflow-hidden -mt-20 lg:-mt-24"
-      /* style={{
+      style={{
         backgroundImage: 'url("/images/industry.jpg")',
         backgroundSize: "cover",
         backgroundPosition: "center top",
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
-      }}*/
+      }}
     >
       {/* Darker overlay for better text readability */}
-      <div className="absolute inset-0 bg-slate-900/90"></div>
+      <div className="absolute inset-0 bg-slate-900/70"></div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
