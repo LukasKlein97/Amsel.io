@@ -1,16 +1,60 @@
 "use client";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Smartphone, Monitor } from "lucide-react";
 
 export function HeroSection() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMouseInHero, setIsMouseInHero] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
+
+  // Mouse tracking effect
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Check if mouse is within hero bounds
+        if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+          setMousePosition({ x, y });
+          setIsMouseInHero(true);
+        } else {
+          setIsMouseInHero(false);
+        }
+      }
+    };
+
+    const handleMouseLeave = () => {
+      setIsMouseInHero(false);
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    if (heroRef.current) {
+      heroRef.current.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    const currentHeroRef = heroRef.current;
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      if (currentHeroRef) {
+        currentHeroRef.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <section
+      ref={heroRef}
       className="relative text-white py-20 lg:py-32 overflow-hidden -mt-20 lg:-mt-24"
       style={{
         backgroundImage: 'url("/images/industry.jpg")',
@@ -22,6 +66,24 @@ export function HeroSection() {
     >
       {/* Darker overlay for better text readability */}
       <div className="absolute inset-0 bg-slate-900/70"></div>
+
+      {/* Taschenlampen-Effekt */}
+      {isMouseInHero && (
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            left: mousePosition.x - 100,
+            top: mousePosition.y - 100,
+            width: "200px",
+            height: "200px",
+            background:
+              "radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 40%, transparent 70%)",
+            borderRadius: "50%",
+            filter: "blur(2px)",
+            zIndex: 5,
+          }}
+        />
+      )}
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">

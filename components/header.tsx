@@ -46,7 +46,19 @@ export function Header() {
   // Mouse tracking effect
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      if (headerRef.current) {
+        const rect = headerRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Check if mouse is within header bounds
+        if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+          setMousePosition({ x, y });
+          setIsMouseInHeader(true);
+        } else {
+          setIsMouseInHeader(false);
+        }
+      }
     };
 
     const handleMouseLeave = () => {
