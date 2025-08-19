@@ -32,7 +32,7 @@ export function Footer() {
               <span className="text-xl font-bold tracking-wider">AMS</span>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Die führende Software-Lösung für digitalen Arbeitsschutz und
+              Die Software-Lösung für digitalen Arbeitsschutz und
               Compliance-Management.
             </p>
             <div className="flex space-x-4">
