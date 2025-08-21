@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,6 +9,26 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Brain, Camera, MessageSquare } from "lucide-react";
+
+// Separate client component for the AI features button
+function AIFeaturesButton() {
+  const handleClick = () => {
+    const element = document.getElementById("contact");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <Button
+      size="lg"
+      className="bg-white text-slate-900 hover:bg-gray-100 font-semibold px-8 py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+      onClick={handleClick}
+    >
+      KI-Features entdecken
+    </Button>
+  );
+}
 
 export function AISection() {
   const aiFeatures = [
@@ -145,12 +167,7 @@ export function AISection() {
                 Begehungen. Unsere KI unterstützt Sie bei der Identifikation von
                 Risiken und schlägt automatisch passende Schutzmaßnahmen vor.
               </p>
-              <Button
-                size="lg"
-                className="bg-white text-slate-900 hover:bg-gray-100 font-semibold px-8 py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-              >
-                KI-Features entdecken
-              </Button>
+              <AIFeaturesButton />
             </div>
           </div>
         </div>

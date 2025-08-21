@@ -92,8 +92,13 @@ export function HeroSection() {
           <div className="bg-black/40 backdrop-blur-sm p-6 md:p-8 lg:p-10 rounded-2xl md:rounded-3xl mx-2 sm:mx-0">
             <h1 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight drop-shadow-2xl">
               WIR GESTALTEN
-              <br />
-              ARBEITSSICHERHEIT.
+              <br className="" />
+              <span className="sm:hidden">
+                ARBEITS-
+                <br />
+                SICHERHEIT
+              </span>
+              <span className="hidden sm:inline">ARBEITSSICHERHEIT</span>.
             </h1>
 
             <p className="text-lg lg:text-xl text-gray-100 mb-12 max-w-2xl leading-relaxed drop-shadow-lg">
@@ -106,6 +111,7 @@ export function HeroSection() {
               <Button
                 size="lg"
                 className="bg-white text-slate-900 hover:bg-gray-100 shadow-lg"
+                onClick={() => scrollToSection("contact")}
               >
                 Demo anfordern
                 <ArrowRight className="ml-2 h-5 w-5" />

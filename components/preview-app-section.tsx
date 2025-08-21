@@ -6,6 +6,26 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
+// Separate client component for the download button
+function DownloadButton() {
+  const handleClick = () => {
+    const element = document.getElementById("contact");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <Button
+      size="lg"
+      className="bg-blue-600 hover:bg-blue-700"
+      onClick={handleClick}
+    >
+      App herunterladen
+    </Button>
+  );
+}
+
 export function PreviewAppSection() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -93,9 +113,7 @@ export function PreviewAppSection() {
             </div>
 
             <div className="mt-8">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                App herunterladen
-              </Button>
+              <DownloadButton />
             </div>
           </div>
         </div>

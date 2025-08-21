@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,6 +9,26 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Building2, Factory, Wrench, Truck } from "lucide-react";
+
+// Separate client component for the consultation button
+function ConsultationButton() {
+  const handleClick = () => {
+    const element = document.getElementById("contact");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <Button
+      size="lg"
+      className="bg-slate-900 hover:bg-slate-800"
+      onClick={handleClick}
+    >
+      Kostenlose Beratung vereinbaren
+    </Button>
+  );
+}
 
 export function SolutionsSection() {
   const solutions = [
@@ -96,9 +118,7 @@ export function SolutionsSection() {
         </div>
 
         <div className="text-center">
-          <Button size="lg" className="bg-slate-900 hover:bg-slate-800">
-            Kostenlose Beratung vereinbaren
-          </Button>
+          <ConsultationButton />
         </div>
       </div>
     </section>
