@@ -29,6 +29,26 @@ export default function ImpressumPage() {
                 </p>
 
                 <h2 className="text-2xl font-semibold text-white mt-8 mb-4">
+                  Handelsregister
+                </h2>
+                <p className="text-lg">
+                  Handelsregisternummer: HRB 11427
+                  <br />
+                  Registergericht: Amtsgericht Iserlohn
+                </p>
+
+                <h2 className="text-2xl font-semibold text-white mt-8 mb-4">
+                  Umsatzsteuer
+                </h2>
+                <p className="text-lg">
+                  Umsatzsteuer-Identifikationsnummer: DE457232243
+                  <br />
+                  <span className="text-sm text-gray-400">
+                    (gemäß § 27 a Umsatzsteuergesetz)
+                  </span>
+                </p>
+
+                <h2 className="text-2xl font-semibold text-white mt-8 mb-4">
                   Kontakt
                 </h2>
                 <p className="text-lg">
