@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from "lucide-react";
 import { ContactForm } from "./contact-form";
+import { CalendlyWidget } from "./calendly-widget";
 
 export function Footer() {
   const router = useRouter();
@@ -11,12 +12,31 @@ export function Footer() {
     router.push("/");
   };
 
+  const scrollToModule = () => {
+    const element = document.getElementById("features");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className="bg-slate-900 text-white py-16">
       <div className="container mx-auto px-4">
-        {/* Contact Form */}
+        {/* Contact Section */}
         <div id="contact" className="mb-12">
-          <ContactForm />
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+              Kontaktieren Sie uns
+            </h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              Wählen Sie Ihre bevorzugte Kontaktmethode - senden Sie uns eine
+              Nachricht oder buchen Sie direkt einen Termin.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <ContactForm />
+            <CalendlyWidget />
+          </div>
         </div>
 
         {/* Divider */}
@@ -35,7 +55,7 @@ export function Footer() {
               Die Software-Lösung für digitalen Arbeitsschutz und
               Compliance-Management.
             </p>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <Button
                 size="sm"
                 variant="ghost"
@@ -57,37 +77,44 @@ export function Footer() {
               >
                 <Youtube className="h-5 w-5" />
               </Button>
-            </div>
+            </div> */}
           </div>
 
-          {/* Solutions */}
+          {/* Module */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Lösungen</h3>
+            <h3 className="text-lg font-semibold mb-6">Module</h3>
             <ul className="space-y-3 text-gray-300">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <button
+                  onClick={scrollToModule}
+                  className="hover:text-white transition-colors text-left"
+                >
                   Gefährdungsbeurteilungen
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <button
+                  onClick={scrollToModule}
+                  className="hover:text-white transition-colors text-left"
+                >
                   Begehungsprotokolle
-                </a>
+                </button>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Incident Management
-                </a>
+                <button
+                  onClick={scrollToModule}
+                  className="hover:text-white transition-colors text-left"
+                >
+                  Aktionsplan
+                </button>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Schulungsmanagement
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Mobile App
-                </a>
+                <button
+                  onClick={scrollToModule}
+                  className="hover:text-white transition-colors text-left"
+                >
+                  Dokumentenmanagement
+                </button>
               </li>
             </ul>
           </div>

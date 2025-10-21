@@ -64,7 +64,7 @@ export function AISection() {
 
   return (
     <section
-      id="ai-features"
+      id="ai-section"
       className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 overflow-hidden"
     >
       {/* Animated background elements */}

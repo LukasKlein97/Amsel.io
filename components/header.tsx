@@ -19,12 +19,15 @@ export function Header() {
   const router = useRouter();
 
   const navigationItems = [
+    { name: "Module", href: "#features", hasDropdown: false },
+    { name: "KI-Features", href: "#ai-section", hasDropdown: false },
+
     { name: "Lösungen", href: "#solutions", hasDropdown: false },
-    { name: "Features", href: "#features", hasDropdown: false },
-    { name: "Preise", href: "#pricing" },
-    { name: "Über uns", href: "#about" },
-    { name: "Support", href: "#support" },
     { name: "Kontakt", href: "#contact" },
+
+    //{ name: "Preise", href: "#pricing" },
+    //{ name: "Über uns", href: "#about" },
+    //{ name: "Support", href: "#support" },
   ];
 
   // const solutionsDropdownItems = [
@@ -146,7 +149,7 @@ export function Header() {
                         onClick={() => {
                           if (item.name === "Lösungen") {
                             scrollToSection("solutions");
-                          } else if (item.name === "Features") {
+                          } else if (item.name === "Module") {
                             scrollToSection("features");
                           }
                         }}
@@ -188,12 +191,12 @@ export function Header() {
                     onClick={() => {
                       if (item.name === "Lösungen") {
                         scrollToSection("solutions");
-                      } else if (item.name === "Features") {
+                      } else if (item.name === "Module") {
                         scrollToSection("features");
                       } else if (item.name === "Kontakt") {
                         scrollToSection("contact");
-                      } else if (item.name === "Preise") {
-                        scrollToSection("pricing");
+                      } else if (item.name === "KI-Features") {
+                        scrollToSection("ai-section");
                       }
                     }}
                   >
@@ -215,9 +218,10 @@ export function Header() {
                 <DropdownMenuItem className="text-white hover:bg-slate-700">
                   Deutsch
                 </DropdownMenuItem>
-                <DropdownMenuItem className="text-white hover:bg-slate-700">
+                {/* <DropdownMenuItem className="text-white hover:bg-slate-700">
                   English
                 </DropdownMenuItem>
+                */}
               </DropdownMenuContent>
             </DropdownMenu>
           </nav>
@@ -248,10 +252,12 @@ export function Header() {
                   onClick={() => {
                     if (item.name === "Lösungen") {
                       scrollToSection("solutions");
-                    } else if (item.name === "Features") {
+                    } else if (item.name === "Module") {
                       scrollToSection("features");
                     } else if (item.name === "Kontakt") {
                       scrollToSection("contact");
+                    } else if (item.name === "KI-Features") {
+                      scrollToSection("ai-section");
                     } else if (item.name === "Preise") {
                       scrollToSection("pricing");
                     }
