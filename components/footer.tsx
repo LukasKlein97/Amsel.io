@@ -1,7 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { ContactForm } from "./contact-form";
 import { CalendlyWidget } from "./calendly-widget";
 
