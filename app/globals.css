@@ -131,19 +131,38 @@
 }
 
 /* Hide Calendly branding banner */
+.calendly-inline-widget {
+  position: relative;
+  overflow: hidden;
+}
+
 .calendly-inline-widget iframe {
   position: relative;
 }
 
-/* Attempt to hide the powered by banner */
+/* Hide the powered by banner more effectively */
 .calendly-inline-widget::after {
   content: "";
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
-  width: 120px;
-  height: 40px;
+  width: 150px;
+  height: 50px;
   background: #1e293b;
-  z-index: 10;
+  z-index: 1000;
   pointer-events: none;
+  transform: rotate(-45deg);
+  transform-origin: bottom right;
+}
+
+/* Additional CSS to hide Calendly branding */
+.calendly-inline-widget iframe {
+  border: none !important;
+}
+
+/* Hide any Calendly branding elements */
+.calendly-inline-widget [data-calendly-branding],
+.calendly-inline-widget .calendly-branding,
+.calendly-inline-widget .calendly-powered-by {
+  display: none !important;
 }
