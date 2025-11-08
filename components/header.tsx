@@ -86,7 +86,7 @@ export function Header() {
       >
         <div
           className={[
-            "relative flex items-center justify-between overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-emerald-900/80 via-slate-950/80 to-black/80 px-5 py-3 shadow-lg shadow-emerald-950/30 backdrop-blur-2xl transition-all duration-300",
+            "relative flex items-center justify-between overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-emerald-900/30 via-slate-950/30 to-black/30 px-5 py-3 shadow-lg shadow-emerald-950/30 backdrop-blur-2xl transition-all duration-300",
             isScrolled ? "border-white/20 shadow-emerald-900/40" : "",
           ].join(" ")}
         >
@@ -207,7 +207,7 @@ export function Header() {
             }
             className="mx-auto mt-2 w-full max-w-[720px] px-4"
           >
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-emerald-900/90 via-slate-950/90 to-black/90 px-4 py-6 text-white shadow-2xl shadow-emerald-950/30 backdrop-blur-xl">
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-emerald-900/40 via-slate-950/40 to-black/40 px-4 py-6 text-white shadow-2xl shadow-emerald-950/30 backdrop-blur-xl">
               <div className="flex flex-col gap-4">
                 {navigationItems.map((item, index) => (
                   <motion.button
@@ -227,26 +227,6 @@ export function Header() {
                     }}
                   >
                     <span>{item.name}</span>
-                    <motion.span
-                      className="text-xs uppercase tracking-[0.3em] text-emerald-200/80"
-                      animate={
-                        shouldReduceMotion
-                          ? undefined
-                          : { rotate: [0, 1.6, -1.6, 0] }
-                      }
-                      transition={
-                        shouldReduceMotion
-                          ? undefined
-                          : {
-                              repeat: Infinity,
-                              repeatType: "mirror",
-                              duration: 5,
-                              delay: index * 0.3,
-                            }
-                      }
-                    >
-                      Los
-                    </motion.span>
                   </motion.button>
                 ))}
 
