@@ -20,11 +20,11 @@ export function CalendlyWidget() {
   return (
     <div className="max-w-md">
       <h3 className="text-lg font-semibold mb-4 text-white">Termin buchen</h3>
-      <p className="text-gray-300 mb-6">
+      <p className="text-emerald-50/80 mb-6">
         Buchen Sie direkt einen Termin für ein Beratungsgespräch mit uns.
       </p>
       <div
-        className="calendly-inline-widget rounded-lg overflow-hidden shadow-lg border border-slate-700"
+        className="calendly-inline-widget rounded-xl overflow-hidden shadow-xl shadow-emerald-950/30 border border-white/10 bg-white/5 backdrop-blur-sm"
         data-url="https://calendly.com/lukasklein20/30min?hide_landing_page_details=1&hide_gdpr_banner=1"
         style={{ minWidth: "320px", height: "700px" }}
       />

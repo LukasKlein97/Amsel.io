@@ -4,22 +4,29 @@ import { Button } from "@/components/ui/button";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import type { Variants } from "framer-motion";
-import { AppWindow, ClipboardList, FileText } from "lucide-react";
+import { Globe, BarChart3, Users, FolderTree } from "lucide-react";
 
 const featureItems = [
   {
-    title: "PDF-Scanner & Dokumentenmanagement",
+    title: "Zentrales Dashboard & Übersicht",
     description:
-      "Wichtige Dokumente mobil erfassen, automatisch versionieren und zentral freigeben.",
-    icon: FileText,
-    badge: "Dokumentation",
+      "Alle wichtigen Informationen auf einen Blick: Aufgaben, offene Punkte im Aktionsplan und Schnellzugriff auf alle Funktionen.",
+    icon: BarChart3,
+    badge: "Übersicht",
   },
   {
-    title: "Begehungsprotokolle & Aktionspläne",
+    title: "Vollständiges Dokumentenmanagement",
     description:
-      "Checklisten live abhaken, Fotos ergänzen und Maßnahmen direkt an Teams zuweisen.",
-    icon: ClipboardList,
-    badge: "Vor Ort",
+      "Ordnerstrukturen verwalten, Dokumente hochladen, versionieren und zentral freigeben – alles in der Web-App.",
+    icon: FolderTree,
+    badge: "Organisation",
+  },
+  {
+    title: "Team-Kollaboration & Verwaltung",
+    description:
+      "Nutzer verwalten, Abteilungen organisieren und Aufgaben im Aktionsplan teamübergreifend koordinieren.",
+    icon: Users,
+    badge: "Kollaboration",
   },
 ];
 
@@ -46,7 +53,7 @@ const itemVariants: Variants = {
   },
 };
 
-function DownloadButton() {
+function WebAppButton() {
   const handleClick = () => {
     const element = document.getElementById("contact");
     if (element) {
@@ -56,83 +63,63 @@ function DownloadButton() {
 
   return (
     <Button size="lg" onClick={handleClick}>
-      App kennenlernen
-      <AppWindow className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+      Software kennenlernen
+      <Globe className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
     </Button>
   );
 }
 
-export function PreviewAppSection() {
+export function PreviewWebSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-24 text-white">
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-900 via-slate-950 to-black" />
+    <section
+      id="web-app"
+      className="relative overflow-hidden bg-slate-900 py-24 text-white"
+    >
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-900 via-slate-950 to-black" />
       <div className="absolute left-[-15%] top-1/2 -z-10 hidden h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-emerald-500/15 blur-3xl md:block" />
       <div className="absolute right-[-10%] top-[15%] -z-10 h-[380px] w-[380px] rounded-full bg-emerald-400/12 blur-3xl" />
 
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-16 px-4 sm:px-6 lg:flex-row lg:items-stretch lg:px-8">
-        {/* Badge - shown above image on small screens, hidden on large screens */}
-        <motion.span
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-120px" }}
-          className="order-1 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-emerald-200/80 lg:hidden"
-        >
-          Mobile Plattform
-        </motion.span>
-
+      <div className="mx-auto flex max-w-7xl flex-col gap-16 px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="order-2 relative flex flex-1 justify-center lg:order-1"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-120px" }}
-          transition={{ type: "spring", stiffness: 180, damping: 28 }}
-        >
-          <div className="relative flex w-full max-w-sm items-center justify-center">
-            <Image
-              src="/images/app6.png"
-              alt="AMS Industrie App Screenshot"
-              width={384}
-              height={600}
-              className="w-full rounded-[32px] shadow-2xl shadow-emerald-950/40"
-              priority
-            />
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="order-3 flex flex-1 flex-col justify-center gap-10"
+          className="flex flex-col items-center gap-10 text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-120px" }}
           variants={containerVariants}
         >
-          {/* Badge - hidden on small screens, shown on large screens */}
           <motion.span
             variants={itemVariants}
-            className="hidden inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-emerald-200/80 lg:inline-flex"
+            className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-emerald-200/80"
           >
-            Mobile Plattform
+            Web-App
           </motion.span>
 
           <motion.h2
             variants={itemVariants}
             className="text-3xl font-semibold leading-tight md:text-4xl"
           >
-            Eine App, die Arbeitssicherheit erlebbar macht
+            Alles was Sie brauchen – direkt im Browser
           </motion.h2>
 
           <motion.p
             variants={itemVariants}
-            className="max-w-xl text-base text-slate-200/85 md:text-lg"
+            className="max-w-3xl text-base text-slate-200/85 md:text-lg"
           >
-            Dashboards, Checklisten und KI-Support an einem Ort. Mit der AMS
-            Industrie App steuern Sie Prüfungen, Kommunikation und Dokumente
-            unterwegs, online wie offline.
+            Die vollständige AMS Software als Web-App: Verwalten Sie Dokumente,
+            koordinieren Sie Aufgaben und steuern Sie alle Module bequem von
+            jedem Computer aus – ohne Installation.
           </motion.p>
+        </motion.div>
 
+        <motion.div
+          className="mx-auto flex max-w-6xl flex-col gap-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-120px" }}
+          variants={containerVariants}
+        >
           <motion.div variants={itemVariants} className="space-y-6">
             {featureItems.map((feature, index) => {
               const Icon = feature.icon;
@@ -195,8 +182,30 @@ export function PreviewAppSection() {
             })}
           </motion.div>
 
-          <motion.div variants={itemVariants}>
-            <DownloadButton />
+          <motion.div
+            className="relative flex w-full justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-120px" }}
+            transition={{ type: "spring", stiffness: 180, damping: 28 }}
+          >
+            <div className="relative flex w-full items-center justify-center">
+              <Image
+                src="/images/web.png"
+                alt="AMS Industrie Web-App Screenshot"
+                width={1920}
+                height={1080}
+                className="w-full rounded-2xl shadow-2xl shadow-emerald-950/40"
+                priority
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={itemVariants}
+            className="flex items-center justify-center"
+          >
+            <WebAppButton />
           </motion.div>
         </motion.div>
       </div>

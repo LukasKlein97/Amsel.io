@@ -1,86 +1,63 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+
+const navigationItems = [
+  { name: "Module", section: "features" },
+  { name: "Software", section: "web-app" },
+  { name: "KI-Features", section: "ai-section" },
+  { name: "Integration", section: "solutions" },
+  { name: "Kontakt", section: "contact" },
+];
+
+const navContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const navItem = {
+  hidden: { opacity: 0, y: -12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 360,
+      damping: 28,
+    },
+  },
+};
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isMouseInHeader, setIsMouseInHeader] = useState(false);
-  const headerRef = useRef<HTMLElement>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
+  const shouldReduceMotion = useReducedMotion();
 
-  const navigationItems = [
-    { name: "Module", href: "#features", hasDropdown: false },
-    { name: "KI-Features", href: "#ai-section", hasDropdown: false },
-
-    { name: "Lösungen", href: "#solutions", hasDropdown: false },
-    { name: "Kontakt", href: "#contact" },
-
-    //{ name: "Preise", href: "#pricing" },
-    //{ name: "Über uns", href: "#about" },
-    //{ name: "Support", href: "#support" },
-  ];
-
-  // const solutionsDropdownItems = [
-  //   { name: "Büro & Verwaltung", href: "#office" },
-  //   { name: "Produktion & Fertigung", href: "#production" },
-  //   { name: "Handwerk & Service", href: "#craft" },
-  //   { name: "Logistik & Transport", href: "#logistics" },
-  // ];
-
-  // const featuresDropdownItems = [
-  //   { name: "Gefährdungsbeurteilungen (GBU)", href: "#gbu" },
-  //   { name: "Begehungsprotokolle", href: "#protocols" },
-  //   { name: "Aktionsplan", href: "#action-plan" },
-  //   { name: "Reporting & Analytics", href: "#analytics" },
-  //   { name: "Gefahrstoffmanagement", href: "#hazards" },
-  //   { name: "Unfall Management", href: "#accidents" },
-  // ];
-
-  // Mouse tracking effect
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (headerRef.current) {
-        const rect = headerRef.current.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        // Check if mouse is within header bounds
-        if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
-          setMousePosition({ x, y });
-          setIsMouseInHeader(true);
-        } else {
-          setIsMouseInHeader(false);
-        }
-      }
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 24);
     };
 
-    const handleMouseLeave = () => {
-      setIsMouseInHeader(false);
-    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
 
-    document.addEventListener("mousemove", handleMouseMove);
-    if (headerRef.current) {
-      headerRef.current.addEventListener("mouseleave", handleMouseLeave);
-    }
-
-    const currentHeaderRef = headerRef.current;
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      if (currentHeaderRef) {
-        currentHeaderRef.removeEventListener("mouseleave", handleMouseLeave);
-      }
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -95,182 +72,199 @@ export function Header() {
   };
 
   return (
-    <header
-      ref={headerRef}
-      className="relative z-50 text-white bg-transparent overflow-hidden"
-      style={{
-        background: isMouseInHeader
-          ? `radial-gradient(circle 150px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%)`
-          : "transparent",
-      }}
-    >
-      {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-slate-900/40"></div>
-
-      {/* Taschenlampen-Effekt */}
-      {isMouseInHeader && (
+    <header className="fixed inset-x-0 top-0 z-50">
+      <motion.div
+        className="mx-auto max-w-[1200px] px-4 pt-5"
+        initial={{ y: -40, opacity: 0 }}
+        animate={{
+          y: 0,
+          opacity: 1,
+          transition: shouldReduceMotion
+            ? { duration: 0.2 }
+            : { type: "spring", stiffness: 180, damping: 20 },
+        }}
+      >
         <div
-          className="absolute pointer-events-none"
-          style={{
-            left: mousePosition.x - 75,
-            top: mousePosition.y - 75,
-            width: "150px",
-            height: "150px",
-            background:
-              "radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 70%)",
-            borderRadius: "50%",
-            filter: "blur(1px)",
-            zIndex: 5,
-          }}
-        />
-      )}
+          className={[
+            "relative flex items-center justify-between overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-emerald-900/80 via-slate-950/80 to-black/80 px-5 py-3 shadow-lg shadow-emerald-950/30 backdrop-blur-2xl transition-all duration-300",
+            isScrolled ? "border-white/20 shadow-emerald-900/40" : "",
+          ].join(" ")}
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.12),_transparent_55%)]" />
+          <div className="absolute -left-28 top-1/2 hidden h-40 w-40 -translate-y-1/2 rounded-full bg-emerald-500/14 blur-3xl sm:block" />
+          <div className="absolute -right-20 top-0 hidden h-32 w-32 rounded-full bg-lime-400/10 blur-3xl sm:block" />
 
-      <div className="container mx-auto px-4 py-4 relative z-10">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center">
-            <div
-              className="border-2 border-white px-4 py-2 cursor-pointer hover:bg-white/10 transition-colors duration-200 backdrop-blur-sm"
+          <div className="relative flex items-center gap-3">
+            <button
               onClick={navigateToMainPage}
+              className="group relative flex items-center gap-3 rounded-xl border border-white/15 bg-white/10 px-4 py-2 font-semibold uppercase tracking-[0.28em] text-white transition hover:bg-white/20"
             >
-              <span className="text-xl font-bold tracking-wider">AMS</span>
-            </div>
+              <span className="text-sm">AMS</span>
+              <span className="hidden text-xs text-emerald-200/80 sm:inline">
+                Cockpit
+              </span>
+              <motion.span
+                aria-hidden="true"
+                className="absolute inset-0 rounded-xl border border-white/25 opacity-0 transition group-hover:opacity-100"
+                animate={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        rotate: [0, 0.8, -0.8, 0],
+                      }
+                }
+                transition={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        repeat: Infinity,
+                        repeatType: "mirror",
+                        duration: 6,
+                      }
+                }
+              />
+            </button>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <motion.nav
+            className="relative hidden items-center gap-8 text-sm font-medium text-white lg:flex"
+            variants={navContainer}
+            initial="hidden"
+            animate="visible"
+          >
             {navigationItems.map((item) => (
-              <div key={item.name} className="relative">
-                {item.hasDropdown ? (
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <button
-                        className="text-white hover:text-gray-200 transition-colors duration-200 font-normal flex items-center gap-1 bg-transparent border-none cursor-pointer backdrop-blur-sm"
-                        onClick={() => {
-                          if (item.name === "Lösungen") {
-                            scrollToSection("solutions");
-                          } else if (item.name === "Module") {
-                            scrollToSection("features");
-                          }
-                        }}
-                      >
-                        {item.name}
-                        <ChevronDown className="h-4 w-4" />
-                      </button>
-                    </DropdownMenuTrigger>
-                    {/* <DropdownMenuContent className="bg-slate-800 border-slate-700">
-                      {item.name === "Lösungen" &&
-                        solutionsDropdownItems.map((dropdownItem) => (
-                          <DropdownMenuItem
-                            key={dropdownItem.name}
-                            className="text-white hover:bg-slate-700 cursor-pointer"
-                            onClick={() =>
-                              scrollToSection(dropdownItem.href.substring(1))
-                            }
-                          >
-                            {dropdownItem.name}
-                          </DropdownMenuItem>
-                        ))}
-                      {item.name === "Features" &&
-                        featuresDropdownItems.map((dropdownItem) => (
-                          <DropdownMenuItem
-                            key={dropdownItem.name}
-                            className="text-white hover:bg-slate-700 cursor-pointer"
-                            onClick={() =>
-                              scrollToSection(dropdownItem.href.substring(1))
-                            }
-                          >
-                            {dropdownItem.name}
-                          </DropdownMenuItem>
-                        ))}
-                    </DropdownMenuContent> */}
-                  </DropdownMenu>
-                ) : (
-                  <button
-                    className="text-white hover:text-gray-200 transition-colors duration-200 font-normal bg-transparent border-none cursor-pointer backdrop-blur-sm"
-                    onClick={() => {
-                      if (item.name === "Lösungen") {
-                        scrollToSection("solutions");
-                      } else if (item.name === "Module") {
-                        scrollToSection("features");
-                      } else if (item.name === "Kontakt") {
-                        scrollToSection("contact");
-                      } else if (item.name === "KI-Features") {
-                        scrollToSection("ai-section");
-                      }
-                    }}
-                  >
-                    {item.name}
-                  </button>
-                )}
-              </div>
+              <motion.button
+                key={item.name}
+                variants={navItem}
+                className="group relative overflow-hidden rounded-full px-3 py-1 transition will-change-transform"
+                onClick={() => scrollToSection(item.section)}
+                whileHover={
+                  shouldReduceMotion
+                    ? undefined
+                    : { rotate: 1.2, y: -2, scale: 1.02 }
+                }
+              >
+                <span className="relative z-10">{item.name}</span>
+                <span className="absolute inset-0 rounded-full bg-white/10 opacity-0 transition group-hover:opacity-100" />
+                <motion.span
+                  className="absolute inset-x-2 bottom-0 h-[2px] rounded-full bg-emerald-300/80"
+                  layoutId="nav-underline"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                />
+              </motion.button>
             ))}
 
-            {/* Language Selector */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="text-white hover:text-gray-200 transition-colors duration-200 font-normal flex items-center gap-1 bg-transparent border-none cursor-pointer backdrop-blur-sm">
+                <motion.button
+                  className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/80 transition hover:border-white/20 hover:text-white"
+                  whileHover={
+                    shouldReduceMotion ? undefined : { rotate: -2, scale: 1.02 }
+                  }
+                  whileTap={{ scale: 0.95 }}
+                >
                   <Globe className="h-4 w-4" />
                   DE
-                </button>
+                </motion.button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-slate-800/90 backdrop-blur-sm border-slate-700">
-                <DropdownMenuItem className="text-white hover:bg-slate-700">
+              <DropdownMenuContent className="bg-slate-900/90 backdrop-blur-md">
+                <DropdownMenuItem className="text-white">
                   Deutsch
                 </DropdownMenuItem>
-                {/* <DropdownMenuItem className="text-white hover:bg-slate-700">
-                  English
-                </DropdownMenuItem>
-                */}
               </DropdownMenuContent>
             </DropdownMenu>
-          </nav>
+          </motion.nav>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="lg:hidden text-white hover:bg-white/10 backdrop-blur-sm"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
+          <div className="relative flex items-center gap-2 lg:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-white hover:bg-white/10"
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </Button>
+          </div>
         </div>
+      </motion.div>
 
-        {/* Mobile Navigation */}
+      <AnimatePresence>
         {isMenuOpen && (
-          <nav className="lg:hidden mt-4 pb-4 border-t border-white/20 pt-4 backdrop-blur-sm bg-slate-900/20 rounded-lg">
-            <div className="flex flex-col space-y-3">
-              {navigationItems.map((item) => (
-                <button
-                  key={item.name}
-                  className="text-white hover:text-gray-200 transition-colors duration-200 py-2 font-normal text-left bg-transparent border-none cursor-pointer"
+          <motion.nav
+            key="mobileNav"
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0.2 }
+                : { type: "spring", stiffness: 120, damping: 18 }
+            }
+            className="mx-auto mt-2 w-full max-w-[720px] px-4"
+          >
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-emerald-900/90 via-slate-950/90 to-black/90 px-4 py-6 text-white shadow-2xl shadow-emerald-950/30 backdrop-blur-xl">
+              <div className="flex flex-col gap-4">
+                {navigationItems.map((item, index) => (
+                  <motion.button
+                    key={item.name}
+                    className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-left text-base font-medium tracking-wide transition hover:border-white/20 hover:bg-white/10"
+                    onClick={() => {
+                      scrollToSection(item.section);
+                      setIsMenuOpen(false);
+                    }}
+                    initial={{ opacity: 0, x: -20, rotate: -2 }}
+                    animate={{ opacity: 1, x: 0, rotate: 0 }}
+                    transition={{
+                      delay: shouldReduceMotion ? 0 : 0.05 * index,
+                      type: "spring",
+                      stiffness: 220,
+                      damping: 22,
+                    }}
+                  >
+                    <span>{item.name}</span>
+                    <motion.span
+                      className="text-xs uppercase tracking-[0.3em] text-emerald-200/80"
+                      animate={
+                        shouldReduceMotion
+                          ? undefined
+                          : { rotate: [0, 1.6, -1.6, 0] }
+                      }
+                      transition={
+                        shouldReduceMotion
+                          ? undefined
+                          : {
+                              repeat: Infinity,
+                              repeatType: "mirror",
+                              duration: 5,
+                              delay: index * 0.3,
+                            }
+                      }
+                    >
+                      Los
+                    </motion.span>
+                  </motion.button>
+                ))}
+
+                <Button
+                  size="lg"
+                  className="mt-2 w-full"
                   onClick={() => {
-                    if (item.name === "Lösungen") {
-                      scrollToSection("solutions");
-                    } else if (item.name === "Module") {
-                      scrollToSection("features");
-                    } else if (item.name === "Kontakt") {
-                      scrollToSection("contact");
-                    } else if (item.name === "KI-Features") {
-                      scrollToSection("ai-section");
-                    } else if (item.name === "Preise") {
-                      scrollToSection("pricing");
-                    }
+                    scrollToSection("contact");
                     setIsMenuOpen(false);
                   }}
                 >
-                  {item.name}
-                </button>
-              ))}
+                  Projekt anfragen
+                </Button>
+              </div>
             </div>
-          </nav>
+          </motion.nav>
         )}
-      </div>
+      </AnimatePresence>
     </header>
   );
 }

@@ -1,6 +1,7 @@
 import { Header } from "@/components/header";
 import { HeroSection } from "@/components/hero-section";
 import { ModuleSection } from "@/components/features-section";
+import { PreviewWebSection } from "@/components/preview-web-section";
 import { PreviewAppSection } from "@/components/preview-app-section";
 import { AISection } from "@/components/ai-section";
 import { SolutionsSection } from "@/components/solutions-section";
@@ -15,6 +16,7 @@ export default function HomePage() {
         <Analytics />
         <HeroSection />
         <ModuleSection />
+        <PreviewWebSection />
         <PreviewAppSection />
         <AISection />
         <SolutionsSection />

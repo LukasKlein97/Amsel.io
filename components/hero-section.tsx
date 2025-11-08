@@ -1,47 +1,91 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Smartphone, Monitor } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  ArrowRight,
+  Leaf,
+  ShieldCheck,
+  Smartphone,
+  Workflow,
+} from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+
+const featureCards = [
+  {
+    title: "Mobile Inspektionen",
+    description:
+      "Gefährdungsbeurteilungen direkt vor Ort durchführen und live synchronisieren.",
+    icon: Smartphone,
+    accent: "On-Site",
+  },
+  {
+    title: "Nachhaltige Compliance",
+    description:
+      "Automatisierte Updates und rechtssichere Dokumentation ohne Medienbrüche.",
+    icon: ShieldCheck,
+    accent: "Compliance",
+  },
+  {
+    title: "Ökosystem integriert",
+    description:
+      "Modulare Prozesse, die sich nahtlos in Ihre bestehende Infrastruktur einfügen.",
+    icon: Workflow,
+    accent: "Ökosystem",
+  },
+];
+
+const textReveal = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.15 * index,
+      type: "spring",
+      stiffness: 220,
+      damping: 28,
+    },
+  }),
+};
 
 export function HeroSection() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMouseInHero, setIsMouseInHero] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
-  // Mouse tracking effect
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+    const handleMouseMove = (event: MouseEvent) => {
+      if (!heroRef.current) {
+        return;
+      }
 
-        // Check if mouse is within hero bounds
-        if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
-          setMousePosition({ x, y });
-          setIsMouseInHero(true);
-        } else {
-          setIsMouseInHero(false);
-        }
+      const rect = heroRef.current.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const withinBounds =
+        x >= 0 && x <= rect.width && y >= 0 && y <= rect.height;
+
+      if (withinBounds) {
+        setMousePosition({ x, y });
+        setIsMouseInHero(true);
+      } else {
+        setIsMouseInHero(false);
       }
     };
 
-    const handleMouseLeave = () => {
-      setIsMouseInHero(false);
-    };
+    const handleMouseLeave = () => setIsMouseInHero(false);
 
     document.addEventListener("mousemove", handleMouseMove);
-    if (heroRef.current) {
-      heroRef.current.addEventListener("mouseleave", handleMouseLeave);
-    }
+    heroRef.current?.addEventListener("mouseleave", handleMouseLeave);
 
-    const currentHeroRef = heroRef.current;
+    const current = heroRef.current;
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
-      if (currentHeroRef) {
-        currentHeroRef.removeEventListener("mouseleave", handleMouseLeave);
-      }
+      current?.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
@@ -53,122 +97,185 @@ export function HeroSection() {
   };
 
   return (
-    <section
+    <motion.section
       ref={heroRef}
-      className="relative text-white py-20 lg:py-32 overflow-hidden -mt-20 lg:-mt-24"
-      style={{
-        backgroundImage: 'url("/images/industry.jpg")',
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-      }}
+      className="relative isolate overflow-hidden bg-slate-950 text-white"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3, once: true }}
     >
-      {/* Darker overlay for better text readability */}
-      <div className="absolute inset-0 bg-slate-900/70"></div>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-900 via-slate-950 to-black" />
+      <div className="absolute -top-48 left-1/2 -z-10 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-emerald-500/20 blur-3xl" />
+      <div className="absolute bottom-0 right-0 -z-10 h-96 w-96 translate-x-1/3 bg-emerald-400/10 blur-3xl" />
 
-      {/* Taschenlampen-Effekt */}
-      {isMouseInHero && (
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            left: mousePosition.x - 100,
-            top: mousePosition.y - 100,
-            width: "200px",
-            height: "200px",
-            background:
-              "radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 40%, transparent 70%)",
-            borderRadius: "50%",
-            filter: "blur(2px)",
-            zIndex: 5,
-          }}
-        />
-      )}
+      <AnimatePresence>
+        {isMouseInHero && !shouldReduceMotion && (
+          <motion.div
+            className="pointer-events-none absolute z-10"
+            style={{
+              left: mousePosition.x - 160,
+              top: mousePosition.y - 160,
+              width: 320,
+              height: 320,
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="h-full w-full rounded-full bg-[radial-gradient(circle,_rgba(34,197,94,0.2)_0%,_rgba(34,197,94,0.08)_45%,_transparent_70%)]" />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {/* Content */}
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl">
-          {/* Background container for text content */}
-          <div className="bg-black/40 backdrop-blur-sm p-6 md:p-8 lg:p-10 rounded-2xl md:rounded-3xl mx-2 sm:mx-0">
-            <h1 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight drop-shadow-2xl">
-              WIR GESTALTEN
-              <br className="" />
-              <span className="sm:hidden">
-                ARBEITS-
-                <br />
-                SICHERHEIT
-              </span>
-              <span className="hidden sm:inline">ARBEITSSICHERHEIT</span>.
-            </h1>
+      <div className="relative mx-auto flex max-w-6xl flex-col gap-16 px-4 pb-20 pt-32 sm:px-6 md:flex-row md:items-end md:gap-20 lg:pt-44">
+        <div className="flex-1 space-y-8">
+          <motion.span
+            variants={textReveal}
+            custom={0}
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.4em] text-emerald-200/80"
+          >
+            Arbeitssicherheit
+          </motion.span>
 
-            <p className="text-lg lg:text-xl text-gray-100 mb-12 max-w-2xl leading-relaxed drop-shadow-lg">
-              Von der digitalen Gefährdungsbeurteilung bis zur mobilen Begehung
-              lösen wir als Technologiepartner komplexe Herausforderungen im
-              Bereich der Arbeitsschutz-Software und darüber hinaus.
-            </p>
+          <motion.h1
+            variants={textReveal}
+            custom={1}
+            className="text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl lg:text-[3.2rem]"
+          >
+            Digitale Arbeitssicherheit,
+            <span className="block text-emerald-200">
+              die mit Ihrem Unternehmen wächst.
+            </span>
+          </motion.h1>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-16">
-              <Button
-                size="lg"
-                className="bg-white text-slate-900 hover:bg-gray-100 shadow-lg"
-                onClick={() => scrollToSection("contact")}
-              >
-                Demo anfordern
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-slate-900 bg-transparent shadow-lg backdrop-blur-sm"
-                onClick={() => scrollToSection("features")}
-              >
-                Mehr erfahren
-              </Button>
-            </div>
+          <motion.p
+            variants={textReveal}
+            custom={2}
+            className="max-w-xl text-base text-slate-100/90 md:text-lg"
+          >
+            Wir verbinden smarte Softwaremodule mit pragmatischer Beratung,
+            damit Arbeitssicherheit in Produktion, Logistik und Verwaltung
+            lebendig bleibt. Von der mobilen Erfassung bis zur KI-gestützten
+            Auswertung entsteht ein vernetztes Sicherheitsökosystem.
+          </motion.p>
 
-            {/* Feature Icons */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-slate-500">
-              <div className="flex items-center gap-4">
-                <div className="bg-slate-800/90 backdrop-blur-sm p-3 rounded-lg border border-slate-500 shadow-lg">
-                  <Monitor className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold drop-shadow-lg">
-                    Web-Plattform
-                  </h3>
-                  <p className="text-sm text-gray-200 drop-shadow-md">
-                    Zentrale Verwaltung
-                  </p>
-                </div>
-              </div>
+          <motion.div
+            variants={textReveal}
+            custom={3}
+            className="flex flex-col items-start gap-4 sm:flex-row"
+          >
+            <Button size="lg" onClick={() => scrollToSection("contact")}>
+              Projekt starten
+              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => scrollToSection("features")}
+            >
+              Module entdecken
+            </Button>
+          </motion.div>
 
-              <div className="flex items-center gap-4">
-                <div className="bg-slate-800/90 backdrop-blur-sm p-3 rounded-lg border border-slate-500 shadow-lg">
-                  <Smartphone className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold drop-shadow-lg">Mobile App</h3>
-                  <p className="text-sm text-gray-200 drop-shadow-md">
-                    Begehungen vor Ort
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="bg-slate-800/90 backdrop-blur-sm p-3 rounded-lg border border-slate-500 shadow-lg">
-                  <Shield className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold drop-shadow-lg">Compliance</h3>
-                  <p className="text-sm text-gray-200 drop-shadow-md">
-                    Rechtssicherheit
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <motion.div
+            variants={textReveal}
+            custom={4}
+            className="flex items-center gap-3 text-sm text-emerald-100/80"
+          >
+            <Leaf className="h-5 w-5" />
+            <span>
+              CO₂-sensible Infrastruktur und fairer Betrieb aus Deutschland
+            </span>
+          </motion.div>
         </div>
+
+        <motion.div
+          className="flex flex-1 flex-col gap-5"
+          initial={
+            shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }
+          }
+          animate={
+            shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }
+          }
+          transition={{
+            type: "spring",
+            stiffness: 160,
+            damping: 24,
+            delay: 0.4,
+          }}
+        >
+          {featureCards.map((card, index) => {
+            const Icon = card.icon;
+            return (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, x: 40, y: 24 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{
+                  delay: shouldReduceMotion ? 0 : index * 0.12,
+                  type: "spring",
+                  stiffness: 220,
+                  damping: 28,
+                }}
+                whileHover={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        scale: 1.04,
+                        y: -6,
+                        transition: { duration: 0.18, ease: "easeOut" },
+                      }
+                }
+                whileTap={
+                  shouldReduceMotion
+                    ? undefined
+                    : { scale: 0.98, transition: { duration: 0.1 } }
+                }
+              >
+                <Card className="group relative overflow-hidden border-white/10 bg-white/5 px-4 py-6 text-white shadow-xl shadow-emerald-950/40 backdrop-blur-xl transition transform-gpu hover:border-emerald-200/40 hover:bg-white/10 hover:shadow-emerald-700/40">
+                  <CardContent className="flex items-start gap-4 px-0">
+                    <motion.div
+                      className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-200/40 bg-emerald-400/20"
+                      animate={
+                        shouldReduceMotion
+                          ? undefined
+                          : {
+                              rotate: [-1.3, 1.3, -1.3],
+                              y: [0, -3, 0],
+                            }
+                      }
+                      transition={
+                        shouldReduceMotion
+                          ? undefined
+                          : {
+                              repeat: Infinity,
+                              duration: 6,
+                              ease: "easeInOut",
+                              delay: index * 0.6,
+                            }
+                      }
+                    >
+                      <Icon className="h-6 w-6 text-emerald-100" />
+                    </motion.div>
+                    <div className="space-y-2">
+                      <span className="inline-flex items-center rounded-full border border-emerald-200/40 bg-emerald-400/10 px-2 py-1 text-xs uppercase tracking-[0.28em] text-emerald-100">
+                        {card.accent}
+                      </span>
+                      <h3 className="text-xl font-semibold text-white">
+                        {card.title}
+                      </h3>
+                      <p className="text-sm text-emerald-50/80 md:text-base">
+                        {card.description}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

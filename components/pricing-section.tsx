@@ -113,11 +113,8 @@ export function PricingSection() {
                   ))}
                 </ul>
                 <Button
-                  className={`w-full ${
-                    plan.popular
-                      ? "bg-slate-900 hover:bg-slate-800"
-                      : "bg-gray-100 text-gray-900 hover:bg-gray-200"
-                  }`}
+                  className="w-full"
+                  variant={plan.popular ? "default" : "secondary"}
                 >
                   {plan.popular ? "Jetzt starten" : "Plan wählen"}
                 </Button>
@@ -130,7 +127,7 @@ export function PricingSection() {
           <p className="text-gray-600 mb-4">
             Benötigen Sie eine individuelle Lösung?
           </p>
-          <Button variant="outline" size="lg">
+          <Button variant="outline" size="lg" className="text-slate-900">
             Kontaktieren Sie uns
           </Button>
         </div>
