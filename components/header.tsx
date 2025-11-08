@@ -86,9 +86,10 @@ export function Header() {
       >
         <div
           className={[
-            "relative flex items-center justify-between overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-emerald-900/30 via-slate-950/30 to-black/30 px-5 py-3 shadow-lg shadow-emerald-950/30 backdrop-blur-2xl transition-all duration-300",
+            "relative flex items-center justify-between overflow-hidden rounded-2xl border border-white/10 px-5 py-3 shadow-lg shadow-emerald-950/30 backdrop-blur-2xl transition-all duration-300",
             isScrolled ? "border-white/20 shadow-emerald-900/40" : "",
           ].join(" ")}
+          style={{ backgroundColor: "#143038" }}
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.12),_transparent_55%)]" />
           <div className="absolute -left-28 top-1/2 hidden h-40 w-40 -translate-y-1/2 rounded-full bg-emerald-500/14 blur-3xl sm:block" />

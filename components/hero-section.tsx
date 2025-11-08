@@ -99,13 +99,18 @@ export function HeroSection() {
   return (
     <motion.section
       ref={heroRef}
-      className="relative isolate overflow-hidden bg-slate-950 text-white"
+      className="relative isolate overflow-hidden text-white"
+      style={{ backgroundColor: "#143038" }}
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.3, once: true }}
     >
-      {/* Base gradient background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-900 via-slate-950 to-black" />
+      {/* Base gradient background - Safari-kompatibel mit fester Basis-Farbe */}
+      <div
+        className="absolute inset-0 -z-10"
+        style={{ backgroundColor: "#143038" }}
+      />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-900/40 via-transparent to-black/30" />
 
       {/* Top center glow - Emerald */}
       <div
