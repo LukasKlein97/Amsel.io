@@ -43,7 +43,7 @@ const textReveal = {
     y: 0,
     transition: {
       delay: 0.15 * index,
-      type: "spring",
+      type: "spring" as const,
       stiffness: 220,
       damping: 28,
     },
@@ -198,7 +198,7 @@ export function HeroSection() {
             shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }
           }
           transition={{
-            type: "spring",
+            type: "spring" as const,
             stiffness: 160,
             damping: 24,
             delay: 0.4,
@@ -214,7 +214,7 @@ export function HeroSection() {
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{
                   delay: shouldReduceMotion ? 0 : index * 0.12,
-                  type: "spring",
+                  type: "spring" as const,
                   stiffness: 220,
                   damping: 28,
                 }}

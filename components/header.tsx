@@ -36,7 +36,7 @@ const navItem = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 360,
       damping: 28,
     },
@@ -81,7 +81,7 @@ export function Header() {
           opacity: 1,
           transition: shouldReduceMotion
             ? { duration: 0.2 }
-            : { type: "spring", stiffness: 180, damping: 20 },
+            : { type: "spring" as const, stiffness: 180, damping: 20 },
         }}
       >
         <div
@@ -203,7 +203,7 @@ export function Header() {
             transition={
               shouldReduceMotion
                 ? { duration: 0.2 }
-                : { type: "spring", stiffness: 120, damping: 18 }
+                : { type: "spring" as const, stiffness: 120, damping: 18 }
             }
             className="mx-auto mt-2 w-full max-w-[720px] px-4"
           >
@@ -221,7 +221,7 @@ export function Header() {
                     animate={{ opacity: 1, x: 0, rotate: 0 }}
                     transition={{
                       delay: shouldReduceMotion ? 0 : 0.05 * index,
-                      type: "spring",
+                      type: "spring" as const,
                       stiffness: 220,
                       damping: 22,
                     }}

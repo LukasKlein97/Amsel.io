@@ -53,7 +53,7 @@ const item: Variants = {
     y: 0,
     scale: 1,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 220,
       damping: 28,
     },
@@ -130,7 +130,7 @@ export function SolutionsSection() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ type: "spring", stiffness: 180, damping: 26 }}
+          transition={{ type: "spring" as const, stiffness: 180, damping: 26 }}
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-emerald-200/80">
             Integration
@@ -236,7 +236,7 @@ export function SolutionsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{
-            type: "spring",
+            type: "spring" as const,
             stiffness: 180,
             damping: 26,
             delay: 0.3,

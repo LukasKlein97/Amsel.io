@@ -39,7 +39,7 @@ const itemVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 220,
       damping: 28,
     },
@@ -88,7 +88,7 @@ export function PreviewAppSection() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-120px" }}
-          transition={{ type: "spring", stiffness: 180, damping: 28 }}
+          transition={{ type: "spring" as const, stiffness: 180, damping: 28 }}
         >
           <div className="relative flex w-full max-w-sm items-center justify-center">
             <Image
