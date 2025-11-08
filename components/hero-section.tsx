@@ -104,9 +104,35 @@ export function HeroSection() {
       whileInView="visible"
       viewport={{ amount: 0.3, once: true }}
     >
+      {/* Base gradient background */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-900 via-slate-950 to-black" />
-      <div className="absolute -top-48 left-1/2 -z-10 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-emerald-500/20 blur-3xl" />
-      <div className="absolute bottom-0 right-0 -z-10 h-96 w-96 translate-x-1/3 bg-emerald-400/10 blur-3xl" />
+
+      {/* Top center glow - Emerald */}
+      <div
+        className="absolute -top-48 left-1/2 -z-10 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-emerald-500/20 blur-3xl"
+        style={{ filter: "blur(64px)" }}
+      />
+
+      {/* Bottom right glow - Teal/Emerald */}
+      <div
+        className="absolute bottom-0 right-0 -z-10 h-96 w-96 translate-x-1/3 bg-emerald-400/10 blur-3xl"
+        style={{ filter: "blur(64px)" }}
+      />
+
+      {/* Additional top left glow for more depth */}
+      <div
+        className="absolute -top-32 -left-32 -z-10 h-[400px] w-[400px] rounded-full bg-emerald-600/15 blur-3xl"
+        style={{ filter: "blur(80px)" }}
+      />
+
+      {/* Additional bottom left glow */}
+      <div
+        className="absolute bottom-1/4 -left-24 -z-10 h-[360px] w-[360px] rounded-full bg-teal-500/12 blur-3xl"
+        style={{ filter: "blur(72px)" }}
+      />
+
+      {/* Radial gradient overlay for smoother blending */}
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.15)_0%,transparent_50%),radial-gradient(circle_at_70%_80%,rgba(34,197,94,0.12)_0%,transparent_50%)]" />
 
       <AnimatePresence>
         {isMouseInHero && !shouldReduceMotion && (

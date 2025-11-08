@@ -210,6 +210,10 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* Safari Font-Rendering Optimierung für Chrome-ähnliches Aussehen */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 }
 
@@ -375,4 +379,60 @@
 .calendly-inline-widget .calendly-branding,
 .calendly-inline-widget .calendly-powered-by {
   display: none !important;
+}
+
+/* Verbesserte Blur-Konsistenz für alle Browser (inkl. Production) */
+.blur-3xl {
+  filter: blur(64px);
+  -webkit-filter: blur(64px);
+}
+
+.blur-2xl {
+  filter: blur(40px);
+  -webkit-filter: blur(40px);
+}
+
+/* Safari-spezifische Optimierungen für Chrome-ähnliches Rendering */
+@supports (-webkit-appearance: none) {
+  
+  /* Backdrop-blur explizite Safari-Unterstützung */
+  [class*="backdrop-blur-2xl"] {
+    -webkit-backdrop-filter: blur(40px);
+  }
+  
+  [class*="backdrop-blur-xl"] {
+    -webkit-backdrop-filter: blur(24px);
+  }
+  
+  [class*="backdrop-blur-md"] {
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
+  /* GPU-Beschleunigung für animierte Elemente */
+  [class*="motion"],
+  [class*="animate"],
+  [class*="transition"],
+  [class*="transform-gpu"] {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  /* Verbesserte Text-Rendering für Safari */
+  h1, h2, h3, h4, h5, h6, p, span, button {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Verbesserte Opacity-Transitions für Safari */
+  [class*="opacity"] {
+    -webkit-transform: translateZ(0);
+  }
+  
+  /* Konsistente Border-Rendering */
+  [class*="border"] {
+    -webkit-border-image: none;
+  }
 }
