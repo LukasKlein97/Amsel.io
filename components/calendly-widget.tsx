@@ -68,15 +68,9 @@ export function CalendlyWidget() {
 
   return (
     <div className="w-full">
-      <h3 className="text-lg font-semibold mb-4 text-white text-center">
-        Termin buchen
-      </h3>
-      <p className="text-emerald-50/80 mb-6 text-center">
-        Buchen Sie direkt einen Termin für ein Beratungsgespräch mit uns.
-      </p>
       <div
         id="my-cal-inline-30min"
-        style={{ width: "100%", height: "850px", overflow: "hidden" }}
+        className="w-full min-h-[600px] md:h-[850px] overflow-auto"
       />
     </div>
   );

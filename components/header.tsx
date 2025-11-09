@@ -198,34 +198,35 @@ export function Header() {
         {isMenuOpen && (
           <motion.nav
             key="mobileNav"
-            initial={{ opacity: 0, y: -16 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={
               shouldReduceMotion
-                ? { duration: 0.2 }
-                : { type: "spring" as const, stiffness: 120, damping: 18 }
+                ? { duration: 0.15 }
+                : { duration: 0.2, ease: "easeOut" }
             }
             className="mx-auto mt-2 w-full max-w-[720px] px-4"
+            style={{ willChange: "opacity, transform" }}
           >
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-emerald-900/40 via-slate-950/40 to-black/40 px-4 py-6 text-white shadow-2xl shadow-emerald-950/30 backdrop-blur-xl">
+            <div className="overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-emerald-900/40 via-slate-950/40 to-black/40 px-4 py-6 text-white shadow-2xl shadow-emerald-950/30 backdrop-blur-md">
               <div className="flex flex-col gap-4">
                 {navigationItems.map((item, index) => (
                   <motion.button
                     key={item.name}
-                    className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-left text-base font-medium tracking-wide transition hover:border-white/20 hover:bg-white/10"
+                    className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-left text-base font-medium tracking-wide transition-colors hover:border-white/20 hover:bg-white/10"
                     onClick={() => {
                       scrollToSection(item.section);
                       setIsMenuOpen(false);
                     }}
-                    initial={{ opacity: 0, x: -20, rotate: -2 }}
-                    animate={{ opacity: 1, x: 0, rotate: 0 }}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
                     transition={{
-                      delay: shouldReduceMotion ? 0 : 0.05 * index,
-                      type: "spring" as const,
-                      stiffness: 220,
-                      damping: 22,
+                      delay: shouldReduceMotion ? 0 : 0.03 * index,
+                      duration: 0.2,
+                      ease: "easeOut",
                     }}
+                    style={{ willChange: "opacity, transform" }}
                   >
                     <span>{item.name}</span>
                   </motion.button>
