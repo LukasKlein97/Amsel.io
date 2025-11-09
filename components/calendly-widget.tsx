@@ -25,8 +25,8 @@ export function CalendlyWidget() {
       </p>
       <div
         className="calendly-inline-widget rounded-xl overflow-hidden shadow-xl shadow-emerald-950/30 border border-white/10 bg-white/5 backdrop-blur-sm"
-        data-url="https://calendly.com/lukasklein20/30min?hide_landing_page_details=1&hide_gdpr_banner=1"
-        style={{ minWidth: "320px", height: "700px" }}
+        data-url="https://calendly.com/lk-ams-cockpit/ams-vorstellung"
+        style={{ minWidth: "320px", height: "850px" }}
       />
     </div>
   );
