@@ -40,9 +40,11 @@ export function Footer() {
               Nachricht oder buchen Sie direkt einen Termin.
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <ContactForm />
+          <div className="max-w-6xl mx-auto space-y-12">
             <CalendlyWidget />
+            <div className="flex justify-center">
+              <ContactForm />
+            </div>
           </div>
         </div>
 
