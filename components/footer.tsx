@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { ContactForm } from "./contact-form";
 import { CalendlyWidget } from "./calendly-widget";
@@ -24,7 +25,7 @@ export function Footer() {
       <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-slate-950 to-black" />
       <div className="absolute top-0 left-1/2 -z-10 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl" />
       <div className="absolute bottom-0 right-0 -z-10 h-96 w-96 translate-x-1/3 bg-emerald-400/5 blur-3xl" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         {/* Contact Section */}
         <div id="contact" className="mb-16">
@@ -55,14 +56,19 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <div
-              className="border-2 border-emerald-200/40 bg-emerald-400/10 px-4 py-2 inline-block mb-6 cursor-pointer hover:bg-emerald-400/20 hover:border-emerald-200/60 transition-all duration-300 rounded-lg backdrop-blur-sm"
+              className="inline-block mb-6 cursor-pointer hover:opacity-80 transition-opacity duration-300"
               onClick={navigateToMainPage}
             >
-              <span className="text-xl font-bold tracking-wider text-white">AMS</span>
+              <Image
+                src="/logo.png"
+                alt="AMS Logo"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+              />
             </div>
             <p className="text-emerald-50/80 mb-6 leading-relaxed">
-              Die Software-Lösung für digitalen Arbeitsschutz und
-              Compliance-Management.
+              Die Software-Lösung für digitalen Arbeitsschutz
             </p>
           </div>
 
@@ -111,11 +117,15 @@ export function Footer() {
             <div className="space-y-4 text-emerald-50/80">
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-emerald-200/80" />
-                <span className="hover:text-emerald-200 transition-colors">info@ams-cockpit.de</span>
+                <span className="hover:text-emerald-200 transition-colors">
+                  info@ams-cockpit.de
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-emerald-200/80" />
-                <span className="hover:text-emerald-200 transition-colors">+49 2359 2967311</span>
+                <span className="hover:text-emerald-200 transition-colors">
+                  +49 2359 2967311
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-emerald-200/80" />
@@ -133,7 +143,10 @@ export function Footer() {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-emerald-50/60 text-sm">
           <p>&copy; 2025 AMS Cockpit GmbH. Alle Rechte vorbehalten.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="/impressum" className="hover:text-emerald-200 transition-colors">
+            <a
+              href="/impressum"
+              className="hover:text-emerald-200 transition-colors"
+            >
               Impressum
             </a>
             <a

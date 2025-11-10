@@ -139,8 +139,9 @@ export function SolutionsSection() {
             Integration in bestehende Infrastruktur
           </h2>
           <p className="mt-4 text-base text-slate-200/80 md:text-lg">
-            AMS integriert sich nahtlos in Ihre bestehende IT-Infrastruktur und
-            bietet flexible Lösungen für größere Unternehmen.
+            Das AMS Cockpit integriert sich nahtlos in Ihre bestehende
+            IT-Infrastruktur und bietet flexible Lösungen für größere
+            Unternehmen.
           </p>
         </motion.div>
 
@@ -180,9 +181,15 @@ export function SolutionsSection() {
                     </div>
                   )}
 
-                  <CardHeader className={`flex gap-4 ${isLast ? "flex-row items-center" : "flex-col"}`}>
+                  <CardHeader
+                    className={`flex gap-4 ${
+                      isLast ? "flex-row items-center" : "flex-col"
+                    }`}
+                  >
                     <motion.div
-                      className={`flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-100/40 bg-emerald-400/30 ${isLast ? "shrink-0" : ""}`}
+                      className={`flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-100/40 bg-emerald-400/30 ${
+                        isLast ? "shrink-0" : ""
+                      }`}
                       animate={
                         shouldReduceMotion
                           ? undefined
@@ -206,7 +213,11 @@ export function SolutionsSection() {
                     </motion.div>
 
                     <div className="flex flex-col gap-2 flex-1">
-                      <CardTitle className={`font-semibold text-white ${isLast ? "text-2xl md:text-3xl" : "text-xl"}`}>
+                      <CardTitle
+                        className={`font-semibold text-white ${
+                          isLast ? "text-2xl md:text-3xl" : "text-xl"
+                        }`}
+                      >
                         {integration.title}
                       </CardTitle>
                       {isLast && (

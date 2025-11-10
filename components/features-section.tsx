@@ -36,12 +36,12 @@ const features = [
     icon: FileText,
     title: "Aktionsplan",
     description:
-      "Teamübergreifende Aktionspläne mit Prioritäten, Deadlines und Live-Status für alle Beteiligten.",
+      "Teamübergreifende Aktionspläne mit Prioritäten, Deadlines und Verantwortlichkeiten für alle Beteiligten.",
     accent: "Koordination",
   },
   {
     icon: BarChart3,
-    title: "Reporting & Analytics",
+    title: "Statistik und Kennzahlen",
     description:
       "Dashboards und Trendanalysen, die Fortschritt, Risiken und Compliance auf einen Blick sichtbar machen.",
     accent: "Insights",
@@ -51,15 +51,15 @@ const features = [
     title: "Gefahrstoffmanagement",
     description:
       "Gefahrstoffe revisionssicher verwalten, Sicherheitsdatenblätter synchronisieren und Freigaben steuern.",
-    accent: "Labor",
+    accent: "Dokumentation",
     comingSoon: true,
   },
   {
     icon: AlertTriangle,
     title: "Unfall Management",
     description:
-      "Unfälle und Beinahe-Vorfälle minutenschnell erfassen, analysieren und mit Präventionsmaßnahmen verknüpfen.",
-    accent: "Safety",
+      "Arbeitsunfälle und Beinahe-Vorfälle minutenschnell erfassen, analysieren und mit Präventionsmaßnahmen verknüpfen.",
+    accent: "Prävention",
     comingSoon: true,
   },
 ];
@@ -112,7 +112,7 @@ export function ModuleSection() {
             Module
           </span>
           <h2 className="mt-6 text-3xl font-semibold leading-tight md:text-4xl">
-            Das modulare Sicherheitsökosystem für Ihre Branche
+            Die modulare Arbeitssicherheits-Struktur für Ihre Branche
           </h2>
           <p className="mt-4 text-base text-slate-200/80 md:text-lg">
             Jedes Modul lässt sich flexibel kombinieren, sodass Sie genau den

@@ -22,11 +22,11 @@ const featureItems = [
     badge: "Organisation",
   },
   {
-    title: "Team-Kollaboration & Verwaltung",
+    title: "Zusammenarbeit & Verwaltung",
     description:
       "Nutzer verwalten, Abteilungen organisieren und Aufgaben im Aktionsplan teamübergreifend koordinieren.",
     icon: Users,
-    badge: "Kollaboration",
+    badge: "Zusammenarbeit",
   },
 ];
 

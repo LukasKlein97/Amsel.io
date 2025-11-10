@@ -42,7 +42,7 @@ export function AISection() {
         "Intelligente Schutzmaßnahmen",
       ],
       example:
-        "Foto einer Lagersituation → KI erkennt Lithium-Batterie-Gefahren und schlägt spezifische Schutzmaßnahmen vor",
+        "Foto einer Lagersituation → KI erkennt einen zugestellten Feuerlöscher",
       accent: "Gefährdungsbeurteilungen",
     },
     {
@@ -56,7 +56,7 @@ export function AISection() {
         "Quellenangabe direkt im Dokument ohne langes Suchen",
       ],
       example:
-        "Fragen Sie einfach: 'Welche Schutzmaßnahmen sind für Lithium-Batterien erforderlich?' → Die KI durchsucht automatisch die relevanten Sicherheitsdatenblätter und gibt Ihnen die Antwort",
+        "Fragen Sie einfach: 'Welchen Schutzhandschuh muss ich beim Umgang mit dem Gefahrstoff tragen?' → Die KI antwortet",
       accent: "Gefahrstoffmanagement",
     },
   ];
@@ -112,9 +112,9 @@ export function AISection() {
             </h2>
           </div>
           <p className="mt-4 text-base text-slate-200/80 md:text-lg">
-            Nutzen Sie die Kraft künstlicher Intelligenz, um GBUs und Begehungen
-            effizienter und präziser durchzuführen. Unsere KI-Features
-            vereinfachen Ihre Arbeitsschutz-Prozesse erheblich.
+            Nutzen Sie künstlicher Intelligenz, um Gefährdungsbeurteilungen und
+            Begehungen effizienter und präziser durchzuführen. Unsere
+            KI-Features vereinfachen Ihre Arbeitsschutz-Prozesse erheblich.
           </p>
         </motion.div>
 
@@ -239,9 +239,10 @@ export function AISection() {
                 Revolutionieren Sie Ihren Arbeitsschutz mit KI
               </h3>
               <p className="text-emerald-50 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
-                Sparen Sie wertvolle Zeit bei der Durchführung von GBUs und
-                Begehungen. Unsere KI unterstützt Sie bei der Identifikation von
-                Risiken und schlägt automatisch passende Schutzmaßnahmen vor.
+                Sparen Sie wertvolle Zeit bei der Durchführung von
+                Gefährdungsbeurteilungen und Begehungen. Unsere KI unterstützt
+                Sie bei der Identifikation von Risiken und schlägt automatisch
+                passende Schutzmaßnahmen vor.
               </p>
               <AIFeaturesButton />
             </div>

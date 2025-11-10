@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Globe } from "lucide-react";
 import {
@@ -98,31 +99,15 @@ export function Header() {
           <div className="relative flex items-center gap-3">
             <button
               onClick={navigateToMainPage}
-              className="group relative flex items-center gap-3 rounded-xl border border-white/15 bg-white/10 px-4 py-2 font-semibold uppercase tracking-[0.28em] text-white transition hover:bg-white/20"
+              className="group relative flex items-center transition hover:opacity-80"
             >
-              <span className="text-sm">AMS</span>
-              <span className="hidden text-xs text-emerald-200/80 sm:inline">
-                Cockpit
-              </span>
-              <motion.span
-                aria-hidden="true"
-                className="absolute inset-0 rounded-xl border border-white/25 opacity-0 transition group-hover:opacity-100"
-                animate={
-                  shouldReduceMotion
-                    ? undefined
-                    : {
-                        rotate: [0, 0.8, -0.8, 0],
-                      }
-                }
-                transition={
-                  shouldReduceMotion
-                    ? undefined
-                    : {
-                        repeat: Infinity,
-                        repeatType: "mirror",
-                        duration: 6,
-                      }
-                }
+              <Image
+                src="/logo.png"
+                alt="AMS Logo"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+                priority
               />
             </button>
           </div>

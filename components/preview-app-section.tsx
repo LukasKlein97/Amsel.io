@@ -121,16 +121,15 @@ export function PreviewAppSection() {
             variants={itemVariants}
             className="text-3xl font-semibold leading-tight md:text-4xl"
           >
-            Eine App, die Arbeitssicherheit erlebbar macht
+            Eine App, die Arbeitssicherheit einfach und digital macht
           </motion.h2>
 
           <motion.p
             variants={itemVariants}
             className="max-w-xl text-base text-slate-200/85 md:text-lg"
           >
-            Dashboards, Checklisten und KI-Support an einem Ort. Mit der AMS
-            Industrie App steuern Sie Prüfungen, Kommunikation und Dokumente
-            unterwegs, online wie offline.
+            Gefährdungsbeurteilungen, Begehungsprotokolle und Aktionspläne mit
+            dem Smartphone erfassen und synchronisieren.
           </motion.p>
 
           <motion.div variants={itemVariants} className="space-y-6">

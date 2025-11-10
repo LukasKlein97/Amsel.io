@@ -3,27 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  ArrowRight,
-  Leaf,
-  ShieldCheck,
-  Smartphone,
-  Workflow,
-} from "lucide-react";
+import { ArrowRight, ShieldCheck, Smartphone, Workflow } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 const featureCards = [
   {
-    title: "Mobile Inspektionen",
+    title: "Mobile Begehungen",
     description:
-      "Gefährdungsbeurteilungen direkt vor Ort durchführen und live synchronisieren.",
+      "Gefährdungsbeurteilungen mit dem Smartphone direkt vor Ort durchführen und live synchronisieren.",
     icon: Smartphone,
     accent: "On-Site",
   },
   {
-    title: "Nachhaltige Compliance",
-    description:
-      "Automatisierte Updates und rechtssichere Dokumentation ohne Medienbrüche.",
+    title: "Software-Compliance",
+    description: "Automatisierte Updates und Dokumentation ohne Medienbrüche.",
     icon: ShieldCheck,
     accent: "Compliance",
   },
@@ -184,10 +177,10 @@ export function HeroSection() {
             custom={2}
             className="max-w-xl text-base text-slate-100/90 md:text-lg"
           >
-            Wir verbinden smarte Softwaremodule mit pragmatischer Beratung,
-            damit Arbeitssicherheit in Produktion, Logistik und Verwaltung
-            lebendig bleibt. Von der mobilen Erfassung bis zur KI-gestützten
-            Auswertung entsteht ein vernetztes Sicherheitsökosystem.
+            Wir verbinden smarte Softwaremodule mit Praxiswissen, damit
+            Arbeitssicherheit in Produktion, Logistik und Verwaltung lebendig
+            bleibt. Von der mobilen Erfassung bis zur KI-gestützten Auswertung
+            entsteht ein vernetztes Arbeitssicherheits-System.
           </motion.p>
 
           <motion.div
@@ -206,17 +199,6 @@ export function HeroSection() {
             >
               Module entdecken
             </Button>
-          </motion.div>
-
-          <motion.div
-            variants={textReveal}
-            custom={4}
-            className="flex items-center gap-3 text-sm text-emerald-100/80"
-          >
-            <Leaf className="h-5 w-5" />
-            <span>
-              CO₂-sensible Infrastruktur und fairer Betrieb aus Deutschland
-            </span>
           </motion.div>
         </div>
 
