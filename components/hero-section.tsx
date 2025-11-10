@@ -21,11 +21,11 @@ const featureCards = [
     accent: "Compliance",
   },
   {
-    title: "Ökosystem integriert",
+    title: "Arbeitssicherheit integriert",
     description:
       "Modulare Prozesse, die sich nahtlos in Ihre bestehende Infrastruktur einfügen.",
     icon: Workflow,
-    accent: "Ökosystem",
+    accent: "Modular",
   },
 ];
 
