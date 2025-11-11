@@ -249,7 +249,7 @@ export function HeroSection() {
                 <Card className="group relative overflow-hidden border-white/10 bg-white/5 px-4 py-6 text-white shadow-xl shadow-emerald-950/40 backdrop-blur-xl transition transform-gpu hover:border-emerald-200/40 hover:bg-white/10 hover:shadow-emerald-700/40">
                   <CardContent className="flex items-start gap-4 px-0">
                     <motion.div
-                      className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-200/40 bg-emerald-400/20"
+                      className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-emerald-200/40 bg-emerald-400/20"
                       animate={
                         shouldReduceMotion
                           ? undefined
@@ -269,7 +269,7 @@ export function HeroSection() {
                             }
                       }
                     >
-                      <Icon className="h-6 w-6 text-emerald-100" />
+                      <Icon className="h-6 w-6 shrink-0 text-emerald-100" />
                     </motion.div>
                     <div className="space-y-2">
                       <span className="inline-flex items-center rounded-full border border-emerald-200/40 bg-emerald-400/10 px-2 py-1 text-xs uppercase tracking-[0.28em] text-emerald-100">

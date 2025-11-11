@@ -4,6 +4,7 @@ import { ModuleSection } from "@/components/features-section";
 import { PreviewWebSection } from "@/components/preview-web-section";
 import { PreviewAppSection } from "@/components/preview-app-section";
 import { AISection } from "@/components/ai-section";
+import { RoadmapSection } from "@/components/roadmap-section";
 import { SolutionsSection } from "@/components/solutions-section";
 import { Footer } from "@/components/footer";
 import { Analytics } from "@vercel/analytics/next";
@@ -19,6 +20,7 @@ export default function HomePage() {
         <PreviewWebSection />
         <PreviewAppSection />
         <AISection />
+        <RoadmapSection />
         <SolutionsSection />
         {/* <imPricingSection /> */}
       </main>

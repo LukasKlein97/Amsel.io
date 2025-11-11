@@ -17,6 +17,7 @@ const navigationItems = [
   { name: "Module", section: "features" },
   { name: "Software", section: "web-app" },
   { name: "KI-Features", section: "ai-section" },
+  { name: "Roadmap", section: "roadmap" },
   { name: "Integration", section: "solutions" },
   { name: "Kontakt", section: "contact" },
 ];
@@ -102,7 +103,7 @@ export function Header() {
               className="group relative flex items-center transition hover:opacity-80"
             >
               <Image
-                src="/logo.png"
+                src="/Logo.svg"
                 alt="AMS Logo"
                 width={120}
                 height={40}
