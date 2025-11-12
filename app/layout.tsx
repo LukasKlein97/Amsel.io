@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   title: "AMS",
   description: "Arbeitssicherheit",
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: "/icon.svg",
+    apple: "/icon.svg",
   },
 };
 
