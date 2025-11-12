@@ -112,7 +112,7 @@ export function AISection() {
             </h2>
           </div>
           <p className="mt-4 text-base text-slate-200/80 md:text-lg">
-            Nutzen Sie künstlicher Intelligenz, um Gefährdungsbeurteilungen und
+            Nutzen Sie künstliche Intelligenz, um Gefährdungsbeurteilungen und
             Begehungen effizienter und präziser durchzuführen. Unsere
             KI-Features vereinfachen Ihre Arbeitsschutz-Prozesse erheblich.
           </p>

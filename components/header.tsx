@@ -195,7 +195,10 @@ export function Header() {
             className="mx-auto mt-2 w-full max-w-[720px] px-4"
             style={{ willChange: "opacity, transform" }}
           >
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-emerald-900/40 via-slate-950/40 to-black/40 px-4 py-6 text-white shadow-2xl shadow-emerald-950/30 backdrop-blur-md">
+            <div 
+              className="overflow-hidden rounded-2xl border border-white/10 px-4 py-6 text-white shadow-2xl shadow-emerald-950/30"
+              style={{ backgroundColor: "#143038" }}
+            >
               <div className="flex flex-col gap-4">
                 {navigationItems.map((item, index) => (
                   <motion.button

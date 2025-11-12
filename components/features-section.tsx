@@ -20,7 +20,7 @@ import type { Variants } from "framer-motion";
 const features = [
   {
     icon: FileText,
-    title: "Gefährdungsbeurteilungen (GBU)",
+    title: "Gefährdungsbeurteilungen",
     description:
       "Gefährdungsbeurteilungen strukturiert erfassen, versionieren und mit individuellen Maßnahmen verzahnen.",
     accent: "Dokumentation",
@@ -56,7 +56,7 @@ const features = [
   },
   {
     icon: AlertTriangle,
-    title: "Unfall Management",
+    title: "Unfallmanagement",
     description:
       "Arbeitsunfälle und Beinahe-Vorfälle minutenschnell erfassen, analysieren und mit Präventionsmaßnahmen verknüpfen.",
     accent: "Prävention",
