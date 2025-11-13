@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Globe } from "lucide-react";
@@ -49,6 +49,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
@@ -62,7 +63,34 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle scrolling to section after navigation from other pages
+  useEffect(() => {
+    if (pathname === "/") {
+      // Check sessionStorage for a section to scroll to
+      const sectionId = sessionStorage.getItem("scrollToSection");
+      if (sectionId) {
+        sessionStorage.removeItem("scrollToSection");
+        // Wait for the page to fully render before scrolling
+        setTimeout(() => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 300);
+      }
+    }
+  }, [pathname]);
+
   const scrollToSection = (sectionId: string) => {
+    // If we're not on the main page, navigate to it first
+    if (pathname !== "/") {
+      // Store the section ID in sessionStorage to scroll after navigation
+      sessionStorage.setItem("scrollToSection", sectionId);
+      router.push("/");
+      return;
+    }
+
+    // If we're on the main page, scroll to the section
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });

@@ -1,79 +1,94 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Clock } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import { usePathname } from "next/navigation";
 import type { Variants } from "framer-motion";
 
 const roadmapItems = [
   {
     title: "Beta-Start",
+    description: "Erste Version der Plattform mit den ersten 3 Modulen",
     quarter: "Q4 2025",
     year: 2025,
     quarterNumber: 4,
   },
   {
-    title: "Übersicht Betriebsanweisung",
+    title: "Betriebsanweisungen",
+    description: "Zentrale Verwaltung und Zuordnung von Betriebsanweisungen",
     quarter: "Q4 2025",
     year: 2025,
     quarterNumber: 4,
   },
   {
     title: "Gefahrstoffverzeichnis",
+    description: "Verwaltung von Sicherheitsdatenblättern",
     quarter: "Q1 2026",
     year: 2026,
     quarterNumber: 1,
   },
   {
     title: "Prüfverzeichnis",
+    description: "Organisation von Prüfintervallen und Prüfnachweisen",
     quarter: "Q1 2026",
     year: 2026,
     quarterNumber: 1,
   },
   {
     title: "ASA-Protokolle",
+    description: "Einfache Erstellung von Sitzungsprotokollen",
     quarter: "Q2 2026",
     year: 2026,
     quarterNumber: 2,
   },
   {
     title: "Unfallmanagement",
+    description: "Ableiten von Maßnahmen, Statistiken und Kennzahlen",
     quarter: "Q2 2026",
     year: 2026,
     quarterNumber: 2,
   },
   {
     title: "Rechtskataster",
+    description: "Übersicht und Verwaltung relevanter Gesetze und Vorschriften",
     quarter: "Q3 2026",
     year: 2026,
     quarterNumber: 3,
   },
   {
-    title: "PSA Katalog",
+    title: "PSA-Katalog",
+    description: "Verwaltung der eingesetzten Persönlichen Schutzausrüstung",
     quarter: "Q3 2026",
     year: 2026,
     quarterNumber: 3,
   },
   {
     title: "Schulungsmatrix",
+    description: "Planung und Nachweis von Schulungen und Unterweisungen",
     quarter: "Q3 2026",
     year: 2026,
     quarterNumber: 3,
   },
   {
     title: "Vorsorgekatei",
+    description: "Verwaltung von arbeitsmedizinischen Vorsorgeuntersuchungen",
     quarter: "Q4 2026",
     year: 2026,
     quarterNumber: 4,
   },
   {
     title: "Besuchermanagement",
+    description: "Erfassung und Verwaltung von Besuchern und Externen",
     quarter: "Q4 2026",
     year: 2026,
     quarterNumber: 4,
   },
   {
     title: "Aushangsmanagement",
+    description:
+      "Verwaltung und Überwachung von gesetzlich vorgeschriebenen Aushängen",
     quarter: "Q4 2026",
     year: 2026,
     quarterNumber: 4,
@@ -111,8 +126,19 @@ const item: Variants = {
 };
 
 export function RoadmapSection() {
+  const pathname = usePathname();
+  const [isMounted, setIsMounted] = useState(false);
   const shouldReduceMotion = useReducedMotion();
   const uniqueQuarters = getUniqueQuarters();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Nur auf der Hauptseite anzeigen, nicht auf Impressum, Datenschutz etc.
+  if (!isMounted || pathname !== "/") {
+    return null;
+  }
 
   // Group items by quarter for timeline display
   const itemsByQuarter = uniqueQuarters.map((quarter) => ({
@@ -143,12 +169,12 @@ export function RoadmapSection() {
           <div className="mt-6 flex items-center justify-center gap-4">
             <Calendar className="h-10 w-10 text-emerald-200" />
             <h2 className="text-3xl font-semibold leading-tight md:text-4xl">
-              Was wir als Nächstes planen
+              Zukünftige Module
             </h2>
           </div>
           <p className="mt-4 text-base text-slate-200/80 md:text-lg">
-            Unsere Roadmap zeigt die geplanten Features und Module, die wir in
-            den kommenden Quartalen entwickeln werden.
+            Die Roadmap zeigt geplante Features und Module, die in den kommenden
+            Quartalen veröffentlicht werden.
           </p>
         </motion.div>
 
@@ -247,9 +273,16 @@ export function RoadmapSection() {
                                   <h3 className="text-base font-semibold text-white">
                                     {roadmapItem.title}
                                   </h3>
-                                  <p className="mt-1 text-xs text-emerald-100/70">
-                                    {roadmapItem.quarter}
-                                  </p>
+                                  {roadmapItem.description && (
+                                    <p className="mt-2 text-sm text-slate-300/80">
+                                      {roadmapItem.description}
+                                    </p>
+                                  )}
+                                  <div className="mt-4 inline-block rounded-md border border-emerald-200/30 bg-emerald-400/10 px-2.5 py-1">
+                                    <p className="text-xs font-medium text-emerald-100/90">
+                                      {roadmapItem.quarter}
+                                    </p>
+                                  </div>
                                 </div>
                               </div>
                             </CardContent>

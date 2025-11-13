@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { ContactForm } from "./contact-form";
@@ -7,12 +7,30 @@ import { CalendlyWidget } from "./calendly-widget";
 
 export function Footer() {
   const router = useRouter();
+  const pathname = usePathname();
 
   const navigateToMainPage = () => {
     router.push("/");
   };
 
+  const navigateToImpressum = () => {
+    router.push("/impressum");
+  };
+
+  const navigateToDatenschutz = () => {
+    router.push("/datenschutz");
+  };
+
   const scrollToModule = () => {
+    // If we're not on the main page, navigate to it first
+    if (pathname !== "/") {
+      // Store the section ID in sessionStorage to scroll after navigation
+      sessionStorage.setItem("scrollToSection", "features");
+      router.push("/");
+      return;
+    }
+
+    // If we're on the main page, scroll to the section
     const element = document.getElementById("features");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -143,18 +161,18 @@ export function Footer() {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-emerald-50/60 text-sm">
           <p>&copy; 2025 AMS Cockpit GmbH. Alle Rechte vorbehalten.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a
-              href="/impressum"
-              className="hover:text-emerald-200 transition-colors"
+            <button
+              onClick={navigateToImpressum}
+              className="hover:text-emerald-200 transition-colors cursor-pointer"
             >
               Impressum
-            </a>
-            <a
-              href="/datenschutz"
-              className="hover:text-emerald-200 transition-colors"
+            </button>
+            <button
+              onClick={navigateToDatenschutz}
+              className="hover:text-emerald-200 transition-colors cursor-pointer"
             >
               Datenschutz
-            </a>
+            </button>
             <a href="#" className="hover:text-emerald-200 transition-colors">
               AGB
             </a>
