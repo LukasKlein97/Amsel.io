@@ -6,6 +6,7 @@ import { PreviewAppSection } from "@/components/preview-app-section";
 import { AISection } from "@/components/ai-section";
 import { RoadmapSection } from "@/components/roadmap-section";
 import { SolutionsSection } from "@/components/solutions-section";
+import { PricingSection } from "@/components/pricing-section";
 import { Footer } from "@/components/footer";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -22,7 +23,7 @@ export default function HomePage() {
         <AISection />
         <RoadmapSection />
         <SolutionsSection />
-        {/* <imPricingSection /> */}
+        <PricingSection />
       </main>
       <Footer />
     </div>
