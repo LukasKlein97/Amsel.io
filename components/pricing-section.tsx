@@ -18,7 +18,7 @@ export function PricingSection() {
       price: "80",
       period: "pro Monat",
       employees: "1-20 Mitarbeiter",
-      pricePerEmployee: "4€",
+      pricePerEmployee: "ab 4€",
       description: "Perfekt für kleine Teams und Einsteiger",
       features: [
         "Gefährdungsbeurteilungen",
@@ -37,7 +37,7 @@ export function PricingSection() {
       price: "500",
       period: "pro Monat",
       employees: "21-200 Mitarbeiter",
-      pricePerEmployee: "2,50€",
+      pricePerEmployee: "ab 2,50€",
       description: "Ideal für wachsende Unternehmen",
       features: [
         "Gefährdungsbeurteilungen",
@@ -57,7 +57,7 @@ export function PricingSection() {
       price: "1500",
       period: "pro Monat",
       employees: "201-1000 Mitarbeiter",
-      pricePerEmployee: "1,50€",
+      pricePerEmployee: "ab 1,50€",
       description: "Für große Unternehmen mit komplexen Anforderungen",
       features: [
         "Gefährdungsbeurteilungen",
