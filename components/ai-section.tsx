@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Brain, Camera, FileText } from "lucide-react";
+import { Brain, Sparkles, FileText } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
 
@@ -32,32 +32,33 @@ export function AISection() {
   const shouldReduceMotion = useReducedMotion();
   const aiFeatures = [
     {
-      icon: Camera,
-      title: "Foto-basierte\nRisikoerkennung",
+      icon: Sparkles,
+      title: "KI-generierte\nGefährdungsfaktoren",
       description:
-        "Automatische Erkennung von\nGefährdungsfaktoren und\nVorschlag von Schutzmaßnahmen.",
+        'Erweitern Sie bestehende Gefährdungsbeurteilungen automatisch:\nFormulieren Sie ein Szenario (z.B. "Gefahren auf dem Parkplatz") und die KI generiert relevante Gefährdungsfaktoren inklusive Situationsbeschreibungen und passender Schutzmaßnahmen.',
       features: [
-        "Bildanalyse mit KI",
-        "Automatische Risikofaktor-Zuordnung",
-        "Intelligente Schutzmaßnahmen",
+        "Prompt-basierte Generierung von Gefährdungsfaktoren",
+        "Situationsbeschreibungen und Schutzmaßnahmen",
+        "Selektive Übernahme in die GBU",
       ],
       example:
-        "Foto einer Lagersituation → KI erkennt einen zugestellten Feuerlöscher",
+        'Prompt: "Gefahren auf dem Parkplatz" → KI generiert relevante Gefährdungsfaktoren → Sie wählen aus, welche in die GBU übernommen werden',
       accent: "Gefährdungsbeurteilungen",
     },
     {
       icon: FileText,
-      title: "Chatten mit\nSicherheitsdatenblättern",
+      title: "Automatische\nDatenblatt-Erfassung",
       description:
-        "Erhalten Sie Informationen direkt per Chat, ohne Sicherheitsdatenblätter aufwendig selbst durchforsten zu müssen und sparen Sie wertvolle Zeit.",
+        "Die KI liest automatisch alle notwendigen Informationen aus Sicherheitsdatenblättern aus und überführt sie direkt ins System. Sie müssen nur noch bestätigen und sehen dabei genau, aus welcher Stelle im Datenblatt welche Information gezogen wurde.",
       features: [
-        "Direkter Chat-Zugriff auf Sicherheitsdatenblätter",
-        "Automatische Informationssuche",
-        "Quellenangabe direkt im Dokument ohne langes Suchen",
+        "Automatisches Auslesen von Sicherheitsdatenblättern",
+        "Direkte Überführung ins System",
+        "Quellenangabe für jede Information",
       ],
       example:
-        "Fragen Sie einfach: 'Welchen Schutzhandschuh muss ich beim Umgang mit dem Gefahrstoff tragen?' → Die KI antwortet",
+        "Sicherheitsdatenblatt hochladen → KI extrahiert alle relevanten Informationen → Sie bestätigen die Übernahme → System zeigt Quellenangaben",
       accent: "Gefahrstoffmanagement",
+      soon: true,
     },
   ];
 
@@ -171,9 +172,16 @@ export function AISection() {
                   </motion.div>
 
                   <div className="flex flex-col gap-2">
-                    <span className="inline-flex w-fit items-center rounded-full border border-white/40 bg-emerald-400/30 px-3 py-1 text-xs uppercase tracking-[0.3em] text-white">
-                      {feature.accent}
-                    </span>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="inline-flex w-fit items-center rounded-full border border-white/40 bg-emerald-400/30 px-3 py-1 text-xs uppercase tracking-[0.3em] text-white">
+                        {feature.accent}
+                      </span>
+                      {feature.soon && (
+                        <span className="inline-flex w-fit items-center rounded-full border border-amber-400/40 bg-amber-400/30 px-3 py-1 text-xs uppercase tracking-[0.3em] text-amber-200">
+                          Bald verfügbar
+                        </span>
+                      )}
+                    </div>
                     <CardTitle className="text-xl font-semibold text-white whitespace-pre-line">
                       {feature.title}
                     </CardTitle>
