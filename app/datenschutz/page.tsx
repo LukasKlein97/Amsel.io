@@ -1,7 +1,17 @@
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { Metadata } from "next";
 import fs from "fs";
 import path from "path";
+
+export const metadata: Metadata = {
+  title: "Datenschutzerklärung",
+  description: "Datenschutzerklärung der AMS Cockpit GmbH",
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
 
 export default function DatenschutzPage() {
   const filePath = path.join(process.cwd(), "components", "html", "ds.html");
