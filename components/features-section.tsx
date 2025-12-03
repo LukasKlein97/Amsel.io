@@ -13,6 +13,7 @@ import {
   BarChart3,
   AlertTriangle,
   Beaker,
+  ClipboardList,
 } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
@@ -23,7 +24,14 @@ const features = [
     title: "Gefährdungsbeurteilungen",
     description:
       "Gefährdungsbeurteilungen strukturiert erfassen, versionieren und mit individuellen Maßnahmen verzahnen.",
-    accent: "Dokumentation",
+    accent: "Sicherheit",
+  },
+  {
+    icon: ClipboardList,
+    title: "Betriebsanweisungen",
+    description:
+      "Betriebsanweisungen digital erstellen, verwalten und Mitarbeitern zugänglich machen. Versionierung für eine lückenlose Dokumentation.",
+    accent: "Schutz",
   },
   {
     icon: CheckCircle,
@@ -40,11 +48,12 @@ const features = [
     accent: "Koordination",
   },
   {
-    icon: BarChart3,
-    title: "Statistik und Kennzahlen",
+    icon: AlertTriangle,
+    title: "Unfallmanagement",
     description:
-      "Dashboards und Trendanalysen, die Fortschritt, Risiken und Compliance auf einen Blick sichtbar machen.",
-    accent: "Insights",
+      "Arbeitsunfälle und Beinahe-Vorfälle minutenschnell erfassen, analysieren und mit Präventionsmaßnahmen verknüpfen.",
+    accent: "Prävention",
+    comingSoon: true,
   },
   {
     icon: Beaker,
@@ -52,14 +61,6 @@ const features = [
     description:
       "Gefahrstoffe revisionssicher verwalten, Sicherheitsdatenblätter synchronisieren und Freigaben steuern.",
     accent: "Dokumentation",
-    comingSoon: true,
-  },
-  {
-    icon: AlertTriangle,
-    title: "Unfallmanagement",
-    description:
-      "Arbeitsunfälle und Beinahe-Vorfälle minutenschnell erfassen, analysieren und mit Präventionsmaßnahmen verknüpfen.",
-    accent: "Prävention",
     comingSoon: true,
   },
 ];
