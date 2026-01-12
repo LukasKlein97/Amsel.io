@@ -15,10 +15,10 @@ export function PricingSection() {
   const plans = [
     {
       name: "Kleinunternehmen",
-      price: "80",
-      period: "pro Monat",
-      employees: "1-20 Mitarbeiter",
-      pricePerEmployee: "ab 4€",
+      price: "99",
+      period: "pro Monat pro Standort",
+      employees: "1 Nutzer",
+
       description: "Perfekt für kleine Teams und Einsteiger",
       features: [
         "Gefährdungsbeurteilungen",
@@ -27,6 +27,7 @@ export function PricingSection() {
         "Statistik und Kennzahlen",
         "Gefahrstoffmanagement",
         "Betriebsanweisungen",
+
         "Mobile App",
         "E-Mail Support",
       ],
@@ -34,10 +35,10 @@ export function PricingSection() {
     },
     {
       name: "Mittelstand",
-      price: "500",
-      period: "pro Monat",
-      employees: "21-200 Mitarbeiter",
-      pricePerEmployee: "ab 2,50€",
+      price: "199",
+      period: "pro Monat pro Standort",
+      employees: "mehrere Nutzer",
+
       description: "Ideal für wachsende Unternehmen",
       features: [
         "Gefährdungsbeurteilungen",
@@ -47,31 +48,12 @@ export function PricingSection() {
         "Gefahrstoffmanagement",
         "Betriebsanweisungen",
         "Mobile App",
+        "Nutzerverwaltung",
         "E-Mail Support",
+
         "API Zugang",
       ],
       popular: true,
-    },
-    {
-      name: "Großunternehmen",
-      price: "1500",
-      period: "pro Monat",
-      employees: "201-1000 Mitarbeiter",
-      pricePerEmployee: "ab 1,50€",
-      description: "Für große Unternehmen mit komplexen Anforderungen",
-      features: [
-        "Gefährdungsbeurteilungen",
-        "Begehungsprotokolle",
-        "Aktionsplan",
-        "Statistik und Kennzahlen",
-        "Gefahrstoffmanagement",
-        "Betriebsanweisungen",
-        "Mobile App",
-        "SSO",
-        "API Zugriff",
-      ],
-      popular: false,
-      showContactButton: true,
     },
     {
       name: "Enterprise",
@@ -88,6 +70,8 @@ export function PricingSection() {
         "Gefahrstoffmanagement",
         "Betriebsanweisungen",
         "Mobile App",
+        "Nutzerverwaltung",
+        "Telfonischer Support",
         "SSO",
         "API Zugriff",
         "Individualentwicklung",
@@ -111,7 +95,7 @@ export function PricingSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 xl:gap-12 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <Card
               key={index}
@@ -122,19 +106,31 @@ export function PricingSection() {
                   {plan.name}
                 </CardTitle>
                 <div className="mb-2">
-                  <span className="text-3xl font-bold text-white">
+                  <div className="text-3xl font-bold text-white">
                     {plan.price === "Individuell"
                       ? plan.price
                       : `€${plan.price}`}
-                  </span>
+                  </div>
                   {plan.period && (
-                    <span className="text-slate-300 ml-1">{plan.period}</span>
+                    <div className="text-sm text-slate-300 mt-0.5">
+                      {plan.period}
+                    </div>
+                  )}
+                  {plan.employees && (
+                    <div
+                      className={`${
+                        plan.isEnterprise
+                          ? "text-sm"
+                          : "text-base font-semibold"
+                      } text-slate-300 ${
+                        plan.isEnterprise ? "mt-0.5" : "mt-1"
+                      }`}
+                    >
+                      {plan.employees}
+                    </div>
                   )}
                 </div>
                 <div className="mb-3">
-                  <p className="text-sm text-emerald-300 font-medium">
-                    {plan.employees}
-                  </p>
                   {plan.pricePerEmployee && (
                     <p className="text-xs text-slate-300 mt-1">
                       {plan.pricePerEmployee} pro Mitarbeiter
