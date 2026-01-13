@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Brain, Sparkles, FileText } from "lucide-react";
+import { Brain, Sparkles, FileText, ClipboardList } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
 
@@ -54,10 +54,27 @@ export function AISection() {
         "Automatisches Auslesen von Sicherheitsdatenblättern",
         "Direkte Überführung ins System",
         "Quellenangabe für jede Information",
+        "Überprüfung der Informationen direkt im Dokument",
       ],
       example:
         "Sicherheitsdatenblatt hochladen → KI extrahiert alle relevanten Informationen → Sie bestätigen die Übernahme → System zeigt Quellenangaben",
       accent: "Gefahrstoffmanagement",
+      soon: false,
+    },
+    {
+      icon: ClipboardList,
+      title: "KI-generierte\nBetriebsanweisungen",
+      description:
+        "Erstellen Sie vollständige Betriebsanweisungen mit nur einer Beschreibung: Die KI generiert automatisch alle erforderlichen Inhalte, angepasst an die gewählte Kategorie.",
+      features: [
+        "Automatische Generierung von Gefahren und Schutzmaßnahmen",
+        "Intelligente Auswahl passender Warn-, Verbots- und Gebotszeichen",
+        "Erstellung von Verhaltensregeln und Erste-Hilfe-Maßnahmen",
+        "Kategoriebezogene Anpassung (Gefahrstoffe, Brandschutz, etc.)",
+      ],
+      example:
+        "Beschreibung eingeben → Kategorie wählen → KI erstellt vollständige Betriebsanweisung → Sie prüfen und bestätigen",
+      accent: "Betriebsanweisungen",
       soon: true,
     },
   ];
@@ -120,7 +137,7 @@ export function AISection() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 gap-6 lg:grid-cols-2 items-stretch"
+          className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3 items-stretch"
           variants={container}
           initial="hidden"
           whileInView="visible"
@@ -147,40 +164,42 @@ export function AISection() {
             >
               <Card className="group relative h-full flex flex-col overflow-hidden border border-white/10 bg-white/5 shadow-xl shadow-emerald-950/30 backdrop-blur-2xl transition transform-gpu hover:border-emerald-200/40 hover:bg-white/10 hover:shadow-emerald-700/40">
                 <CardHeader className="flex flex-col gap-4">
-                  <motion.div
-                    className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-100/40 bg-emerald-400/30"
-                    animate={
-                      shouldReduceMotion
-                        ? undefined
-                        : {
-                            rotate: [-1.4, 1.4, -1.4],
-                            y: [0, -3, 0],
-                          }
-                    }
-                    transition={
-                      shouldReduceMotion
-                        ? undefined
-                        : {
-                            repeat: Infinity,
-                            repeatType: "mirror",
-                            duration: 5.8,
-                            delay: index * 0.35,
-                          }
-                    }
-                  >
-                    <feature.icon className="h-6 w-6 text-white" />
-                  </motion.div>
+                  <div className="flex items-center gap-3">
+                    <motion.div
+                      className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-100/40 bg-emerald-400/30 flex-shrink-0"
+                      animate={
+                        shouldReduceMotion
+                          ? undefined
+                          : {
+                              rotate: [-1.4, 1.4, -1.4],
+                              y: [0, -3, 0],
+                            }
+                      }
+                      transition={
+                        shouldReduceMotion
+                          ? undefined
+                          : {
+                              repeat: Infinity,
+                              repeatType: "mirror",
+                              duration: 5.8,
+                              delay: index * 0.35,
+                            }
+                      }
+                    >
+                      <feature.icon className="h-6 w-6 text-white" />
+                    </motion.div>
+                    {feature.soon && (
+                      <span className="inline-flex w-fit items-center rounded-full border border-amber-400/40 bg-amber-400/30 px-3 py-1 text-xs uppercase tracking-[0.3em] text-amber-200">
+                        Bald verfügbar
+                      </span>
+                    )}
+                  </div>
 
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="inline-flex w-fit items-center rounded-full border border-white/40 bg-emerald-400/30 px-3 py-1 text-xs uppercase tracking-[0.3em] text-white">
                         {feature.accent}
                       </span>
-                      {feature.soon && (
-                        <span className="inline-flex w-fit items-center rounded-full border border-amber-400/40 bg-amber-400/30 px-3 py-1 text-xs uppercase tracking-[0.3em] text-amber-200">
-                          Bald verfügbar
-                        </span>
-                      )}
                     </div>
                     <CardTitle className="text-xl font-semibold text-white whitespace-pre-line">
                       {feature.title}

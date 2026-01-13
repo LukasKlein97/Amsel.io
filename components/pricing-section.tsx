@@ -59,7 +59,7 @@ export function PricingSection() {
       name: "Enterprise",
       price: "Individuell",
       period: "",
-      employees: "Über 1000 Mitarbeiter",
+      employees: "für große Unternehmen und Konzerne",
       pricePerEmployee: "",
       description: "Maßgeschneiderte Lösungen für Konzerne",
       features: [

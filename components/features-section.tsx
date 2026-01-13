@@ -10,7 +10,6 @@ import {
 import {
   CheckCircle,
   FileText,
-  BarChart3,
   AlertTriangle,
   Beaker,
   ClipboardList,

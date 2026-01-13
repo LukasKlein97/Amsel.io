@@ -9,20 +9,6 @@ import type { Variants } from "framer-motion";
 
 const roadmapItems = [
   {
-    title: "Beta-Start",
-    description: "Erste Version der Plattform mit den ersten 3 Modulen",
-    quarter: "Q4 2025",
-    year: 2025,
-    quarterNumber: 4,
-  },
-  {
-    title: "Betriebsanweisungen",
-    description: "Zentrale Verwaltung und Zuordnung von Betriebsanweisungen",
-    quarter: "Q4 2025",
-    year: 2025,
-    quarterNumber: 4,
-  },
-  {
     title: "Gefahrstoffverzeichnis",
     description: "Verwaltung von Sicherheitsdatenblättern",
     quarter: "Q1 2026",
@@ -30,11 +16,25 @@ const roadmapItems = [
     quarterNumber: 1,
   },
   {
-    title: "Prüfverzeichnis",
-    description: "Organisation von Prüfintervallen und Prüfnachweisen",
+    title: "Schulungsmatrix",
+    description: "Planung und Nachweis von Schulungen und Unterweisungen",
     quarter: "Q1 2026",
     year: 2026,
     quarterNumber: 1,
+  },
+  {
+    title: "Rechtskataster",
+    description: "Übersicht und Verwaltung relevanter Gesetze und Vorschriften",
+    quarter: "Q1 2026",
+    year: 2026,
+    quarterNumber: 1,
+  },
+  {
+    title: "Prüfverzeichnis",
+    description: "Organisation von Prüfintervallen und Prüfnachweisen",
+    quarter: "Q2 2026",
+    year: 2026,
+    quarterNumber: 2,
   },
   {
     title: "ASA-Protokolle",
@@ -50,13 +50,7 @@ const roadmapItems = [
     year: 2026,
     quarterNumber: 2,
   },
-  {
-    title: "Rechtskataster",
-    description: "Übersicht und Verwaltung relevanter Gesetze und Vorschriften",
-    quarter: "Q3 2026",
-    year: 2026,
-    quarterNumber: 3,
-  },
+
   {
     title: "PSA-Katalog",
     description: "Verwaltung der eingesetzten Persönlichen Schutzausrüstung",
@@ -64,26 +58,20 @@ const roadmapItems = [
     year: 2026,
     quarterNumber: 3,
   },
+
   {
-    title: "Schulungsmatrix",
-    description: "Planung und Nachweis von Schulungen und Unterweisungen",
+    title: "Vorsorgekatei",
+    description: "Verwaltung von arbeitsmedizinischen Vorsorgeuntersuchungen",
     quarter: "Q3 2026",
     year: 2026,
     quarterNumber: 3,
   },
   {
-    title: "Vorsorgekatei",
-    description: "Verwaltung von arbeitsmedizinischen Vorsorgeuntersuchungen",
-    quarter: "Q4 2026",
-    year: 2026,
-    quarterNumber: 4,
-  },
-  {
     title: "Besuchermanagement",
     description: "Erfassung und Verwaltung von Besuchern und Externen",
-    quarter: "Q4 2026",
+    quarter: "Q3 2026",
     year: 2026,
-    quarterNumber: 4,
+    quarterNumber: 3,
   },
   {
     title: "Aushangsmanagement",
