@@ -1,5 +1,5 @@
 /**
- * API utility functions for AMS Industrie
+ * API utility functions for AMS
  */
 
 export interface RiskFactor {
@@ -48,4 +48,3 @@ export async function sendChartData(
 
   return response;
 }
-

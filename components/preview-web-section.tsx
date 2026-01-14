@@ -196,7 +196,7 @@ export function PreviewWebSection() {
             <div className="relative flex w-full items-center justify-center">
               <Image
                 src="/images/web.png"
-                alt="AMS Industrie Web-App Screenshot"
+                alt="AMS Web-App Screenshot"
                 width={1920}
                 height={1080}
                 className="w-full rounded-2xl shadow-2xl shadow-emerald-950/40"

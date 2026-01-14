@@ -93,7 +93,7 @@ export function PreviewAppSection() {
           <div className="relative flex w-full max-w-sm items-center justify-center">
             <Image
               src="/images/app6.png"
-              alt="AMS Industrie App Screenshot"
+              alt="AMS App Screenshot"
               width={384}
               height={600}
               className="w-full rounded-[32px] shadow-2xl shadow-emerald-950/40"

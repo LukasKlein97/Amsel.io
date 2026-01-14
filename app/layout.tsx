@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ams-cockpit.de"),
   title: {
-    default: "AMS Industrie - Digitale Arbeitssicherheit für Unternehmen",
-    template: "%s | AMS Industrie",
+    default: "AMS - Digitale Arbeitssicherheit für Unternehmen",
+    template: "%s | AMS ",
   },
   description:
     "Digitale Arbeitssicherheit mit smarten Softwaremodulen. Mobile Begehungen, Compliance-Management und KI-gestützte Auswertungen für Produktion, Logistik und Verwaltung.",
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_DE",
     url: "https://ams-cockpit.de",
-    siteName: "AMS Industrie",
-    title: "AMS Industrie - Digitale Arbeitssicherheit für Unternehmen",
+    siteName: "AMS ",
+    title: "AMS - Digitale Arbeitssicherheit für Unternehmen",
     description:
       "Digitale Arbeitssicherheit mit smarten Softwaremodulen. Mobile Begehungen, Compliance-Management und KI-gestützte Auswertungen.",
     images: [
@@ -50,13 +50,13 @@ export const metadata: Metadata = {
         url: "/images/web.png",
         width: 1200,
         height: 630,
-        alt: "AMS Industrie - Digitale Arbeitssicherheit",
+        alt: "AMS - Digitale Arbeitssicherheit",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AMS Industrie - Digitale Arbeitssicherheit",
+    title: "- Digitale Arbeitssicherheit",
     description:
       "Digitale Arbeitssicherheit mit smarten Softwaremodulen für Unternehmen.",
     images: ["/images/web.png"],
