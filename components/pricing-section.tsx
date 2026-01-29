@@ -14,7 +14,7 @@ export function PricingSection() {
 
   const plans = [
     {
-      name: "Kleinunternehmen",
+      name: "Basic",
       price: "99",
       period: "pro Monat pro Standort",
       employees: "1 Nutzer",
@@ -34,10 +34,10 @@ export function PricingSection() {
       popular: false,
     },
     {
-      name: "Mittelstand",
+      name: "Pro",
       price: "199",
       period: "pro Monat pro Standort",
-      employees: "mehrere Nutzer",
+      employees: "bis zu 10 Nutzer",
 
       description: "Ideal für wachsende Unternehmen",
       features: [
@@ -59,7 +59,7 @@ export function PricingSection() {
       name: "Enterprise",
       price: "Individuell",
       period: "",
-      employees: "für große Unternehmen und Konzerne",
+      employees: "für Mittelstand und Konzerne",
       pricePerEmployee: "",
       description: "Maßgeschneiderte Lösungen für Konzerne",
       features: [
