@@ -1,7 +1,8 @@
 "use client";
 
+import { useRef } from "react";
 import { CTAButtons } from "@/components/cta-buttons";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import type { Variants } from "framer-motion";
 import { ClipboardList, FileText } from "lucide-react";
@@ -48,9 +49,17 @@ const itemVariants: Variants = {
 
 export function PreviewAppSection() {
   const shouldReduceMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const phoneRotateY = useTransform(scrollYProgress, [0, 0.5, 1], [-55, 0, 55]);
 
   return (
-    <section className="relative overflow-hidden bg-black py-24 text-white">
+    <section ref={sectionRef} className="relative overflow-hidden bg-black py-24 text-white">
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-900/30 via-black to-black" />
       <div className="absolute left-[-15%] top-1/2 -z-10 hidden h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-orange-500/15 blur-3xl md:block" />
       <div className="absolute right-[-10%] top-[15%] -z-10 h-[380px] w-[380px] rounded-full bg-orange-400/12 blur-3xl" />
@@ -67,24 +76,35 @@ export function PreviewAppSection() {
           Mobile Plattform
         </motion.span>
 
-        <motion.div
+        <div
           className="order-2 relative flex flex-1 justify-center lg:order-1"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-120px" }}
-          transition={{ type: "spring" as const, stiffness: 180, damping: 28 }}
+          style={shouldReduceMotion ? undefined : { perspective: 1200 }}
         >
-          <div className="relative flex w-full max-w-sm items-center justify-center">
+          <motion.div
+            className="relative flex w-full max-w-[280px] items-center justify-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-120px" }}
+            transition={{ type: "spring" as const, stiffness: 180, damping: 28 }}
+            style={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    rotateY: phoneRotateY,
+                    transformStyle: "preserve-3d",
+                  }
+            }
+          >
             <Image
-              src="/images/app6.png"
+              src="/images/app-iphone.png"
               alt="amsel.io App Screenshot"
-              width={384}
-              height={600}
+              width={484}
+              height={1024}
               className="w-full rounded-[32px] shadow-2xl shadow-orange-950/40"
               priority
             />
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         <motion.div
           className="order-3 flex flex-1 flex-col justify-center gap-10"

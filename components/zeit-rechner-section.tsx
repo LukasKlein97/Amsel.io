@@ -37,12 +37,12 @@ const BASIS_STUNDEN_PRO_MA = 0.8;
 const BASIS_STUNDEN_PRO_SIFA = 12;
 
 function formatHours(hours: number): string {
-  if (hours >= 24) {
-    const days = Math.floor(hours / 24);
-    const rest = Math.round(hours % 24);
-    const tagLabel = days === 1 ? "Tag" : "Tage";
-    if (rest === 0) return `${days} ${tagLabel}`;
-    return `${days} ${tagLabel} ${rest} Std`;
+  if (hours >= 8) {
+    const personentage = Math.floor(hours / 8);
+    const rest = Math.round(hours % 8);
+    const tagLabel = personentage === 1 ? "Personentag" : "Personentage";
+    if (rest === 0) return `${personentage} ${tagLabel}`;
+    return `${personentage} ${tagLabel} ${rest} Std`;
   }
   return `${Math.round(hours)} Std`;
 }
