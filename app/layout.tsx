@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -112,7 +113,6 @@ export default function RootLayout({
   return (
     <html lang="de">
       <head>
-        <script src="https://t.contentsquare.net/uxa/71e3a27cb9f67.js"></script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -123,6 +123,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Script
+          src="https://t.contentsquare.net/uxa/71e3a27cb9f67.js"
+          strategy="afterInteractive"
+        />
         {children}
       </body>
     </html>
