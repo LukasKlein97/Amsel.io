@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { CTAButtons } from "@/components/cta-buttons";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import type { Variants } from "framer-motion";
-import { Globe, BarChart3, Users, FolderTree } from "lucide-react";
+import { BarChart3, Users, FolderTree } from "lucide-react";
 
 const featureItems = [
   {
@@ -52,22 +52,6 @@ const itemVariants: Variants = {
     },
   },
 };
-
-function WebAppButton() {
-  const handleClick = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  return (
-    <Button size="lg" onClick={handleClick}>
-      Software kennenlernen
-      <Globe className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-    </Button>
-  );
-}
 
 export function PreviewWebSection() {
   const shouldReduceMotion = useReducedMotion();
@@ -209,7 +193,7 @@ export function PreviewWebSection() {
             variants={itemVariants}
             className="flex items-center justify-center"
           >
-            <WebAppButton />
+            <CTAButtons />
           </motion.div>
         </motion.div>
       </div>

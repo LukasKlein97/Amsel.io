@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { CTAButtons } from "@/components/cta-buttons";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
 
@@ -165,18 +166,11 @@ export function PricingSection() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="flex flex-col items-center mt-12">
           <p className="text-white/70 mb-4">
             Unsicher, welcher Plan der richtige ist?
           </p>
-          <Button
-            variant="outline"
-            size="lg"
-            className="text-white"
-            onClick={scrollToContact}
-          >
-            Kostenlose Beratung anfragen
-          </Button>
+          <CTAButtons />
         </div>
       </div>
     </section>

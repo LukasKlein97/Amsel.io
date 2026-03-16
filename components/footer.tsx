@@ -78,8 +78,8 @@ export function Footer() {
               onClick={navigateToMainPage}
             >
               <Image
-                src="/logo.png"
-                alt="amsel.io Logo"
+                src="/amsel-vogel.png"
+                alt="Amsel.io"
                 width={120}
                 height={40}
                 className="h-10 w-auto"

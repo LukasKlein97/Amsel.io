@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, ShieldCheck, Smartphone, Workflow } from "lucide-react";
+import { CTAButtons } from "@/components/cta-buttons";
+import { ShieldCheck, Smartphone, Workflow } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 const featureCards = [
@@ -81,13 +81,6 @@ export function HeroSection() {
       current?.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <motion.section
@@ -186,19 +179,9 @@ export function HeroSection() {
           <motion.div
             variants={textReveal}
             custom={3}
-            className="flex flex-col items-start gap-4 sm:flex-row"
+            className="flex flex-col items-start"
           >
-            <Button size="lg" onClick={() => scrollToSection("contact")}>
-              Projekt starten
-              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => scrollToSection("features")}
-            >
-              Module entdecken
-            </Button>
+            <CTAButtons className="items-start" />
           </motion.div>
         </div>
 

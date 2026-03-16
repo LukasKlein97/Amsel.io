@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { CTAButtons } from "@/components/cta-buttons";
 import {
   Card,
   CardContent,
@@ -19,22 +19,6 @@ import {
 } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
-
-// Separate client component for the consultation button
-function ConsultationButton() {
-  const handleClick = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  return (
-    <Button size="lg" className="text-lg" onClick={handleClick}>
-      Kostenlose Beratung vereinbaren
-    </Button>
-  );
-}
 
 const container: Variants = {
   hidden: {},
@@ -242,7 +226,7 @@ export function SolutionsSection() {
         </motion.div>
 
         <motion.div
-          className="text-center"
+          className="flex justify-center"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -253,7 +237,7 @@ export function SolutionsSection() {
             delay: 0.3,
           }}
         >
-          <ConsultationButton />
+          <CTAButtons />
         </motion.div>
       </div>
     </section>

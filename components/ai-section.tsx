@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { CTAButtons } from "@/components/cta-buttons";
 import {
   Card,
   CardContent,
@@ -11,27 +11,6 @@ import {
 import { Brain, Sparkles, FileText, ClipboardList } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
-
-// Separate client component for the AI features button
-function AIFeaturesButton() {
-  const handleClick = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  return (
-    <Button
-      variant="black"
-      size="lg"
-      className="text-lg"
-      onClick={handleClick}
-    >
-      KI-Features entdecken
-    </Button>
-  );
-}
 
 export function AISection() {
   const shouldReduceMotion = useReducedMotion();
@@ -276,7 +255,7 @@ export function AISection() {
                 Sie bei der Identifikation von Risiken und schlägt automatisch
                 passende Schutzmaßnahmen vor.
               </p>
-              <AIFeaturesButton />
+              <CTAButtons className="justify-center" />
             </div>
           </div>
         </motion.div>

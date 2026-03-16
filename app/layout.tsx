@@ -86,7 +86,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "amsel.io GmbH",
   url: "https://amsel.io",
-  logo: "https://amsel.io/Logo.svg",
+  logo: "https://amsel.io/amsel-bund.png",
   description:
     "Digitale Arbeitssicherheit mit smarten Softwaremodulen für Unternehmen.",
   address: {
@@ -112,6 +112,7 @@ export default function RootLayout({
   return (
     <html lang="de">
       <head>
+        <script src="https://t.contentsquare.net/uxa/71e3a27cb9f67.js"></script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -131,11 +131,11 @@ export function Header() {
               className="group relative flex items-center transition hover:opacity-80"
             >
               <Image
-                src="/Logo.svg"
-                alt="amsel.io Logo"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
+                src="/amsel-schriftzug.png"
+                alt="Amsel.io"
+                width={140}
+                height={44}
+                className="h-11 w-auto"
                 priority
               />
             </button>

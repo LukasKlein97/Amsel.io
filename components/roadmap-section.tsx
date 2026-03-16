@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { CTAButtons } from "@/components/cta-buttons";
 import { Calendar, Clock } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { usePathname } from "next/navigation";
@@ -226,6 +227,9 @@ export function RoadmapSection() {
             Die Roadmap zeigt umgesetzte sowie geplante Features und Module –
             von den ersten Releases bis zu den kommenden Quartalen.
           </p>
+          <div className="mt-8 flex justify-center">
+            <CTAButtons />
+          </div>
         </motion.div>
 
         {/* Timeline */}
@@ -328,21 +332,16 @@ export function RoadmapSection() {
                                       {roadmapItem.description}
                                     </p>
                                   )}
-                                  <div className="mt-4 flex flex-wrap items-center gap-2">
-                                    <span className="inline-block rounded-md border border-orange-200/30 bg-orange-400/10 px-2.5 py-1">
-                                      <span className="text-xs font-medium text-orange-100/90">
-                                        {roadmapItem.quarter}
-                                      </span>
-                                    </span>
-                                    {roadmapItem.implemented && (
+                                  {roadmapItem.implemented && (
+                                    <div className="mt-4">
                                       <span
-                                        className="inline-flex items-center rounded-md border border-orange-200/30 bg-orange-400/20 px-2 py-1 text-xs font-medium text-orange-200"
+                                        className="inline-flex items-center gap-1.5 rounded-md border border-orange-200/30 bg-orange-400/20 px-2.5 py-1 text-xs font-medium text-orange-200"
                                         title="Umgesetzt"
                                       >
-                                        ✓
+                                        Bereits in der Software ✓
                                       </span>
-                                    )}
-                                  </div>
+                                    </div>
+                                  )}
                                 </div>
                               </div>
                             </CardContent>

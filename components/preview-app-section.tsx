@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { CTAButtons } from "@/components/cta-buttons";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import type { Variants } from "framer-motion";
-import { AppWindow, ClipboardList, FileText } from "lucide-react";
+import { ClipboardList, FileText } from "lucide-react";
 
 const featureItems = [
   {
@@ -45,22 +45,6 @@ const itemVariants: Variants = {
     },
   },
 };
-
-function DownloadButton() {
-  const handleClick = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  return (
-    <Button size="lg" onClick={handleClick}>
-      App kennenlernen
-      <AppWindow className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-    </Button>
-  );
-}
 
 export function PreviewAppSection() {
   const shouldReduceMotion = useReducedMotion();
@@ -195,7 +179,7 @@ export function PreviewAppSection() {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <DownloadButton />
+            <CTAButtons />
           </motion.div>
         </motion.div>
       </div>

@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { CTAButtons } from "@/components/cta-buttons";
 import {
   CheckCircle,
   FileText,
@@ -119,6 +120,9 @@ export function ModuleSection() {
             Funktionsumfang nutzen, den Ihr Unternehmen im Alltag braucht –
             heute und in Zukunft.
           </p>
+          <div className="mt-8 flex justify-center">
+            <CTAButtons />
+          </div>
         </motion.div>
 
         <motion.div

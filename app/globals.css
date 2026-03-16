@@ -238,7 +238,7 @@
       transparent 58%
     );
     opacity: 0;
-    transform: translate3d(-20%, 28%, 0) scale(0.9);
+    transform: translate3d(-25%, 0, 0) scale(0.95);
     z-index: -1;
   }
 
