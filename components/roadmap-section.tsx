@@ -8,12 +8,67 @@ import { usePathname } from "next/navigation";
 import type { Variants } from "framer-motion";
 
 const roadmapItems = [
+  // Q3 2025 – umgesetzt
+  {
+    title: "Ordnermanagement",
+    description: "Strukturierte Verwaltung und Organisation von Dokumenten",
+    quarter: "Q3 2025",
+    year: 2025,
+    quarterNumber: 3,
+    implemented: true,
+  },
+  {
+    title: "Gefährdungsbeurteilungen",
+    description:
+      "Strukturiert erfassen, versionieren und mit Maßnahmen verzahnen",
+    quarter: "Q3 2025",
+    year: 2025,
+    quarterNumber: 3,
+    implemented: true,
+  },
+  // Q4 2025 – umgesetzt
+  {
+    title: "Begehungsprotokolle",
+    description: "Mobile Checklisten, Fotodokumentation und Sofortzuweisung",
+    quarter: "Q4 2025",
+    year: 2025,
+    quarterNumber: 4,
+    implemented: true,
+  },
+  {
+    title: "Betriebsanweisungen",
+    description:
+      "Digital erstellen, verwalten und Mitarbeitern zugänglich machen",
+    quarter: "Q4 2025",
+    year: 2025,
+    quarterNumber: 4,
+    implemented: true,
+  },
+  {
+    title: "Aktionsplan",
+    description:
+      "Teamübergreifende Aufgaben mit Prioritäten und Verantwortlichkeiten",
+    quarter: "Q4 2025",
+    year: 2025,
+    quarterNumber: 4,
+    implemented: true,
+  },
+  // Q1 2026
   {
     title: "Gefahrstoffverzeichnis",
     description: "Verwaltung von Sicherheitsdatenblättern",
     quarter: "Q1 2026",
     year: 2026,
     quarterNumber: 1,
+    implemented: true,
+  },
+  {
+    title: "Besuchermanagement",
+    description: "Erfassung und Verwaltung von Besuchern und Externen",
+    quarter: "Q1 2026",
+    year: 2026,
+    quarterNumber: 1,
+    implemented: true,
   },
   {
     title: "Schulungsmatrix",
@@ -22,13 +77,7 @@ const roadmapItems = [
     year: 2026,
     quarterNumber: 1,
   },
-  {
-    title: "Rechtskataster",
-    description: "Übersicht und Verwaltung relevanter Gesetze und Vorschriften",
-    quarter: "Q1 2026",
-    year: 2026,
-    quarterNumber: 1,
-  },
+
   {
     title: "Prüfverzeichnis",
     description: "Organisation von Prüfintervallen und Prüfnachweisen",
@@ -50,7 +99,6 @@ const roadmapItems = [
     year: 2026,
     quarterNumber: 2,
   },
-
   {
     title: "PSA-Katalog",
     description: "Verwaltung der eingesetzten Persönlichen Schutzausrüstung",
@@ -66,9 +114,10 @@ const roadmapItems = [
     year: 2026,
     quarterNumber: 3,
   },
+
   {
-    title: "Besuchermanagement",
-    description: "Erfassung und Verwaltung von Besuchern und Externen",
+    title: "Rechtskataster",
+    description: "Übersicht und Verwaltung relevanter Gesetze und Vorschriften",
     quarter: "Q3 2026",
     year: 2026,
     quarterNumber: 3,
@@ -83,10 +132,23 @@ const roadmapItems = [
   },
 ];
 
-// Helper function to get unique quarters in order
+// Helper function to get unique quarters in chronologischer Reihenfolge
 const getUniqueQuarters = () => {
-  const quarters = new Set(roadmapItems.map((item) => item.quarter));
-  return Array.from(quarters);
+  const quarterMap = new Map<string, { year: number; q: number }>();
+  roadmapItems.forEach((item) => {
+    if (!quarterMap.has(item.quarter)) {
+      quarterMap.set(item.quarter, {
+        year: item.year,
+        q: item.quarterNumber,
+      });
+    }
+  });
+  return Array.from(quarterMap.entries())
+    .sort((a, b) => {
+      if (a[1].year !== b[1].year) return a[1].year - b[1].year;
+      return a[1].q - b[1].q;
+    })
+    .map(([quarter]) => quarter);
 };
 
 const container: Variants = {
@@ -157,12 +219,12 @@ export function RoadmapSection() {
           <div className="mt-6 flex items-center justify-center gap-4">
             <Calendar className="h-10 w-10 text-orange-300" />
             <h2 className="text-3xl font-semibold leading-tight md:text-4xl">
-              Zukünftige Module
+              Module & Roadmap
             </h2>
           </div>
           <p className="mt-4 text-base text-white/80 md:text-lg">
-            Die Roadmap zeigt geplante Features und Module, die in den kommenden
-            Quartalen veröffentlicht werden.
+            Die Roadmap zeigt umgesetzte sowie geplante Features und Module –
+            von den ersten Releases bis zu den kommenden Quartalen.
           </p>
         </motion.div>
 
@@ -266,10 +328,20 @@ export function RoadmapSection() {
                                       {roadmapItem.description}
                                     </p>
                                   )}
-                                  <div className="mt-4 inline-block rounded-md border border-orange-200/30 bg-orange-400/10 px-2.5 py-1">
-                                    <p className="text-xs font-medium text-orange-100/90">
-                                      {roadmapItem.quarter}
-                                    </p>
+                                  <div className="mt-4 flex flex-wrap items-center gap-2">
+                                    <span className="inline-block rounded-md border border-orange-200/30 bg-orange-400/10 px-2.5 py-1">
+                                      <span className="text-xs font-medium text-orange-100/90">
+                                        {roadmapItem.quarter}
+                                      </span>
+                                    </span>
+                                    {roadmapItem.implemented && (
+                                      <span
+                                        className="inline-flex items-center rounded-md border border-orange-200/30 bg-orange-400/20 px-2 py-1 text-xs font-medium text-orange-200"
+                                        title="Umgesetzt"
+                                      >
+                                        ✓
+                                      </span>
+                                    )}
                                   </div>
                                 </div>
                               </div>

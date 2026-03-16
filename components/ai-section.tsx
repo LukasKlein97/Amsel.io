@@ -22,7 +22,12 @@ function AIFeaturesButton() {
   };
 
   return (
-    <Button size="lg" className="text-lg" onClick={handleClick}>
+    <Button
+      variant="black"
+      size="lg"
+      className="text-lg"
+      onClick={handleClick}
+    >
       KI-Features entdecken
     </Button>
   );
@@ -75,7 +80,7 @@ export function AISection() {
       example:
         "Beschreibung eingeben → Kategorie wählen → KI erstellt vollständige Betriebsanweisung → Sie prüfen und bestätigen",
       accent: "Betriebsanweisungen",
-      soon: true,
+      soon: false,
     },
   ];
 

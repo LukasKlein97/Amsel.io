@@ -159,7 +159,7 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-orange-50/60 text-sm">
-          <p>&copy; 2025 amsel.io GmbH. Alle Rechte vorbehalten.</p>
+          <p>&copy; 2026 amsel.io GmbH. Alle Rechte vorbehalten.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <button
               onClick={navigateToImpressum}

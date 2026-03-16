@@ -10,9 +10,9 @@ import {
 import {
   CheckCircle,
   FileText,
-  AlertTriangle,
   Beaker,
   ClipboardList,
+  UserPlus,
 } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
@@ -47,12 +47,12 @@ const features = [
     accent: "Koordination",
   },
   {
-    icon: AlertTriangle,
-    title: "Unfallmanagement",
+    icon: UserPlus,
+    title: "Besuchermanagement",
     description:
-      "Arbeitsunfälle und Beinahe-Vorfälle minutenschnell erfassen, analysieren und mit Präventionsmaßnahmen verknüpfen.",
-    accent: "Prävention",
-    comingSoon: true,
+      "Besucher und Externe erfassen, verwalten und mit Sicherheitsunterweisungen sowie Zugangsberechtigungen verknüpfen.",
+    accent: "Sicherheit",
+    beta: true,
   },
   {
     icon: Beaker,
@@ -60,7 +60,7 @@ const features = [
     description:
       "Gefahrstoffe revisionssicher verwalten, Sicherheitsdatenblätter synchronisieren und Freigaben steuern.",
     accent: "Dokumentation",
-    comingSoon: true,
+    beta: true,
   },
 ];
 
@@ -148,9 +148,9 @@ export function ModuleSection() {
               }
             >
               <Card className="group relative h-full overflow-hidden border border-white/10 bg-white/5 shadow-xl shadow-orange-950/30 backdrop-blur-2xl transition transform-gpu hover:border-orange-200/40 hover:bg-white/10 hover:shadow-orange-700/40">
-                {feature.comingSoon && (
-                  <div className="absolute right-6 top-6 rounded-full border border-white/30 bg-orange-400/30 px-3 py-1 text-xs uppercase tracking-[0.28em] text-white">
-                    Bald verfügbar
+                {feature.beta && (
+                  <div className="absolute right-6 top-6 rounded-full border border-amber-400/50 bg-amber-400/30 px-3 py-1 text-xs uppercase tracking-[0.28em] text-amber-200">
+                    Beta
                   </div>
                 )}
 
