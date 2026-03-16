@@ -6,7 +6,7 @@ import path from "path";
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung",
-  description: "Datenschutzerklärung der AMS Cockpit GmbH",
+  description: "Datenschutzerklärung der amsel.io GmbH",
   robots: {
     index: false,
     follow: true,
@@ -45,7 +45,7 @@ export default function DatenschutzPage() {
     .replace(/<a/g, '<a style="color: #60a5fa; text-decoration: underline;"');
 
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen bg-black">
       <Header />
       <main className="py-16">
         <div className="container mx-auto px-4">

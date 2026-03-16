@@ -116,14 +116,14 @@ export function Header() {
       >
         <div
           className={[
-            "relative flex items-center justify-between overflow-hidden rounded-2xl border border-white/10 px-5 py-3 shadow-lg shadow-emerald-950/30 backdrop-blur-2xl transition-all duration-300",
-            isScrolled ? "border-white/20 shadow-emerald-900/40" : "",
+            "relative flex items-center justify-between overflow-hidden rounded-2xl border border-white/10 px-5 py-3 shadow-lg shadow-orange-950/30 backdrop-blur-2xl transition-all duration-300",
+            isScrolled ? "border-white/20 shadow-orange-900/40" : "",
           ].join(" ")}
-          style={{ backgroundColor: "#143038" }}
+          style={{ backgroundColor: "#000000" }}
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.12),_transparent_55%)]" />
-          <div className="absolute -left-28 top-1/2 hidden h-40 w-40 -translate-y-1/2 rounded-full bg-emerald-500/14 blur-3xl sm:block" />
-          <div className="absolute -right-20 top-0 hidden h-32 w-32 rounded-full bg-lime-400/10 blur-3xl sm:block" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(249,115,22,0.1),_transparent_55%)]" />
+          <div className="absolute -left-28 top-1/2 hidden h-40 w-40 -translate-y-1/2 rounded-full bg-orange-500/14 blur-3xl sm:block" />
+          <div className="absolute -right-20 top-0 hidden h-32 w-32 rounded-full bg-orange-400/10 blur-3xl sm:block" />
 
           <div className="relative flex items-center gap-3">
             <button
@@ -132,7 +132,7 @@ export function Header() {
             >
               <Image
                 src="/Logo.svg"
-                alt="AMS Logo"
+                alt="amsel.io Logo"
                 width={120}
                 height={40}
                 className="h-10 w-auto"
@@ -162,7 +162,7 @@ export function Header() {
                 <span className="relative z-10">{item.name}</span>
                 <span className="absolute inset-0 rounded-full bg-white/10 opacity-0 transition group-hover:opacity-100" />
                 <motion.span
-                  className="absolute inset-x-2 bottom-0 h-[2px] rounded-full bg-emerald-300/80"
+                  className="absolute inset-x-2 bottom-0 h-[2px] rounded-full bg-orange-400/90"
                   layoutId="nav-underline"
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
@@ -183,7 +183,7 @@ export function Header() {
                   DE
                 </motion.button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-slate-900/90 backdrop-blur-md">
+              <DropdownMenuContent className="bg-black/90 backdrop-blur-md">
                 <DropdownMenuItem className="text-white">
                   Deutsch
                 </DropdownMenuItem>
@@ -224,8 +224,8 @@ export function Header() {
             style={{ willChange: "opacity, transform" }}
           >
             <div 
-              className="overflow-hidden rounded-2xl border border-white/10 px-4 py-6 text-white shadow-2xl shadow-emerald-950/30"
-              style={{ backgroundColor: "#143038" }}
+              className="overflow-hidden rounded-2xl border border-white/10 px-4 py-6 text-white shadow-2xl shadow-orange-950/30"
+              style={{ backgroundColor: "#000000" }}
             >
               <div className="flex flex-col gap-4">
                 {navigationItems.map((item, index) => (

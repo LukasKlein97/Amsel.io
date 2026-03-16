@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://ams-cockpit.de/sitemap.xml",
+    sitemap: "https://amsel.io/sitemap.xml",
   };
 }
 

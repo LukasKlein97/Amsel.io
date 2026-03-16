@@ -106,11 +106,11 @@ export function AISection() {
   return (
     <section
       id="ai-section"
-      className="relative overflow-hidden bg-slate-950 py-24 text-white"
+      className="relative overflow-hidden bg-black py-24 text-white"
     >
-      <div className="absolute inset-x-0 top-[-20%] -z-10 h-[480px] bg-[radial-gradient(circle,_rgba(16,185,129,0.25)_0%,_transparent_65%)]" />
-      <div className="absolute bottom-0 left-1/2 -z-10 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl" />
-      <div className="absolute right-[-10%] top-[30%] -z-10 h-[280px] w-[280px] rounded-full bg-emerald-400/10 blur-3xl" />
+      <div className="absolute inset-x-0 top-[-20%] -z-10 h-[480px] bg-[radial-gradient(circle,_rgba(249,115,22,0.2)_0%,_transparent_65%)]" />
+      <div className="absolute bottom-0 left-1/2 -z-10 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl" />
+      <div className="absolute right-[-10%] top-[30%] -z-10 h-[280px] w-[280px] rounded-full bg-orange-400/10 blur-3xl" />
 
       <div className="mx-auto flex max-w-6xl flex-col gap-16 px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -120,16 +120,16 @@ export function AISection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ type: "spring" as const, stiffness: 180, damping: 26 }}
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-emerald-200/80">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-200/90">
             KI-Features
           </span>
           <div className="mt-6 flex items-center justify-center gap-4">
-            <Brain className="h-10 w-10 text-emerald-200" />
+            <Brain className="h-10 w-10 text-orange-300" />
             <h2 className="text-3xl font-semibold leading-tight md:text-4xl">
               KI-gestützte Arbeitsschutz-Lösungen
             </h2>
           </div>
-          <p className="mt-4 text-base text-slate-200/80 md:text-lg">
+          <p className="mt-4 text-base text-white/80 md:text-lg">
             Nutzen Sie künstliche Intelligenz, um Gefährdungsbeurteilungen und
             Begehungen effizienter und präziser durchzuführen. Unsere
             KI-Features vereinfachen Ihre Arbeitsschutz-Prozesse erheblich.
@@ -162,11 +162,11 @@ export function AISection() {
                   : { scale: 0.98, transition: { duration: 0.1 } }
               }
             >
-              <Card className="group relative h-full flex flex-col overflow-hidden border border-white/10 bg-white/5 shadow-xl shadow-emerald-950/30 backdrop-blur-2xl transition transform-gpu hover:border-emerald-200/40 hover:bg-white/10 hover:shadow-emerald-700/40">
+              <Card className="group relative h-full flex flex-col overflow-hidden border border-white/10 bg-white/5 shadow-xl shadow-orange-950/30 backdrop-blur-2xl transition transform-gpu hover:border-orange-200/40 hover:bg-white/10 hover:shadow-orange-700/40">
                 <CardHeader className="flex flex-col gap-4">
                   <div className="flex items-center gap-3">
                     <motion.div
-                      className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-100/40 bg-emerald-400/30 flex-shrink-0"
+                      className="flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-100/40 bg-orange-400/30 flex-shrink-0"
                       animate={
                         shouldReduceMotion
                           ? undefined
@@ -197,7 +197,7 @@ export function AISection() {
 
                   <div className="flex flex-col gap-2">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="inline-flex w-fit items-center rounded-full border border-white/40 bg-emerald-400/30 px-3 py-1 text-xs uppercase tracking-[0.3em] text-white">
+                      <span className="inline-flex w-fit items-center rounded-full border border-white/40 bg-orange-400/30 px-3 py-1 text-xs uppercase tracking-[0.3em] text-white">
                         {feature.accent}
                       </span>
                     </div>
@@ -208,7 +208,7 @@ export function AISection() {
                 </CardHeader>
 
                 <CardContent className="space-y-6 pb-6 flex-1 flex flex-col">
-                  <CardDescription className="text-sm text-emerald-50/80 md:text-base whitespace-pre-line">
+                  <CardDescription className="text-sm text-orange-50/80 md:text-base whitespace-pre-line">
                     {feature.description}
                   </CardDescription>
 
@@ -220,20 +220,20 @@ export function AISection() {
                       {feature.features.map((feat, featIndex) => (
                         <li
                           key={featIndex}
-                          className="text-sm text-emerald-50/80 flex items-center group/item"
+                          className="text-sm text-orange-50/80 flex items-center group/item"
                         >
-                          <div className="w-2 h-2 rounded-full bg-emerald-400 mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
+                          <div className="w-2 h-2 rounded-full bg-orange-400 mr-3 group-hover/item:scale-150 transition-transform duration-300"></div>
                           {feat}
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="bg-emerald-400/10 rounded-xl p-5 border border-emerald-200/20">
+                  <div className="bg-orange-400/10 rounded-xl p-5 border border-orange-200/20">
                     <h4 className="text-sm font-bold text-white mb-3 uppercase tracking-wide">
                       Beispiel:
                     </h4>
-                    <p className="text-sm text-emerald-50/80 italic leading-relaxed">
+                    <p className="text-sm text-orange-50/80 italic leading-relaxed">
                       &ldquo;{feature.example}&rdquo;
                     </p>
                   </div>
@@ -255,9 +255,9 @@ export function AISection() {
             delay: 0.3,
           }}
         >
-          <div className="relative bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 p-10 rounded-3xl overflow-hidden group">
+          <div className="relative bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 p-10 rounded-3xl overflow-hidden group">
             {/* Animated background elements */}
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/50 via-emerald-500/50 to-teal-600/50 animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-600/50 via-orange-500/50 to-orange-600/50 animate-pulse"></div>
             <div className="absolute -top-20 -right-20 w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-1000"></div>
             <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-1000 delay-300"></div>
 
@@ -265,7 +265,7 @@ export function AISection() {
               <h3 className="text-3xl font-bold text-white mb-6">
                 Revolutionieren Sie Ihren Arbeitsschutz mit KI
               </h3>
-              <p className="text-emerald-50 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
+              <p className="text-orange-50 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
                 Sparen Sie wertvolle Zeit bei der Durchführung von
                 Gefährdungsbeurteilungen und Begehungen. Unsere KI unterstützt
                 Sie bei der Identifikation von Risiken und schlägt automatisch

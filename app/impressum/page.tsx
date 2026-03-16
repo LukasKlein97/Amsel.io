@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Impressum",
-  description: "Impressum der AMS Cockpit GmbH",
+  description: "Impressum der amsel.io GmbH",
   robots: {
     index: false,
     follow: true,
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ImpressumPage() {
   return (
-    <div className="min-h-screen bg-slate-900">
+    <div className="min-h-screen bg-black">
       <Header />
       <main className="py-16">
         <div className="container mx-auto px-4">
@@ -25,7 +25,7 @@ export default function ImpressumPage() {
             <div className="bg-slate-800 rounded-lg p-8 space-y-8 shadow-xl">
               <div className="text-gray-300 space-y-4">
                 <p className="text-lg">
-                  <strong className="text-white">AMS Cockpit GmbH</strong>
+                  <strong className="text-white">amsel.io GmbH</strong>
                   <br />
                   Wolzenburg 2
                   <br />
@@ -66,10 +66,10 @@ export default function ImpressumPage() {
                   <br />
                   E-Mail:{" "}
                   <a
-                    href="mailto:info@ams-cockpit.de"
+                    href="mailto:info@amsel.io"
                     className="text-blue-400 hover:text-blue-300"
                   >
-                    info@ams-cockpit.de
+                    info@amsel.io
                   </a>
                 </p>
 

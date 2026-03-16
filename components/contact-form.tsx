@@ -48,12 +48,12 @@ export function ContactForm() {
   return (
     <div className="max-w-md">
       <h3 className="text-lg font-semibold mb-4 text-white">Kontaktieren Sie uns</h3>
-      <p className="text-emerald-50/80 mb-6">
+      <p className="text-orange-50/80 mb-6">
         Senden Sie uns eine Nachricht und wir melden uns zeitnah bei Ihnen.
       </p>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div className="space-y-2">
-          <Label htmlFor="name" className="text-emerald-100/90">
+          <Label htmlFor="name" className="text-orange-100/90">
             Name
           </Label>
           <Input
@@ -61,11 +61,11 @@ export function ContactForm() {
             name="name"
             placeholder="Ihr Name"
             required
-            className="bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:border-emerald-200/40 focus:ring-emerald-200/20 backdrop-blur-sm"
+            className="bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:border-orange-200/40 focus:ring-orange-200/20 backdrop-blur-sm"
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email" className="text-emerald-100/90">
+          <Label htmlFor="email" className="text-orange-100/90">
             Email
           </Label>
           <Input
@@ -74,11 +74,11 @@ export function ContactForm() {
             type="email"
             placeholder="ihre@email.de"
             required
-            className="bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:border-emerald-200/40 focus:ring-emerald-200/20 backdrop-blur-sm"
+            className="bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:border-orange-200/40 focus:ring-orange-200/20 backdrop-blur-sm"
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="phone" className="text-emerald-100/90">
+          <Label htmlFor="phone" className="text-orange-100/90">
             Mobilnummer
           </Label>
           <Input
@@ -86,23 +86,23 @@ export function ContactForm() {
             name="phone"
             type="tel"
             placeholder="+49 123 456789"
-            className="bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:border-emerald-200/40 focus:ring-emerald-200/20 backdrop-blur-sm"
+            className="bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:border-orange-200/40 focus:ring-orange-200/20 backdrop-blur-sm"
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="message" className="text-emerald-100/90">
+          <Label htmlFor="message" className="text-orange-100/90">
             Nachricht
           </Label>
           <Textarea
             id="message"
             name="message"
             placeholder="Ihre Nachricht"
-            className="bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:border-emerald-200/40 focus:ring-emerald-200/20 backdrop-blur-sm"
+            className="bg-white/5 border-white/10 text-white placeholder:text-gray-400 focus:border-orange-200/40 focus:ring-orange-200/20 backdrop-blur-sm"
           />
         </div>
         {isSubmitted ? (
-          <div className="flex items-center justify-center gap-2 py-3 px-4 bg-emerald-400/20 border border-emerald-200/40 text-emerald-100 rounded-xl backdrop-blur-sm animate-fade-in">
-            <CheckCircle2 className="h-5 w-5 text-emerald-200" />
+          <div className="flex items-center justify-center gap-2 py-3 px-4 bg-orange-400/20 border border-orange-200/40 text-orange-100 rounded-xl backdrop-blur-sm animate-fade-in">
+            <CheckCircle2 className="h-5 w-5 text-orange-200" />
             <span className="font-medium">Anfrage erfolgreich gesendet</span>
           </div>
         ) : (

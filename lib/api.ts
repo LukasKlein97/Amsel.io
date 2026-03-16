@@ -1,5 +1,5 @@
 /**
- * API utility functions for AMS
+ * API utility functions for amsel.io
  */
 
 export interface RiskFactor {

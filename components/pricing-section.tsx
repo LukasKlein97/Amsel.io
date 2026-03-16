@@ -83,13 +83,13 @@ export function PricingSection() {
   ];
 
   return (
-    <section id="pricing" className="bg-slate-900 py-20">
+    <section id="pricing" className="bg-black py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
             Transparente Preise
           </h2>
-          <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+          <p className="text-lg text-white/80 max-w-2xl mx-auto">
             Wählen Sie den Plan, der am besten zu Ihrem Unternehmen passt. Alle
             Pläne beinhalten unsere Kernfunktionen für digitalen Arbeitsschutz.
           </p>
@@ -99,7 +99,7 @@ export function PricingSection() {
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className="relative border border-white/10 bg-white/10 backdrop-blur-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-white ring-2 ring-emerald-400/50 scale-105 flex flex-col h-full"
+              className="relative border border-white/10 bg-white/10 backdrop-blur-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-white ring-2 ring-orange-400/50 scale-105 flex flex-col h-full"
             >
               <CardHeader className="text-center">
                 <CardTitle className="text-xl mb-2 text-white">
@@ -112,7 +112,7 @@ export function PricingSection() {
                       : `€${plan.price}`}
                   </div>
                   {plan.period && (
-                    <div className="text-sm text-slate-300 mt-0.5">
+                    <div className="text-sm text-white/70 mt-0.5">
                       {plan.period}
                     </div>
                   )}
@@ -122,7 +122,7 @@ export function PricingSection() {
                         plan.isEnterprise
                           ? "text-sm"
                           : "text-base font-semibold"
-                      } text-slate-300 ${
+                      } text-white/70 ${
                         plan.isEnterprise ? "mt-0.5" : "mt-1"
                       }`}
                     >
@@ -132,7 +132,7 @@ export function PricingSection() {
                 </div>
                 <div className="mb-3">
                   {plan.pricePerEmployee && (
-                    <p className="text-xs text-slate-300 mt-1">
+                    <p className="text-xs text-white/70 mt-1">
                       {plan.pricePerEmployee} pro Mitarbeiter
                     </p>
                   )}
@@ -143,10 +143,10 @@ export function PricingSection() {
                   {plan.features.map((feature, featureIndex) => (
                     <li
                       key={featureIndex}
-                      className="flex items-start text-slate-100"
+                      className="flex items-start text-white/90"
                     >
-                      <Check className="h-4 w-4 text-emerald-400 mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-slate-100">{feature}</span>
+                      <Check className="h-4 w-4 text-orange-400 mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-white/90">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -165,7 +165,7 @@ export function PricingSection() {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-slate-300 mb-4">
+          <p className="text-white/70 mb-4">
             Unsicher, welcher Plan der richtige ist?
           </p>
           <Button

@@ -94,11 +94,11 @@ export function ModuleSection() {
   return (
     <section
       id="features"
-      className="relative overflow-hidden bg-slate-950 py-24 text-white"
+      className="relative overflow-hidden bg-black py-24 text-white"
     >
-      <div className="absolute inset-x-0 top-[-20%] -z-10 h-[480px] bg-[radial-gradient(circle,_rgba(16,185,129,0.25)_0%,_transparent_65%)]" />
-      <div className="absolute bottom-0 left-1/2 -z-10 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl" />
-      <div className="absolute right-[-10%] top-[30%] -z-10 h-[280px] w-[280px] rounded-full bg-emerald-400/10 blur-3xl" />
+      <div className="absolute inset-x-0 top-[-20%] -z-10 h-[480px] bg-[radial-gradient(circle,_rgba(249,115,22,0.2)_0%,_transparent_65%)]" />
+      <div className="absolute bottom-0 left-1/2 -z-10 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl" />
+      <div className="absolute right-[-10%] top-[30%] -z-10 h-[280px] w-[280px] rounded-full bg-orange-400/10 blur-3xl" />
 
       <div className="mx-auto flex max-w-6xl flex-col gap-16 px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -108,13 +108,13 @@ export function ModuleSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ type: "spring" as const, stiffness: 180, damping: 26 }}
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-emerald-200/80">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-200/90">
             Module
           </span>
           <h2 className="mt-6 text-3xl font-semibold leading-tight md:text-4xl">
             Die modulare Arbeitssicherheits-Struktur für Ihre Branche
           </h2>
-          <p className="mt-4 text-base text-slate-200/80 md:text-lg">
+          <p className="mt-4 text-base text-white/80 md:text-lg">
             Jedes Modul lässt sich flexibel kombinieren, sodass Sie genau den
             Funktionsumfang nutzen, den Ihr Unternehmen im Alltag braucht –
             heute und in Zukunft.
@@ -147,16 +147,16 @@ export function ModuleSection() {
                   : { scale: 0.98, transition: { duration: 0.1 } }
               }
             >
-              <Card className="group relative h-full overflow-hidden border border-white/10 bg-white/5 shadow-xl shadow-emerald-950/30 backdrop-blur-2xl transition transform-gpu hover:border-emerald-200/40 hover:bg-white/10 hover:shadow-emerald-700/40">
+              <Card className="group relative h-full overflow-hidden border border-white/10 bg-white/5 shadow-xl shadow-orange-950/30 backdrop-blur-2xl transition transform-gpu hover:border-orange-200/40 hover:bg-white/10 hover:shadow-orange-700/40">
                 {feature.comingSoon && (
-                  <div className="absolute right-6 top-6 rounded-full border border-white/30 bg-emerald-400/30 px-3 py-1 text-xs uppercase tracking-[0.28em] text-white">
+                  <div className="absolute right-6 top-6 rounded-full border border-white/30 bg-orange-400/30 px-3 py-1 text-xs uppercase tracking-[0.28em] text-white">
                     Bald verfügbar
                   </div>
                 )}
 
                 <CardHeader className="flex flex-col gap-4">
                   <motion.div
-                    className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-100/40 bg-emerald-400/30"
+                    className="flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-100/40 bg-orange-400/30"
                     animate={
                       shouldReduceMotion
                         ? undefined
@@ -180,7 +180,7 @@ export function ModuleSection() {
                   </motion.div>
 
                   <div className="flex flex-col gap-2">
-                    <span className="inline-flex w-fit items-center rounded-full border border-white/40 bg-emerald-400/30 px-3 py-1 text-xs uppercase tracking-[0.3em] text-white">
+                    <span className="inline-flex w-fit items-center rounded-full border border-white/40 bg-orange-400/30 px-3 py-1 text-xs uppercase tracking-[0.3em] text-white">
                       {feature.accent}
                     </span>
                     <CardTitle className="text-xl font-semibold text-white">
@@ -190,7 +190,7 @@ export function ModuleSection() {
                 </CardHeader>
 
                 <CardContent className="pb-6">
-                  <CardDescription className="text-sm text-emerald-50/80 md:text-base">
+                  <CardDescription className="text-sm text-orange-50/80 md:text-base">
                     {feature.description}
                   </CardDescription>
                 </CardContent>

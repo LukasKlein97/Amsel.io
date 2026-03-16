@@ -13,10 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ams-cockpit.de"),
+  metadataBase: new URL("https://amsel.io"),
   title: {
-    default: "AMS - Digitale Arbeitssicherheit für Unternehmen",
-    template: "%s | AMS ",
+    default: "amsel.io - Digitale Arbeitssicherheit für Unternehmen",
+    template: "%s | amsel.io ",
   },
   description:
     "Digitale Arbeitssicherheit mit smarten Softwaremodulen. Mobile Begehungen, Compliance-Management und KI-gestützte Auswertungen für Produktion, Logistik und Verwaltung.",
@@ -27,11 +27,11 @@ export const metadata: Metadata = {
     "Arbeitsschutz Software",
     "Sicherheitsmanagement",
     "Mobile Begehungen",
-    "AMS Cockpit",
+    "amsel.io",
   ],
-  authors: [{ name: "AMS Cockpit GmbH" }],
-  creator: "AMS Cockpit GmbH",
-  publisher: "AMS Cockpit GmbH",
+  authors: [{ name: "amsel.io GmbH" }],
+  creator: "amsel.io GmbH",
+  publisher: "amsel.io GmbH",
   formatDetection: {
     email: false,
     address: false,
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "de_DE",
-    url: "https://ams-cockpit.de",
-    siteName: "AMS ",
-    title: "AMS - Digitale Arbeitssicherheit für Unternehmen",
+    url: "https://amsel.io",
+    siteName: "amsel.io ",
+    title: "amsel.io - Digitale Arbeitssicherheit für Unternehmen",
     description:
       "Digitale Arbeitssicherheit mit smarten Softwaremodulen. Mobile Begehungen, Compliance-Management und KI-gestützte Auswertungen.",
     images: [
@@ -50,13 +50,13 @@ export const metadata: Metadata = {
         url: "/images/web.png",
         width: 1200,
         height: 630,
-        alt: "AMS - Digitale Arbeitssicherheit",
+        alt: "amsel.io - Digitale Arbeitssicherheit",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "- Digitale Arbeitssicherheit",
+    title: "amsel.io - Digitale Arbeitssicherheit",
     description:
       "Digitale Arbeitssicherheit mit smarten Softwaremodulen für Unternehmen.",
     images: ["/images/web.png"],
@@ -77,16 +77,16 @@ export const metadata: Metadata = {
     apple: "/icon.svg",
   },
   alternates: {
-    canonical: "https://ams-cockpit.de",
+    canonical: "https://amsel.io",
   },
 };
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "AMS Cockpit GmbH",
-  url: "https://ams-cockpit.de",
-  logo: "https://ams-cockpit.de/Logo.svg",
+  name: "amsel.io GmbH",
+  url: "https://amsel.io",
+  logo: "https://amsel.io/Logo.svg",
   description:
     "Digitale Arbeitssicherheit mit smarten Softwaremodulen für Unternehmen.",
   address: {
@@ -100,7 +100,7 @@ const organizationSchema = {
     "@type": "ContactPoint",
     telephone: "+49-2359-2967311",
     contactType: "customer service",
-    email: "info@ams-cockpit.de",
+    email: "info@amsel.io",
   },
 };
 

@@ -93,7 +93,7 @@ export function HeroSection() {
     <motion.section
       ref={heroRef}
       className="relative isolate overflow-hidden text-white"
-      style={{ backgroundColor: "#143038" }}
+      style={{ backgroundColor: "#000000" }}
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.3, once: true }}
@@ -101,36 +101,36 @@ export function HeroSection() {
       {/* Base gradient background - Safari-kompatibel mit fester Basis-Farbe */}
       <div
         className="absolute inset-0 -z-10"
-        style={{ backgroundColor: "#143038" }}
+        style={{ backgroundColor: "#000000" }}
       />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-900/40 via-transparent to-black/30" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-900/20 via-transparent to-black/30" />
 
-      {/* Top center glow - Emerald */}
+      {/* Top center glow - Orange */}
       <div
-        className="absolute -top-48 left-1/2 -z-10 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-emerald-500/20 blur-3xl"
+        className="absolute -top-48 left-1/2 -z-10 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-orange-500/20 blur-3xl"
         style={{ filter: "blur(64px)" }}
       />
 
-      {/* Bottom right glow - Teal/Emerald */}
+      {/* Bottom right glow - Orange */}
       <div
-        className="absolute bottom-0 right-0 -z-10 h-96 w-96 translate-x-1/3 bg-emerald-400/10 blur-3xl"
+        className="absolute bottom-0 right-0 -z-10 h-96 w-96 translate-x-1/3 bg-orange-400/10 blur-3xl"
         style={{ filter: "blur(64px)" }}
       />
 
       {/* Additional top left glow for more depth */}
       <div
-        className="absolute -top-32 -left-32 -z-10 h-[400px] w-[400px] rounded-full bg-emerald-600/15 blur-3xl"
+        className="absolute -top-32 -left-32 -z-10 h-[400px] w-[400px] rounded-full bg-orange-600/15 blur-3xl"
         style={{ filter: "blur(80px)" }}
       />
 
       {/* Additional bottom left glow */}
       <div
-        className="absolute bottom-1/4 -left-24 -z-10 h-[360px] w-[360px] rounded-full bg-teal-500/12 blur-3xl"
+        className="absolute bottom-1/4 -left-24 -z-10 h-[360px] w-[360px] rounded-full bg-orange-500/12 blur-3xl"
         style={{ filter: "blur(72px)" }}
       />
 
       {/* Radial gradient overlay for smoother blending */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.15)_0%,transparent_50%),radial-gradient(circle_at_70%_80%,rgba(34,197,94,0.12)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(249,115,22,0.12)_0%,transparent_50%),radial-gradient(circle_at_70%_80%,rgba(234,88,12,0.1)_0%,transparent_50%)]" />
 
       <AnimatePresence>
         {isMouseInHero && !shouldReduceMotion && (
@@ -146,7 +146,7 @@ export function HeroSection() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <div className="h-full w-full rounded-full bg-[radial-gradient(circle,_rgba(34,197,94,0.2)_0%,_rgba(34,197,94,0.08)_45%,_transparent_70%)]" />
+            <div className="h-full w-full rounded-full bg-[radial-gradient(circle,_rgba(249,115,22,0.2)_0%,_rgba(249,115,22,0.08)_45%,_transparent_70%)]" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -156,7 +156,7 @@ export function HeroSection() {
           <motion.span
             variants={textReveal}
             custom={0}
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.4em] text-emerald-200/80"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-200/90"
           >
             Arbeitssicherheit
           </motion.span>
@@ -167,7 +167,7 @@ export function HeroSection() {
             className="text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl lg:text-[3.2rem]"
           >
             Digitale Arbeitssicherheit,
-            <span className="block text-emerald-200">
+            <span className="block text-orange-300">
               die mit Ihrem Unternehmen wächst.
             </span>
           </motion.h1>
@@ -175,7 +175,7 @@ export function HeroSection() {
           <motion.p
             variants={textReveal}
             custom={2}
-            className="max-w-xl text-base text-slate-100/90 md:text-lg"
+            className="max-w-xl text-base text-white/90 md:text-lg"
           >
             Wir verbinden smarte Softwaremodule mit Praxiswissen, damit
             Arbeitssicherheit in Produktion, Logistik und Verwaltung lebendig
@@ -246,10 +246,10 @@ export function HeroSection() {
                     : { scale: 0.98, transition: { duration: 0.1 } }
                 }
               >
-                <Card className="group relative overflow-hidden border-white/10 bg-white/5 px-4 py-6 text-white shadow-xl shadow-emerald-950/40 backdrop-blur-xl transition transform-gpu hover:border-emerald-200/40 hover:bg-white/10 hover:shadow-emerald-700/40">
+                <Card className="group relative overflow-hidden border-white/10 bg-white/5 px-4 py-6 text-white shadow-xl shadow-orange-950/40 backdrop-blur-xl transition transform-gpu hover:border-orange-200/40 hover:bg-white/10 hover:shadow-orange-700/40">
                   <CardContent className="flex items-start gap-4 px-0">
                     <motion.div
-                      className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-emerald-200/40 bg-emerald-400/20"
+                      className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-orange-200/40 bg-orange-400/20"
                       animate={
                         shouldReduceMotion
                           ? undefined
@@ -269,16 +269,16 @@ export function HeroSection() {
                             }
                       }
                     >
-                      <Icon className="h-6 w-6 shrink-0 text-emerald-100" />
+                      <Icon className="h-6 w-6 shrink-0 text-orange-100" />
                     </motion.div>
                     <div className="space-y-2">
-                      <span className="inline-flex items-center rounded-full border border-emerald-200/40 bg-emerald-400/10 px-2 py-1 text-xs uppercase tracking-[0.28em] text-emerald-100">
+                      <span className="inline-flex items-center rounded-full border border-orange-200/40 bg-orange-400/10 px-2 py-1 text-xs uppercase tracking-[0.28em] text-orange-100">
                         {card.accent}
                       </span>
                       <h3 className="text-xl font-semibold text-white">
                         {card.title}
                       </h3>
-                      <p className="text-sm text-emerald-50/80 md:text-base">
+                      <p className="text-sm text-orange-50/80 md:text-base">
                         {card.description}
                       </p>
                     </div>
