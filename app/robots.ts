@@ -9,7 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://amsel.io/sitemap.xml",
+    sitemap: "https://Amsel.io/sitemap.xml",
   };
 }
-

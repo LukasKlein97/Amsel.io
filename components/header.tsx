@@ -128,8 +128,16 @@ export function Header() {
           <div className="relative flex items-center gap-3">
             <button
               onClick={navigateToMainPage}
-              className="group relative flex items-center transition hover:opacity-80"
+              className="group relative flex items-center gap-2 transition hover:opacity-80"
             >
+              <Image
+                src="/amsel-vogel.png"
+                alt=""
+                width={36}
+                height={36}
+                className="h-9 w-auto"
+                priority
+              />
               <Image
                 src="/amsel-schriftzug.png"
                 alt="Amsel.io"
@@ -223,7 +231,7 @@ export function Header() {
             className="mx-auto mt-2 w-full max-w-[720px] px-4"
             style={{ willChange: "opacity, transform" }}
           >
-            <div 
+            <div
               className="overflow-hidden rounded-2xl border border-white/10 px-4 py-6 text-white shadow-2xl shadow-orange-950/30"
               style={{ backgroundColor: "#000000" }}
             >

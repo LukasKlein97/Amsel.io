@@ -2,7 +2,12 @@
 
 import { useRef } from "react";
 import { CTAButtons } from "@/components/cta-buttons";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from "framer-motion";
 import Image from "next/image";
 import type { Variants } from "framer-motion";
 import { ClipboardList, FileText } from "lucide-react";
@@ -59,7 +64,10 @@ export function PreviewAppSection() {
   const phoneRotateY = useTransform(scrollYProgress, [0, 0.5, 1], [-55, 0, 55]);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-black py-24 text-white">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-black py-24 text-white"
+    >
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-900/30 via-black to-black" />
       <div className="absolute left-[-15%] top-1/2 -z-10 hidden h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-orange-500/15 blur-3xl md:block" />
       <div className="absolute right-[-10%] top-[15%] -z-10 h-[380px] w-[380px] rounded-full bg-orange-400/12 blur-3xl" />
@@ -85,7 +93,11 @@ export function PreviewAppSection() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-120px" }}
-            transition={{ type: "spring" as const, stiffness: 180, damping: 28 }}
+            transition={{
+              type: "spring" as const,
+              stiffness: 180,
+              damping: 28,
+            }}
             style={
               shouldReduceMotion
                 ? undefined
@@ -97,7 +109,7 @@ export function PreviewAppSection() {
           >
             <Image
               src="/images/app-iphone.png"
-              alt="amsel.io App Screenshot"
+              alt="Amsel.io App Screenshot"
               width={484}
               height={1024}
               className="w-full rounded-[32px] shadow-2xl shadow-orange-950/40"

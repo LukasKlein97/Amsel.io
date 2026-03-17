@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://amsel.io";
+  const baseUrl = "https://Amsel.io";
 
   return [
     {
@@ -24,4 +24,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 }
-

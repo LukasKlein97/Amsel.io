@@ -48,10 +48,15 @@ function formatHours(hours: number): string {
 }
 
 export function ZeitRechnerSection() {
-  const [ma, setMa] = useState(50);
-  const [sifas, setSifas] = useState(2);
-  const [branche, setBranche] = useState<typeof BRANCHEN[number]["value"]>("produktion");
-  const [loesung, setLoesung] = useState<typeof AKTUELLE_LOESUNG[number]["value"]>("excel");
+  const [maDisplay, setMaDisplay] = useState("50");
+  const [sifasDisplay, setSifasDisplay] = useState("2");
+  const [branche, setBranche] =
+    useState<(typeof BRANCHEN)[number]["value"]>("produktion");
+  const [loesung, setLoesung] =
+    useState<(typeof AKTUELLE_LOESUNG)[number]["value"]>("excel");
+
+  const ma = Math.max(1, Math.min(10000, parseInt(maDisplay, 10) || 1));
+  const sifas = Math.max(0, Math.min(100, parseInt(sifasDisplay, 10) || 0));
 
   const berechnung = useMemo(() => {
     const brancheData = BRANCHEN.find((b) => b.value === branche)!;
@@ -96,13 +101,14 @@ export function ZeitRechnerSection() {
           <div className="mt-6 flex items-center justify-center gap-4">
             <Calculator className="h-10 w-10 text-orange-300" />
             <h2 className="text-3xl font-semibold leading-tight md:text-4xl">
-              Wie viel Zeit spart AMS in Ihrem Betrieb?
+              Wie viel Zeit spart Amsel.io in Ihrem Betrieb?
             </h2>
           </div>
           <p className="mt-4 text-base text-white/80 md:text-lg">
             Alles an einem Ort, mobile App ohne Medienbrüche, KI für
-            Betriebsanweisungen und GBUs, automatische Sicherheitsdatenblatt-Erfassung
-            – berechnen Sie Ihre potenzielle Zeitersparnis.
+            Betriebsanweisungen und GBUs, automatische
+            Sicherheitsdatenblatt-Erfassung – berechnen Sie Ihre potenzielle
+            Zeitersparnis.
           </p>
         </motion.div>
 
@@ -122,11 +128,21 @@ export function ZeitRechnerSection() {
                 </Label>
                 <Input
                   id="ma"
-                  type="number"
-                  min={1}
-                  max={10000}
-                  value={ma}
-                  onChange={(e) => setMa(Math.max(1, parseInt(e.target.value) || 1))}
+                  type="text"
+                  inputMode="numeric"
+                  value={maDisplay}
+                  onChange={(e) => {
+                    const v = e.target.value.replace(/\D/g, "");
+                    setMaDisplay(v);
+                  }}
+                  onBlur={() => {
+                    const n = parseInt(maDisplay, 10);
+                    if (maDisplay === "" || isNaN(n)) {
+                      setMaDisplay("1");
+                    } else {
+                      setMaDisplay(String(Math.max(1, Math.min(10000, n))));
+                    }
+                  }}
                   className="border-white/20 bg-white/5 text-white placeholder:text-white/40"
                 />
               </div>
@@ -136,13 +152,23 @@ export function ZeitRechnerSection() {
                 </Label>
                 <Input
                   id="sifas"
-                  type="number"
-                  min={0}
-                  max={100}
-                  value={sifas}
-                  onChange={(e) =>
-                    setSifas(Math.max(0, parseInt(e.target.value) || 0))
-                  }
+                  type="text"
+                  inputMode="numeric"
+                  value={sifasDisplay}
+                  onChange={(e) => {
+                    const v = e.target.value.replace(/\D/g, "");
+                    setSifasDisplay(v);
+                  }}
+                  onBlur={() => {
+                    const n = parseInt(sifasDisplay, 10);
+                    if (sifasDisplay === "" || isNaN(n)) {
+                      setSifasDisplay("0");
+                    } else {
+                      setSifasDisplay(
+                        String(Math.max(0, Math.min(100, n)))
+                      );
+                    }
+                  }}
                   className="border-white/20 bg-white/5 text-white placeholder:text-white/40"
                 />
               </div>
@@ -153,13 +179,15 @@ export function ZeitRechnerSection() {
                 <select
                   id="branche"
                   value={branche}
-                  onChange={(e) =>
-                    setBranche(e.target.value as typeof branche)
-                  }
+                  onChange={(e) => setBranche(e.target.value as typeof branche)}
                   className="flex h-9 w-full rounded-md border border-white/20 bg-white/5 px-3 py-1 text-sm text-white shadow-xs outline-none focus-visible:border-orange-400 focus-visible:ring-2 focus-visible:ring-orange-400/50"
                 >
                   {BRANCHEN.map((b) => (
-                    <option key={b.value} value={b.value} className="bg-gray-900 text-white">
+                    <option
+                      key={b.value}
+                      value={b.value}
+                      className="bg-gray-900 text-white"
+                    >
                       {b.label}
                     </option>
                   ))}
@@ -172,13 +200,15 @@ export function ZeitRechnerSection() {
                 <select
                   id="loesung"
                   value={loesung}
-                  onChange={(e) =>
-                    setLoesung(e.target.value as typeof loesung)
-                  }
+                  onChange={(e) => setLoesung(e.target.value as typeof loesung)}
                   className="flex h-9 w-full rounded-md border border-white/20 bg-white/5 px-3 py-1 text-sm text-white shadow-xs outline-none focus-visible:border-orange-400 focus-visible:ring-2 focus-visible:ring-orange-400/50"
                 >
                   {AKTUELLE_LOESUNG.map((l) => (
-                    <option key={l.value} value={l.value} className="bg-gray-900 text-white">
+                    <option
+                      key={l.value}
+                      value={l.value}
+                      className="bg-gray-900 text-white"
+                    >
                       {l.label}
                     </option>
                   ))}
@@ -196,7 +226,8 @@ export function ZeitRechnerSection() {
                   Geschätzte Zeitersparnis
                 </CardTitle>
                 <CardDescription className="text-orange-50/80">
-                  Basierend auf typischen Arbeitsschutz-Prozessen in Ihrer Branche.
+                  Basierend auf typischen Arbeitsschutz-Prozessen in Ihrer
+                  Branche.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-8">
@@ -275,7 +306,7 @@ export function ZeitRechnerSection() {
                       {formatHours(berechnung.basisAufwand)} pro Monat
                     </p>
                     <p className="text-sm text-white/70">
-                      Mit AMS reduziert sich dieser Aufwand deutlich.
+                      Mit Amsel.io reduziert sich dieser Aufwand deutlich.
                     </p>
                   </div>
                 </div>

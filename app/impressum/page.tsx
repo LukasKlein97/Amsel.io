@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Impressum",
-  description: "Impressum der amsel.io GmbH",
+  description: "Impressum der Amsel.io GmbH",
   robots: {
     index: false,
     follow: true,
@@ -25,7 +25,7 @@ export default function ImpressumPage() {
             <div className="bg-slate-800 rounded-lg p-8 space-y-8 shadow-xl">
               <div className="text-gray-300 space-y-4">
                 <p className="text-lg">
-                  <strong className="text-white">amsel.io GmbH</strong>
+                  <strong className="text-white">Amsel.io GmbH</strong>
                   <br />
                   Wolzenburg 2
                   <br />

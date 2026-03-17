@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://amsel.io"),
+  metadataBase: new URL("https://Amsel.io"),
   title: {
-    default: "amsel.io - Digitale Arbeitssicherheit für Unternehmen",
-    template: "%s | amsel.io ",
+    default: "Amsel.io - Digitale Arbeitssicherheit für Unternehmen",
+    template: "%s | Amsel.io ",
   },
   description:
     "Digitale Arbeitssicherheit mit smarten Softwaremodulen. Mobile Begehungen, Compliance-Management und KI-gestützte Auswertungen für Produktion, Logistik und Verwaltung.",
@@ -28,11 +28,11 @@ export const metadata: Metadata = {
     "Arbeitsschutz Software",
     "Sicherheitsmanagement",
     "Mobile Begehungen",
-    "amsel.io",
+    "Amsel.io",
   ],
-  authors: [{ name: "amsel.io GmbH" }],
-  creator: "amsel.io GmbH",
-  publisher: "amsel.io GmbH",
+  authors: [{ name: "Amsel.io GmbH" }],
+  creator: "Amsel.io GmbH",
+  publisher: "Amsel.io GmbH",
   formatDetection: {
     email: false,
     address: false,
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "de_DE",
-    url: "https://amsel.io",
-    siteName: "amsel.io ",
-    title: "amsel.io - Digitale Arbeitssicherheit für Unternehmen",
+    url: "https://Amsel.io",
+    siteName: "Amsel.io ",
+    title: "Amsel.io - Digitale Arbeitssicherheit für Unternehmen",
     description:
       "Digitale Arbeitssicherheit mit smarten Softwaremodulen. Mobile Begehungen, Compliance-Management und KI-gestützte Auswertungen.",
     images: [
@@ -51,13 +51,13 @@ export const metadata: Metadata = {
         url: "/images/web.png",
         width: 1200,
         height: 630,
-        alt: "amsel.io - Digitale Arbeitssicherheit",
+        alt: "Amsel.io - Digitale Arbeitssicherheit",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "amsel.io - Digitale Arbeitssicherheit",
+    title: "Amsel.io - Digitale Arbeitssicherheit",
     description:
       "Digitale Arbeitssicherheit mit smarten Softwaremodulen für Unternehmen.",
     images: ["/images/web.png"],
@@ -78,16 +78,16 @@ export const metadata: Metadata = {
     apple: "/icon.svg",
   },
   alternates: {
-    canonical: "https://amsel.io",
+    canonical: "https://Amsel.io",
   },
 };
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "amsel.io GmbH",
-  url: "https://amsel.io",
-  logo: "https://amsel.io/amsel-bund.png",
+  name: "Amsel.io GmbH",
+  url: "https://Amsel.io",
+  logo: "https://Amsel.io/amsel-bund.png",
   description:
     "Digitale Arbeitssicherheit mit smarten Softwaremodulen für Unternehmen.",
   address: {

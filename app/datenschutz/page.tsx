@@ -6,7 +6,7 @@ import path from "path";
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung",
-  description: "Datenschutzerklärung der amsel.io GmbH",
+  description: "Datenschutzerklärung der Amsel.io GmbH",
   robots: {
     index: false,
     follow: true,
@@ -23,23 +23,23 @@ export default function DatenschutzPage() {
     .replace(/<h1[^>]*>[\s\S]*?<\/h1>/i, "")
     .replace(
       /<h2/g,
-      '<h2 style="font-size: 1.5rem; font-weight: 600; color: white; margin-top: 2rem; margin-bottom: 1rem;"'
+      '<h2 style="font-size: 1.5rem; font-weight: 600; color: white; margin-top: 2rem; margin-bottom: 1rem;"',
     )
     .replace(
       /<h3/g,
-      '<h3 style="font-size: 1.25rem; font-weight: 600; color: white; margin-top: 1.5rem; margin-bottom: 0.75rem;"'
+      '<h3 style="font-size: 1.25rem; font-weight: 600; color: white; margin-top: 1.5rem; margin-bottom: 0.75rem;"',
     )
     .replace(
       /<h4/g,
-      '<h4 style="font-size: 1.125rem; font-weight: 600; color: white; margin-top: 1rem; margin-bottom: 0.5rem;"'
+      '<h4 style="font-size: 1.125rem; font-weight: 600; color: white; margin-top: 1rem; margin-bottom: 0.5rem;"',
     )
     .replace(
       /<p/g,
-      '<p style="font-size: 1.125rem; margin-bottom: 1rem; line-height: 1.6;"'
+      '<p style="font-size: 1.125rem; margin-bottom: 1rem; line-height: 1.6;"',
     )
     .replace(
       /<ul/g,
-      '<ul style="list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem;"'
+      '<ul style="list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem;"',
     )
     .replace(/<li/g, '<li style="margin-bottom: 0.5rem;"')
     .replace(/<a/g, '<a style="color: #60a5fa; text-decoration: underline;"');

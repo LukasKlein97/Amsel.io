@@ -5,9 +5,15 @@ import Image from "next/image";
 const partners = [
   {
     name: "CyberForum",
-    src: "/partner-cyberforum.png",
+    src: "/partner-cyberforum.svg",
     href: "https://www.cyberforum.de/",
-    whiteText: true,
+    whiteLogo: true,
+  },
+  {
+    name: "CyberLab",
+    src: "/partner-cyberlab.svg",
+    href: "https://www.cyberlab-karlsruhe.de/",
+    whiteLogo: true,
   },
   {
     name: "STATUS3 academy",
@@ -45,9 +51,11 @@ export function PartnersSection() {
               href={partner.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center justify-center w-48 h-20 grayscale hover:grayscale-0 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105 ${
-                "rau" in partner && partner.rau ? "contrast-[1.2] saturate-90" : ""
-              }`}
+              className={`flex items-center justify-center w-48 h-20 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105 ${
+                "whiteLogo" in partner && partner.whiteLogo
+                  ? ""
+                  : "grayscale hover:grayscale-0"
+              } ${"rau" in partner && partner.rau ? "contrast-[1.2] saturate-90" : ""}`}
             >
               <Image
                 src={partner.src}
@@ -55,8 +63,8 @@ export function PartnersSection() {
                 width={192}
                 height={80}
                 className={`w-full h-full object-contain ${
-                  "whiteText" in partner && partner.whiteText
-                    ? "brightness-0 invert"
+                  "whiteLogo" in partner && partner.whiteLogo
+                    ? "opacity-90"
                     : ""
                 } ${
                   "rau" in partner && partner.rau

@@ -91,9 +91,9 @@ export function PreviewWebSection() {
             variants={itemVariants}
             className="max-w-3xl text-base text-white/85 md:text-lg"
           >
-            Die vollständige amsel.io Software als Web-App: Verwalten Sie Dokumente,
-            koordinieren Sie Aufgaben und steuern Sie alle Module bequem von
-            jedem Computer aus – ohne Installation.
+            Die vollständige Amsel.io Software als Web-App: Verwalten Sie
+            Dokumente, koordinieren Sie Aufgaben und steuern Sie alle Module
+            bequem von jedem Computer aus – ohne Installation.
           </motion.p>
         </motion.div>
 
@@ -180,7 +180,7 @@ export function PreviewWebSection() {
             <div className="relative flex w-full items-center justify-center">
               <Image
                 src="/images/web.png"
-                alt="amsel.io Web-App Screenshot"
+                alt="Amsel.io Web-App Screenshot"
                 width={1920}
                 height={1080}
                 className="w-full rounded-2xl shadow-2xl shadow-orange-950/40"

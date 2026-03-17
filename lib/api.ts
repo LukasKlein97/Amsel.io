@@ -1,5 +1,5 @@
 /**
- * API utility functions for amsel.io
+ * API utility functions for Amsel.io
  */
 
 export interface RiskFactor {
@@ -30,7 +30,7 @@ export interface ChartData {
 export async function sendChartData(
   baseUrl: string,
   teamId: number = 1,
-  data: ChartData
+  data: ChartData,
 ): Promise<Response> {
   const url = `${baseUrl}/teams/${teamId}/charts`;
 

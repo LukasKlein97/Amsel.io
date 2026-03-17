@@ -123,9 +123,8 @@ export function SolutionsSection() {
             Integration in bestehende Infrastruktur
           </h2>
           <p className="mt-4 text-base text-white/80 md:text-lg">
-            amsel.io integriert sich nahtlos in Ihre bestehende
-            IT-Infrastruktur und bietet flexible Lösungen für größere
-            Unternehmen.
+            Amsel.io integriert sich nahtlos in Ihre bestehende IT-Infrastruktur
+            und bietet flexible Lösungen für größere Unternehmen.
           </p>
         </motion.div>
 
