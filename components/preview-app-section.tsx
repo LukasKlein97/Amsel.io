@@ -148,6 +148,42 @@ export function PreviewAppSection() {
             dem Smartphone erfassen und synchronisieren.
           </motion.p>
 
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap items-center gap-4"
+          >
+            <a
+              href="https://apps.apple.com/de/app/ams-cockpit/id6754315457"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-90 hover:opacity-100 transition-opacity"
+              aria-label="AMS Cockpit im App Store herunterladen"
+            >
+              <Image
+                src="/app-store-badge.svg"
+                alt="Im App Store laden"
+                width={120}
+                height={40}
+                className="h-10 w-auto object-contain"
+              />
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=de.ams.cockpit.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-90 hover:opacity-100 transition-opacity"
+              aria-label="AMS Cockpit bei Google Play herunterladen"
+            >
+              <Image
+                src="/google-play-badge.svg"
+                alt="Bei Google Play laden"
+                width={135}
+                height={40}
+                className="h-10 w-auto object-contain"
+              />
+            </a>
+          </motion.div>
+
           <motion.div variants={itemVariants} className="space-y-6">
             {featureItems.map((feature, index) => {
               const Icon = feature.icon;
@@ -210,7 +246,7 @@ export function PreviewAppSection() {
             })}
           </motion.div>
 
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="space-y-6">
             <CTAButtons />
           </motion.div>
         </motion.div>

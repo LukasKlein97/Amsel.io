@@ -8,12 +8,14 @@ const partners = [
     src: "/partner-cyberforum.svg",
     href: "https://www.cyberforum.de/",
     whiteLogo: true,
+    logoSize: "large" as const,
   },
   {
     name: "CyberLab",
     src: "/partner-cyberlab.svg",
     href: "https://www.cyberlab-karlsruhe.de/",
     whiteLogo: true,
+    logoSize: "large" as const,
   },
   {
     name: "STATUS3 academy",
@@ -51,7 +53,11 @@ export function PartnersSection() {
               href={partner.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center justify-center w-48 h-20 opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105 ${
+              className={`flex items-center justify-center opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105 ${
+                "logoSize" in partner && partner.logoSize === "large"
+                  ? "w-64 h-28"
+                  : "w-48 h-20"
+              } ${
                 "whiteLogo" in partner && partner.whiteLogo
                   ? ""
                   : "grayscale hover:grayscale-0"

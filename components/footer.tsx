@@ -1,7 +1,7 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Lock, ShieldCheck, Database } from "lucide-react";
 import { ContactForm } from "./contact-form";
 import { CalendlyWidget } from "./calendly-widget";
 
@@ -70,6 +70,55 @@ export function Footer() {
         {/* Divider */}
         <div className="border-t border-white/10 mb-12"></div>
 
+        {/* Partner Logos & Trust Badges */}
+        <div className="mb-12">
+          <div className="flex flex-col items-center gap-8">
+            {/* 4 Bilder nebeneinander */}
+            <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
+              <Image
+                src="/bawue-logo.png"
+                alt="Baden-Württemberg"
+                width={120}
+                height={48}
+                className="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+              />
+              <Image
+                src="/eu-cofunded.png"
+                alt="Kofinanziert durch die Europäische Union"
+                width={140}
+                height={48}
+                className="h-12 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+              />
+              <Image
+                src="/stripe-wordmark.svg"
+                alt="Stripe"
+                width={76}
+                height={32}
+                className="h-8 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
+              />
+            </div>
+            {/* 256-Bit-SSL, DSGVO-konform & Gehostet in Deutschland */}
+            <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12 text-white/90">
+              <div className="flex items-center gap-2">
+                <Lock className="h-5 w-5 shrink-0" />
+                <span className="text-sm font-medium">
+                  256-Bit-SSL-Verschlüsselung
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="h-5 w-5 shrink-0" />
+                <span className="text-sm font-medium">DSGVO-konform</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Database className="h-5 w-5 shrink-0" />
+                <span className="text-sm font-medium">Gehostet in Deutschland</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 mb-12"></div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-12">
           {/* Company Info */}
           <div>
@@ -88,6 +137,38 @@ export function Footer() {
             <p className="text-orange-50/80 mb-6 leading-relaxed">
               Die Software-Lösung für digitalen Arbeitsschutz
             </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="https://apps.apple.com/de/app/ams-cockpit/id6754315457"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-90 hover:opacity-100 transition-opacity"
+                aria-label="AMS Cockpit im App Store herunterladen"
+              >
+                <Image
+                  src="/app-store-badge.svg"
+                  alt="Im App Store laden"
+                  width={120}
+                  height={40}
+                  className="h-10 w-auto object-contain"
+                />
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=de.ams.cockpit.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-90 hover:opacity-100 transition-opacity"
+                aria-label="AMS Cockpit bei Google Play herunterladen"
+              >
+                <Image
+                  src="/google-play-badge.svg"
+                  alt="Bei Google Play laden"
+                  width={135}
+                  height={40}
+                  className="h-10 w-auto object-contain"
+                />
+              </a>
+            </div>
           </div>
 
           {/* Module */}
