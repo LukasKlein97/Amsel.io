@@ -1,9 +1,11 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { Mail, Phone, MapPin, Lock, ShieldCheck, Database } from "lucide-react";
 import { ContactForm } from "./contact-form";
 import { CalendlyWidget } from "./calendly-widget";
+import { CalInlineBen } from "./cal-inline-ben";
 
 export function Footer() {
   const router = useRouter();
@@ -52,15 +54,37 @@ export function Footer() {
               Kontakt
             </span>
             <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-4">
-              Kontaktieren Sie uns
+              {pathname === "/gemeinnuetzige-vereine"
+                ? "Gemeinnützige Vereine – direkt mit uns"
+                : "Kontaktieren Sie uns"}
             </h2>
             <p className="text-lg text-orange-50/80 max-w-2xl mx-auto">
-              Wählen Sie Ihre bevorzugte Kontaktmethode - senden Sie uns eine
-              Nachricht oder buchen Sie direkt einen Termin.
+              {pathname === "/gemeinnuetzige-vereine" ? (
+                <>
+                  Für den 90-%-Rabatt und Ihre Fragen als gemeinnütziger
+                  Verein buchen Sie hier einen Termin{" "}
+                  <strong className="font-semibold text-orange-100/95">
+                    direkt bei uns
+                  </strong>{" "}
+                  – oder nutzen Sie das Formular.
+                </>
+              ) : (
+                <>
+                  Buchen Sie einen Termin bei{" "}
+                  <strong className="font-semibold text-orange-100/95">
+                    Ben
+                  </strong>{" "}
+                  – oder schreiben Sie uns eine Nachricht.
+                </>
+              )}
             </p>
           </div>
           <div className="max-w-6xl mx-auto space-y-12">
-            <CalendlyWidget />
+            {pathname === "/gemeinnuetzige-vereine" ? (
+              <CalendlyWidget />
+            ) : (
+              <CalInlineBen />
+            )}
             <div className="flex justify-center">
               <ContactForm />
             </div>
@@ -136,6 +160,14 @@ export function Footer() {
             </div>
             <p className="text-orange-50/80 mb-6 leading-relaxed">
               Die Software-Lösung für digitalen Arbeitsschutz
+            </p>
+            <p className="mb-6 text-sm text-orange-50/70">
+              <Link
+                href="/gemeinnuetzige-vereine"
+                className="text-orange-200/90 underline-offset-4 transition-colors hover:text-orange-100 hover:underline"
+              >
+                Gemeinnützige Vereine: 90&nbsp;% Rabatt
+              </Link>
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <a

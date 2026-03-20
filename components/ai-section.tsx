@@ -251,8 +251,8 @@ export function AISection() {
               </h3>
               <p className="text-orange-50 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
                 Sparen Sie wertvolle Zeit bei der Durchführung von
-                Gefährdungsbeurteilungen und Begehungen. Unsere KI unterstützt
-                Sie bei der Identifikation von Risiken und schlägt automatisch
+                Gefährdungsbeurteilungen und Begehungen. Unsere KI schafft Sie
+                bei der Identifikation von Risiken und schlägt automatisch
                 passende Schutzmaßnahmen vor.
               </p>
               <CTAButtons className="justify-center" />

@@ -13,12 +13,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
-const navigationItems = [
+type NavItem =
+  | { name: string; section: string }
+  | { name: string; href: string };
+
+const navigationItems: NavItem[] = [
   { name: "Module", section: "features" },
   { name: "Software", section: "web-app" },
   { name: "KI-Features", section: "ai-section" },
   { name: "Roadmap", section: "roadmap" },
   { name: "Integration", section: "solutions" },
+  { name: "Automotive", href: "/automotive" },
   { name: "Kontakt", section: "contact" },
 ];
 
@@ -82,19 +87,24 @@ export function Header() {
   }, [pathname]);
 
   const scrollToSection = (sectionId: string) => {
-    // If we're not on the main page, navigate to it first
-    if (pathname !== "/") {
-      // Store the section ID in sessionStorage to scroll after navigation
-      sessionStorage.setItem("scrollToSection", sectionId);
-      router.push("/");
-      return;
-    }
-
-    // If we're on the main page, scroll to the section
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      return;
     }
+
+    if (pathname !== "/") {
+      sessionStorage.setItem("scrollToSection", sectionId);
+      router.push("/");
+    }
+  };
+
+  const handleNavItem = (item: NavItem) => {
+    if ("href" in item) {
+      router.push(item.href);
+      return;
+    }
+    scrollToSection(item.section);
   };
 
   const navigateToMainPage = () => {
@@ -159,8 +169,13 @@ export function Header() {
               <motion.button
                 key={item.name}
                 variants={navItem}
-                className="group relative overflow-hidden rounded-full px-3 py-1 transition will-change-transform"
-                onClick={() => scrollToSection(item.section)}
+                className={[
+                  "group relative overflow-hidden rounded-full px-3 py-1 transition will-change-transform",
+                  "href" in item && pathname === item.href
+                    ? "text-orange-200"
+                    : "",
+                ].join(" ")}
+                onClick={() => handleNavItem(item)}
                 whileHover={
                   shouldReduceMotion
                     ? undefined
@@ -241,7 +256,7 @@ export function Header() {
                     key={item.name}
                     className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-left text-base font-medium tracking-wide transition-colors hover:border-white/20 hover:bg-white/10"
                     onClick={() => {
-                      scrollToSection(item.section);
+                      handleNavItem(item);
                       setIsMenuOpen(false);
                     }}
                     initial={{ opacity: 0, x: -10 }}

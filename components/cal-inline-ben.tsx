@@ -10,24 +10,27 @@ declare global {
   }
 }
 
-const GEMEINNUETZIG_EMBED_IFRAME_SRC =
-  "https://app.cal.com/frank-hufnagel/30min/embed";
+const EMBED_IFRAME_SRC =
+  "https://app.cal.eu/benjaminkostrzewa/30min/embed";
 
-function hasCalEuEmbedScriptLoaded(): boolean {
+const INLINE_CONTAINER_ID = "my-cal-inline-ben-30min";
+const CAL_NAMESPACE = "ben30";
+
+function hasForeignCalScriptLoaded(): boolean {
   if (typeof document === "undefined") return false;
   return Array.from(document.scripts).some(
     (s) =>
       /\/embed\/embed\.js/.test(s.src) &&
       s.src.length > 0 &&
-      s.src.includes("cal.eu"),
+      !s.src.includes("cal.eu"),
   );
 }
 
-export function CalendlyWidget() {
+export function CalInlineBen() {
   const [useIframe, setUseIframe] = useState(false);
 
   useEffect(() => {
-    if (hasCalEuEmbedScriptLoaded()) {
+    if (hasForeignCalScriptLoaded()) {
       setUseIframe(true);
       return;
     }
@@ -65,20 +68,20 @@ export function CalendlyWidget() {
           }
           p(cal, ar);
         };
-    })(window, "https://app.cal.com/embed/embed.js", "init");
+    })(window, "https://app.cal.eu/embed/embed.js", "init");
 
-    window.Cal("init", "30min", { origin: "https://app.cal.com" });
+    window.Cal("init", CAL_NAMESPACE, { origin: "https://app.cal.eu" });
 
-    window.Cal.ns["30min"]("inline", {
-      elementOrSelector: "#my-cal-inline-30min",
+    window.Cal.ns[CAL_NAMESPACE]("inline", {
+      elementOrSelector: `#${INLINE_CONTAINER_ID}`,
       config: {
         layout: "month_view",
         useSlotsViewOnSmallScreen: "true",
       },
-      calLink: "frank-hufnagel/30min",
+      calLink: "benjaminkostrzewa/30min",
     });
 
-    window.Cal.ns["30min"]("ui", {
+    window.Cal.ns[CAL_NAMESPACE]("ui", {
       hideEventTypeDetails: false,
       layout: "month_view",
     });
@@ -88,9 +91,9 @@ export function CalendlyWidget() {
     return (
       <div className="w-full overflow-hidden rounded-xl border border-white/10 bg-black/40">
         <iframe
-          title="Termin – 30 Minuten (Gemeinnützige Vereine)"
-          src={GEMEINNUETZIG_EMBED_IFRAME_SRC}
-          className="w-full min-h-[600px] md:h-[850px] border-0"
+          title="Termin mit Ben – 30 Minuten"
+          src={EMBED_IFRAME_SRC}
+          className="h-[min(85vh,900px)] w-full min-h-[600px] border-0"
           allow="camera; microphone; fullscreen; payment; clipboard-write"
         />
       </div>
@@ -100,8 +103,8 @@ export function CalendlyWidget() {
   return (
     <div className="w-full">
       <div
-        id="my-cal-inline-30min"
-        className="w-full min-h-[600px] md:h-[850px] overflow-auto"
+        id={INLINE_CONTAINER_ID}
+        className="h-[min(85vh,900px)] w-full min-h-[600px] overflow-auto"
       />
     </div>
   );
