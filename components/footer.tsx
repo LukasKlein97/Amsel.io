@@ -56,7 +56,9 @@ export function Footer() {
             <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-4">
               {pathname === "/gemeinnuetzige-vereine"
                 ? "Gemeinnützige Vereine – direkt mit uns"
-                : "Kontaktieren Sie uns"}
+                : pathname === "/co-innovation"
+                  ? "Co-Innovation – sprechen Sie uns an"
+                  : "Kontaktieren Sie uns"}
             </h2>
             <p className="text-lg text-orange-50/80 max-w-2xl mx-auto">
               {pathname === "/gemeinnuetzige-vereine" ? (
@@ -67,6 +69,15 @@ export function Footer() {
                     direkt bei uns
                   </strong>{" "}
                   – oder nutzen Sie das Formular.
+                </>
+              ) : pathname === "/co-innovation" ? (
+                <>
+                  Als potenzieller Co-Innovationspartner zum{" "}
+                  <strong className="font-semibold text-orange-100/95">
+                    Innovationsgutschein „Mittelstand trifft Start-ups“
+                  </strong>{" "}
+                  vereinbaren Sie mit Ben einen Termin – oder nutzen Sie das
+                  Formular für eine erste Nachricht.
                 </>
               ) : (
                 <>
@@ -161,13 +172,23 @@ export function Footer() {
             <p className="text-orange-50/80 mb-6 leading-relaxed">
               Die Software-Lösung für digitalen Arbeitsschutz
             </p>
-            <p className="mb-6 text-sm text-orange-50/70">
-              <Link
-                href="/gemeinnuetzige-vereine"
-                className="text-orange-200/90 underline-offset-4 transition-colors hover:text-orange-100 hover:underline"
-              >
-                Gemeinnützige Vereine: 90&nbsp;% Rabatt
-              </Link>
+            <p className="mb-6 space-y-2 text-sm text-orange-50/70">
+              <span className="block">
+                <Link
+                  href="/gemeinnuetzige-vereine"
+                  className="text-orange-200/90 underline-offset-4 transition-colors hover:text-orange-100 hover:underline"
+                >
+                  Gemeinnützige Vereine: 90&nbsp;% Rabatt
+                </Link>
+              </span>
+              <span className="block">
+                <Link
+                  href="/co-innovation"
+                  className="text-orange-200/90 underline-offset-4 transition-colors hover:text-orange-100 hover:underline"
+                >
+                  Co-Innovation: Innovationsgutschein BW
+                </Link>
+              </span>
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <a
