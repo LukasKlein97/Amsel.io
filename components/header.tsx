@@ -195,7 +195,7 @@ export function Header() {
                       : { rotate: 1.2, y: -2, scale: 1.02 }
                   }
                 >
-                  <span className="relative z-10">Branchen</span>
+                  <span className="relative z-10">Lösungen</span>
                   <ChevronDown
                     className="relative z-10 h-3.5 w-3.5 shrink-0 opacity-70"
                     aria-hidden
@@ -343,7 +343,7 @@ export function Header() {
                   }}
                 >
                   <p className="mb-2 px-1 text-xs font-medium uppercase tracking-[0.25em] text-orange-200/85">
-                    Branchen
+                    Lösungen
                   </p>
                   <div className="flex flex-col gap-2">
                     {industryNavItems.map((item) => (
