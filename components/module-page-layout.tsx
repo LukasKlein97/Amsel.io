@@ -34,7 +34,8 @@ export function ModulePageLayout({
   description,
   benefits,
   outcomes,
-  meta: _meta,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- Metadaten werden in der Page definiert
+  meta,
   beta,
 }: ModulePageProps) {
   return (
