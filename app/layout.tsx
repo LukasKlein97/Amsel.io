@@ -106,7 +106,7 @@ const organizationSchema = {
     "@type": "ContactPoint",
     telephone: "+49-2359-2967311",
     contactType: "customer service",
-    email: "info@amsel.io",
+    email: "hallo@amsel.io",
   },
 };
 

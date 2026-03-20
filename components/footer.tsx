@@ -307,7 +307,7 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-orange-200/80" />
                 <span className="hover:text-orange-200 transition-colors">
-                  info@amsel.io
+                  hallo@amsel.io
                 </span>
               </div>
               <div className="flex items-center gap-3">

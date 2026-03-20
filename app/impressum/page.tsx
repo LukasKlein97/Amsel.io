@@ -66,10 +66,10 @@ export default function ImpressumPage() {
                   <br />
                   E-Mail:{" "}
                   <a
-                    href="mailto:info@amsel.io"
+                    href="mailto:hallo@amsel.io"
                     className="text-blue-400 hover:text-blue-300"
                   >
-                    info@amsel.io
+                    hallo@amsel.io
                   </a>
                 </p>
 
