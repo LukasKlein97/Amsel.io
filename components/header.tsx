@@ -138,22 +138,14 @@ export function Header() {
           <div className="relative flex items-center gap-3">
             <button
               onClick={navigateToMainPage}
-              className="group relative flex items-center gap-2 transition hover:opacity-80"
+              className="group relative flex items-center transition hover:opacity-80"
             >
               <Image
-                src="/amsel-vogel.png"
-                alt=""
-                width={36}
-                height={36}
-                className="h-9 w-auto"
-                priority
-              />
-              <Image
-                src="/amsel-schriftzug.png"
+                src="/amsel-header-banner.png"
                 alt="Amsel.io"
-                width={140}
-                height={44}
-                className="h-11 w-auto"
+                width={1000}
+                height={249}
+                className="h-9 w-auto max-h-11 sm:h-10 md:h-11"
                 priority
               />
             </button>
