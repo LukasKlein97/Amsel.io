@@ -2,7 +2,17 @@
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone, MapPin, Lock, ShieldCheck, Database } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Lock,
+  ShieldCheck,
+  Database,
+  Server,
+  Smartphone,
+  Key,
+} from "lucide-react";
 import { ContactForm } from "./contact-form";
 import { CalendlyWidget } from "./calendly-widget";
 import { CalInlineBen } from "./cal-inline-ben";
@@ -63,8 +73,8 @@ export function Footer() {
             <p className="text-lg text-orange-50/80 max-w-2xl mx-auto">
               {pathname === "/gemeinnuetzige-vereine" ? (
                 <>
-                  Für den 90-%-Rabatt und Ihre Fragen als gemeinnütziger
-                  Verein buchen Sie hier einen Termin{" "}
+                  Für den 90-%-Rabatt und Ihre Fragen als gemeinnütziger Verein
+                  buchen Sie hier einen Termin{" "}
                   <strong className="font-semibold text-orange-100/95">
                     direkt bei uns
                   </strong>{" "}
@@ -132,7 +142,7 @@ export function Footer() {
                 className="h-8 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
               />
             </div>
-            {/* 256-Bit-SSL, DSGVO-konform & Gehostet in Deutschland */}
+            {/* Trust Badges: 256-Bit-SSL, DSGVO, Gehostet, EU-DSGVO, ISO, Mobile Apps, SSO */}
             <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12 text-white/90">
               <div className="flex items-center gap-2">
                 <Lock className="h-5 w-5 shrink-0" />
@@ -146,7 +156,26 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Database className="h-5 w-5 shrink-0" />
-                <span className="text-sm font-medium">Gehostet in Deutschland</span>
+                <span className="text-sm font-medium">
+                  Gehostet in Deutschland
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Server className="h-5 w-5 shrink-0" />
+                <span className="text-sm font-medium">
+                  ISO-zertifizierte Rechenzentren
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Smartphone className="h-5 w-5 shrink-0" />
+                <span className="text-sm font-medium">
+                  Geprüfte Mobile Apps
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Key className="h-5 w-5 shrink-0" />
+                <span className="text-sm font-medium">Single Sign-On</span>
               </div>
             </div>
           </div>
@@ -187,6 +216,14 @@ export function Footer() {
                   className="text-orange-200/90 underline-offset-4 transition-colors hover:text-orange-100 hover:underline"
                 >
                   Co-Innovation: Innovationsgutschein BW
+                </Link>
+              </span>
+              <span className="block">
+                <Link
+                  href="/amsel-vs-excel"
+                  className="text-orange-200/90 underline-offset-4 transition-colors hover:text-orange-100 hover:underline"
+                >
+                  Amsel.io vs Excel
                 </Link>
               </span>
             </p>

@@ -27,6 +27,7 @@ const navigationItems: NavItem[] = [
 const industryNavItems = [
   { name: "Automotive", href: "/automotive" },
   { name: "Co-Innovation", href: "/co-innovation" },
+  { name: "Amsel.io vs Excel", href: "/amsel-vs-excel" },
 ] as const;
 
 const navContainer = {
@@ -106,7 +107,9 @@ export function Header() {
   };
 
   const industryNavActive =
-    pathname === "/automotive" || pathname === "/co-innovation";
+    pathname === "/automotive" ||
+    pathname === "/co-innovation" ||
+    pathname === "/amsel-vs-excel";
 
   const navigateToMainPage = () => {
     router.push("/");
@@ -186,7 +189,7 @@ export function Header() {
                 <motion.button
                   variants={navItem}
                   className={[
-                    "group relative flex items-center gap-1 overflow-hidden rounded-full px-3 py-1 transition will-change-transform [&[data-state=open]_.nav-branchen-bg]:opacity-100",
+                    "group relative flex items-center gap-1 overflow-hidden rounded-full px-3 py-1 transition will-change-transform [&[data-state=open]_.nav-image.png-bg]:opacity-100",
                     industryNavActive ? "text-orange-200" : "",
                   ].join(" ")}
                   whileHover={
