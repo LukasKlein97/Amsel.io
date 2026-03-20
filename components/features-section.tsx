@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -25,6 +26,7 @@ const features = [
     description:
       "Gefährdungsbeurteilungen strukturiert erfassen, versionieren und mit individuellen Maßnahmen verzahnen.",
     accent: "Sicherheit",
+    href: "/gefaehrdungsbeurteilungen",
   },
   {
     icon: ClipboardList,
@@ -32,6 +34,7 @@ const features = [
     description:
       "Betriebsanweisungen digital erstellen, verwalten und Mitarbeitern zugänglich machen. Versionierung für eine lückenlose Dokumentation.",
     accent: "Schutz",
+    href: "/betriebsanweisungen",
   },
   {
     icon: CheckCircle,
@@ -39,6 +42,7 @@ const features = [
     description:
       "Mobile Checklisten, Fotodokumentation und Sofortzuweisung von Aufgaben direkt vom Werksgelände.",
     accent: "Mobil",
+    href: "/begehungsprotokolle",
   },
   {
     icon: FileText,
@@ -46,6 +50,7 @@ const features = [
     description:
       "Teamübergreifende Aktionspläne mit Prioritäten, Deadlines und Verantwortlichkeiten für alle Beteiligten.",
     accent: "Koordination",
+    href: "/aktionsplan",
   },
   {
     icon: UserPlus,
@@ -54,6 +59,7 @@ const features = [
       "Besucher und Externe erfassen, verwalten und mit Sicherheitsunterweisungen sowie Zugangsberechtigungen verknüpfen.",
     accent: "Sicherheit",
     beta: true,
+    href: "/besuchermanagement",
   },
   {
     icon: Beaker,
@@ -62,6 +68,7 @@ const features = [
       "Gefahrstoffe revisionssicher verwalten, Sicherheitsdatenblätter synchronisieren und Freigaben steuern.",
     accent: "Dokumentation",
     beta: true,
+    href: "/gefahrstoffmanagement",
   },
 ];
 
@@ -151,7 +158,8 @@ export function ModuleSection() {
                   : { scale: 0.98, transition: { duration: 0.1 } }
               }
             >
-              <Card className="group relative h-full overflow-hidden border border-white/10 bg-white/5 shadow-xl shadow-orange-950/30 backdrop-blur-2xl transition transform-gpu hover:border-orange-200/40 hover:bg-white/10 hover:shadow-orange-700/40">
+              <Link href={feature.href} className="block h-full">
+                <Card className="group relative h-full overflow-hidden border border-white/10 bg-white/5 shadow-xl shadow-orange-950/30 backdrop-blur-2xl transition transform-gpu hover:border-orange-200/40 hover:bg-white/10 hover:shadow-orange-700/40">
                 {feature.beta && (
                   <div className="absolute right-6 top-6 rounded-full border border-amber-400/50 bg-amber-400/30 px-3 py-1 text-xs uppercase tracking-[0.28em] text-amber-200">
                     Beta
@@ -199,6 +207,7 @@ export function ModuleSection() {
                   </CardDescription>
                 </CardContent>
               </Card>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

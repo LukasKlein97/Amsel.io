@@ -33,22 +33,6 @@ export function Footer() {
     router.push("/datenschutz");
   };
 
-  const scrollToModule = () => {
-    // If we're not on the main page, navigate to it first
-    if (pathname !== "/") {
-      // Store the section ID in sessionStorage to scroll after navigation
-      sessionStorage.setItem("scrollToSection", "features");
-      router.push("/");
-      return;
-    }
-
-    // If we're on the main page, scroll to the section
-    const element = document.getElementById("features");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
     <footer className="relative overflow-hidden bg-black text-white py-16">
       {/* Background gradients */}
@@ -191,11 +175,11 @@ export function Footer() {
               onClick={navigateToMainPage}
             >
               <Image
-                src="/amsel-vogel.png"
+                src="/amsel-footer-logo.png"
                 alt="Amsel.io"
                 width={120}
-                height={40}
-                className="h-10 w-auto"
+                height={120}
+                className="h-20 w-auto"
               />
             </div>
             <p className="text-orange-50/80 mb-6 leading-relaxed">
@@ -266,36 +250,52 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-6 text-white">Module</h3>
             <ul className="space-y-3 text-orange-50/80">
               <li>
-                <button
-                  onClick={scrollToModule}
-                  className="hover:text-orange-200 transition-colors text-left"
+                <Link
+                  href="/gefaehrdungsbeurteilungen"
+                  className="hover:text-orange-200 transition-colors"
                 >
                   Gefährdungsbeurteilungen
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={scrollToModule}
-                  className="hover:text-orange-200 transition-colors text-left"
+                <Link
+                  href="/betriebsanweisungen"
+                  className="hover:text-orange-200 transition-colors"
+                >
+                  Betriebsanweisungen
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/begehungsprotokolle"
+                  className="hover:text-orange-200 transition-colors"
                 >
                   Begehungsprotokolle
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={scrollToModule}
-                  className="hover:text-orange-200 transition-colors text-left"
+                <Link
+                  href="/aktionsplan"
+                  className="hover:text-orange-200 transition-colors"
                 >
                   Aktionsplan
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={scrollToModule}
-                  className="hover:text-orange-200 transition-colors text-left"
+                <Link
+                  href="/besuchermanagement"
+                  className="hover:text-orange-200 transition-colors"
                 >
-                  Dokumentenmanagement
-                </button>
+                  Besuchermanagement
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/gefahrstoffmanagement"
+                  className="hover:text-orange-200 transition-colors"
+                >
+                  Gefahrstoffmanagement
+                </Link>
               </li>
             </ul>
           </div>

@@ -145,7 +145,7 @@ export function Header() {
               className="group relative flex items-center transition hover:opacity-80"
             >
               <Image
-                src="/amsel-header-banner.png"
+                src="/amsel-header-logo.png"
                 alt="Amsel.io"
                 width={1000}
                 height={249}

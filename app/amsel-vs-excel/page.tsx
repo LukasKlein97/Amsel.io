@@ -167,7 +167,7 @@ export default function AmselVsExcelPage() {
                 className="overflow-hidden border-white/10 bg-white/[0.04] text-white shadow-lg shadow-orange-950/20 backdrop-blur-sm"
               >
                 <CardHeader className="pb-4">
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-center gap-4">
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-orange-500/10">
                       <item.icon className="h-5 w-5 text-orange-300" />
                     </div>
