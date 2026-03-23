@@ -72,6 +72,7 @@ export default function GefahrstoffmanagementPage() {
       description="Gefahrstoffe und Sicherheitsdatenblätter erfordern Sorgfalt und Nachvollziehbarkeit. Mit Amsel.io verwalten Sie Gefahrstoffe revisionssicher, lassen relevante SDB-Inhalte per KI extrahieren und halten Freigaben und Zuordnungen im Griff. In Entwicklung – mit Fokus auf praktischen Nutzen im Alltag."
       benefits={benefits}
       outcomes={outcomes}
+      heroImage="/images/gefahrstoffmanagement-app-screenshot.png"
       meta={{
         title: "Gefahrstoffmanagement | Amsel.io",
         description:

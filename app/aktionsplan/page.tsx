@@ -72,6 +72,7 @@ export default function AktionsplanPage() {
       description="Maßnahmen aus Begehungen, Gefährdungsbeurteilungen oder Schulungen landen oft in E-Mails, Excel oder im Kopf. Der Aktionsplan von Amsel.io bündelt sie an einem Ort: Zuweisungen, Fristen, Erinnerungen – und alles bleibt für die Beteiligten sichtbar und nachverfolgbar."
       benefits={benefits}
       outcomes={outcomes}
+      heroImage="/images/aktionsplan-app-screenshot.png"
       meta={{
         title: "Aktionsplan | Amsel.io",
         description:

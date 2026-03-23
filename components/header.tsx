@@ -16,13 +16,21 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 type NavItem = { name: string; section: string };
 
 const navigationItems: NavItem[] = [
-  { name: "Module", section: "features" },
   { name: "Software", section: "web-app" },
   { name: "KI-Features", section: "ai-section" },
   { name: "Roadmap", section: "roadmap" },
   { name: "Integration", section: "solutions" },
   { name: "Kontakt", section: "contact" },
 ];
+
+const moduleNavItems = [
+  { name: "Gefährdungsbeurteilungen", href: "/gefaehrdungsbeurteilungen" },
+  { name: "Betriebsanweisungen", href: "/betriebsanweisungen" },
+  { name: "Begehungsprotokolle", href: "/begehungsprotokolle" },
+  { name: "Aktionsplan", href: "/aktionsplan" },
+  { name: "Besuchermanagement", href: "/besuchermanagement" },
+  { name: "Gefahrstoffmanagement", href: "/gefahrstoffmanagement" },
+] as const;
 
 const industryNavItems = [
   { name: "Automotive", href: "/automotive" },
@@ -106,6 +114,8 @@ export function Header() {
     scrollToSection(item.section);
   };
 
+  const moduleNavActive = moduleNavItems.some((item) => pathname === item.href);
+
   const industryNavActive =
     pathname === "/automotive" ||
     pathname === "/co-innovation" ||
@@ -161,6 +171,53 @@ export function Header() {
             initial="hidden"
             animate="visible"
           >
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <motion.button
+                  variants={navItem}
+                  className={[
+                    "group relative flex items-center gap-1 overflow-hidden rounded-full px-3 py-1 transition will-change-transform",
+                    moduleNavActive ? "text-orange-200" : "",
+                  ].join(" ")}
+                  whileHover={
+                    shouldReduceMotion
+                      ? undefined
+                      : { rotate: 1.2, y: -2, scale: 1.02 }
+                  }
+                >
+                  <span className="relative z-10">Module</span>
+                  <ChevronDown
+                    className="relative z-10 h-3.5 w-3.5 shrink-0 opacity-70"
+                    aria-hidden
+                  />
+                  <span className="absolute inset-0 rounded-full bg-white/10 opacity-0 transition group-hover:opacity-100" />
+                  <motion.span
+                    className="absolute inset-x-2 bottom-0 h-[2px] rounded-full bg-orange-400/90"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                  />
+                </motion.button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                align="start"
+                className="min-w-[14rem] border border-white/10 bg-black/95 text-white backdrop-blur-md"
+              >
+                {moduleNavItems.map((item) => (
+                  <DropdownMenuItem
+                    key={item.href}
+                    className={
+                      pathname === item.href
+                        ? "cursor-pointer text-orange-200 focus:bg-white/10 focus:text-orange-100"
+                        : "cursor-pointer text-white focus:bg-white/10 focus:text-white"
+                    }
+                    onSelect={() => router.push(item.href)}
+                  >
+                    {item.name}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             {navigationItems.slice(0, -1).map((item) => (
               <motion.button
                 key={item.name}
@@ -312,6 +369,41 @@ export function Header() {
               style={{ backgroundColor: "#000000" }}
             >
               <div className="flex flex-col gap-4">
+                <motion.div
+                  className="rounded-xl border border-white/10 bg-white/[0.04] px-3 py-3"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    delay: shouldReduceMotion ? 0 : 0,
+                    duration: 0.2,
+                    ease: "easeOut",
+                  }}
+                >
+                  <p className="mb-2 px-1 text-xs font-medium uppercase tracking-[0.25em] text-orange-200/85">
+                    Module
+                  </p>
+                  <div className="flex flex-col gap-2">
+                    {moduleNavItems.map((item) => (
+                      <button
+                        key={item.href}
+                        type="button"
+                        className={[
+                          "rounded-lg border px-4 py-2.5 text-left text-base font-medium tracking-wide transition-colors",
+                          pathname === item.href
+                            ? "border-orange-400/40 bg-orange-500/15 text-orange-100"
+                            : "border-white/10 bg-white/5 text-white hover:border-white/20 hover:bg-white/10",
+                        ].join(" ")}
+                        onClick={() => {
+                          router.push(item.href);
+                          setIsMenuOpen(false);
+                        }}
+                      >
+                        {item.name}
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+
                 {navigationItems.slice(0, -1).map((item, index) => (
                   <motion.button
                     key={item.name}

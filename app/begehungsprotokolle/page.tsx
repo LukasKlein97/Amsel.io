@@ -72,6 +72,7 @@ export default function BegehungsprotokollePage() {
       description="Begehungen sollten dort erfasst werden, wo sie stattfinden: vor Ort. Mit unserer mobilen App und vordefinierten Checklisten erfassen Sie Prüfpunkte, dokumentieren Mängel per Foto und weisen Maßnahmen direkt zu – ohne Medienbrüche und nachträgliches Übertragen."
       benefits={benefits}
       outcomes={outcomes}
+      heroImage="/images/begehungsprotokolle-app-screenshot.png"
       meta={{
         title: "Begehungsprotokolle | Amsel.io",
         description:

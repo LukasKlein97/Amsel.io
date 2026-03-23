@@ -72,6 +72,7 @@ export default function GefaehrdungsbeurteilungenPage() {
       description="Gefährdungsbeurteilungen sind das Rückgrat des Arbeitsschutzes. Mit Amsel.io erfassen Sie Gefährdungsfaktoren strukturiert, nutzen Vorlagen und KI-Vorschläge, dokumentieren den Ist-Zustand inklusive Fotos und verknüpfen alles nahtlos mit Ihrem Aktionsplan."
       benefits={benefits}
       outcomes={outcomes}
+      heroImage="/images/gbu-app-screenshot.png"
       meta={{
         title: "Gefährdungsbeurteilungen | Amsel.io",
         description:

@@ -72,6 +72,7 @@ export default function BesuchermanagementPage() {
       description="Besucher und Externe gehören zum Betriebsalltag – und ihre Erfassung sollte schnell, übersichtlich und datenschutzkonform sein. Mit Amsel.io erfassen Sie Besucher digital, optional über ein Tablet-Terminal, und die Daten werden nach Ablauf einer Frist automatisch gelöscht."
       benefits={benefits}
       outcomes={outcomes}
+      heroImage="/images/besuchermanagement-app-screenshot.png"
       meta={{
         title: "Besuchermanagement | Amsel.io",
         description:

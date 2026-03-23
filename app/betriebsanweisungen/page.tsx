@@ -72,6 +72,7 @@ export default function BetriebsanweisungenPage() {
       description="Betriebsanweisungen gehören zum Alltag des Arbeitsschutzes – und landen oft in verstreuten Ordnern oder E-Mails. Mit Amsel.io verwalten Sie sie zentral, versionieren Änderungen und stellen sie Ihren Mitarbeitern einfach zugänglich – inklusive KI-Unterstützung bei der Erstellung."
       benefits={benefits}
       outcomes={outcomes}
+      heroImage="/images/betriebsanweisungen-app-screenshot.png"
       meta={{
         title: "Betriebsanweisungen | Amsel.io",
         description:

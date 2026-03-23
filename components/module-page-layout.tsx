@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { Header } from "@/components/header";
+import { AnimatedHeroImage } from "@/components/animated-hero-image";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import {
@@ -25,6 +26,7 @@ export type ModulePageProps = {
     canonical: string;
   };
   beta?: boolean;
+  heroImage?: string;
 };
 
 export function ModulePageLayout({
@@ -37,6 +39,7 @@ export function ModulePageLayout({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars -- Metadaten werden in der Page definiert
   meta,
   beta,
+  heroImage,
 }: ModulePageProps) {
   return (
     <div className="min-h-screen bg-black">
@@ -50,41 +53,53 @@ export function ModulePageLayout({
         <div className="absolute -top-32 left-1/2 -z-10 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-orange-500/15 blur-3xl" />
 
         <div className="mx-auto max-w-6xl px-4 pb-20 pt-32 sm:px-6 lg:pt-44">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.35em] text-orange-200/90">
-            <Icon className="h-3.5 w-3.5" aria-hidden />
-            {badge ?? title}
-          </div>
+          <div
+            className={
+              heroImage
+                ? "flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-8"
+                : ""
+            }
+          >
+            <div className={heroImage ? "min-w-0 flex-1" : ""}>
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.35em] text-orange-200/90">
+                <Icon className="h-3.5 w-3.5" aria-hidden />
+                {badge ?? title}
+              </div>
 
-          <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-[3rem]">
-            {title}
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-orange-50/85 md:text-xl">
-            {description}
-          </p>
+              <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-[3rem]">
+                {title}
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg text-orange-50/85 md:text-xl">
+                {description}
+              </p>
 
-          {beta && (
-            <span className="mt-4 inline-flex rounded-full border border-amber-400/50 bg-amber-400/20 px-3 py-1 text-xs uppercase tracking-wider text-amber-200">
-              Beta
-            </span>
-          )}
-
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Button asChild size="lg" className="group">
-              <Link href="#contact">
-                Beratung anfragen
-                <span className="ml-1 inline-block transition-transform duration-300 group-hover:translate-x-0.5">
-                  →
+              {beta && (
+                <span className="mt-4 inline-flex rounded-full border border-amber-400/50 bg-amber-400/20 px-3 py-1 text-xs uppercase tracking-wider text-amber-200">
+                  Beta
                 </span>
-              </Link>
-            </Button>
-            <a
-              href="https://docs.ams-cockpit.de/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-orange-200/90 underline-offset-4 hover:text-orange-100 hover:underline"
-            >
-              Ausführliche Dokumentation →
-            </a>
+              )}
+
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+                <Button asChild size="lg" className="group">
+                  <Link href="#contact">
+                    Beratung anfragen
+                    <span className="ml-1 inline-block transition-transform duration-300 group-hover:translate-x-0.5">
+                      →
+                    </span>
+                  </Link>
+                </Button>
+                <a
+                  href="https://docs.ams-cockpit.de/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-orange-200/90 underline-offset-4 hover:text-orange-100 hover:underline"
+                >
+                  Ausführliche Dokumentation →
+                </a>
+              </div>
+            </div>
+
+            {heroImage && <AnimatedHeroImage src={heroImage} />}
           </div>
         </div>
 
