@@ -42,7 +42,7 @@ export function Footer() {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Contact Section */}
-        <div id="contact" className="mb-16">
+        <div id="contact" className="mb-16 pb-12">
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-200/90 mb-6">
               Kontakt

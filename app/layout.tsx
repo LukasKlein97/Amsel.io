@@ -132,6 +132,37 @@ export default function RootLayout({
           src="https://t.contentsquare.net/uxa/71e3a27cb9f67.js"
           strategy="afterInteractive"
         />
+        <Script id="pipedrive-leadbooster-config" strategy="afterInteractive">
+          {`
+            window.pipedriveLeadboosterConfig = {
+              base: "leadbooster-chat.pipedrive.com",
+              companyId: 14693603,
+              playbookUuid: "e35d02d1-5a0c-49b0-9d2f-e4d362724ff9",
+              version: 2,
+            };
+            (function () {
+              var w = window;
+              if (w.LeadBooster) {
+                console.warn("LeadBooster already exists");
+              } else {
+                w.LeadBooster = {
+                  q: [],
+                  on: function (n, h) {
+                    this.q.push({ t: "o", n: n, h: h });
+                  },
+                  trigger: function (n) {
+                    this.q.push({ t: "t", n: n });
+                  },
+                };
+              }
+            })();
+          `}
+        </Script>
+        <Script
+          src="https://leadbooster-chat.pipedrive.com/assets/loader.js"
+          strategy="afterInteractive"
+          async
+        />
         {children}
       </body>
     </html>
