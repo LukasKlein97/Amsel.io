@@ -112,12 +112,12 @@ export function CoInnovationHero() {
             alt=""
             fill
             priority
-            className="object-cover object-[72%_65%] opacity-[0.26] sm:opacity-[0.32] md:object-[70%_60%]"
+            className="object-cover object-[82%_62%] opacity-[0.48] sm:opacity-[0.54] md:object-[78%_58%] md:opacity-[0.58]"
             sizes="100vw"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black from-[8%] via-black/92 via-45% to-black/35" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-transparent to-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black from-[6%] via-black/75 via-[40%] to-black/5" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
         <div className="absolute inset-0 bg-gradient-to-tr from-orange-950/25 via-transparent to-transparent" />
         {/* Sanfter Fade am unteren Rand in den schwarzen Bereich */}
         <div
