@@ -47,7 +47,7 @@ export default function DatenschutzPage() {
   return (
     <div className="min-h-screen bg-black">
       <Header />
-      <main className="py-16">
+      <main className="pb-16 pt-32 lg:pt-44">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl font-bold text-white mb-8 text-center">
