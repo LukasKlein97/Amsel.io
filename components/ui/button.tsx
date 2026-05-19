@@ -5,20 +5,20 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "group relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-semibold tracking-tight transition-all duration-500 ease-out disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400/70 focus-visible:ring-offset-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0",
+  "group relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-semibold tracking-tight transition-all duration-500 ease-out disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-0 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default: "liquid-button liquid-button--filled text-white",
-        outline: "liquid-button liquid-button--outline text-orange-50",
+        outline: "liquid-button liquid-button--outline text-primary",
         secondary: "liquid-button liquid-button--secondary text-black",
         destructive:
           "rounded-full bg-red-600 text-white shadow-[0_16px_32px_-18px_rgba(220,38,38,0.65)] transition hover:bg-red-500 focus-visible:ring-red-400/70",
         ghost:
-          "rounded-full border border-transparent bg-transparent text-white/80 hover:bg-white/10 focus-visible:ring-white/30",
+          "rounded-full border border-transparent bg-transparent text-foreground/80 hover:bg-orange-50 focus-visible:ring-orange-300/50",
         black:
-          "rounded-full bg-black text-white border border-white/20 hover:bg-zinc-900 shadow-[0_16px_32px_-18px_rgba(0,0,0,0.5)] focus-visible:ring-white/30",
-        link: "text-orange-400 underline-offset-4 hover:underline",
+          "rounded-full bg-foreground text-background border border-foreground/20 hover:bg-foreground/90 shadow-[0_16px_32px_-18px_rgba(0,0,0,0.25)] focus-visible:ring-foreground/30",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-11 px-6 text-sm",

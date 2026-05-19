@@ -85,18 +85,15 @@ export function HeroSection() {
   return (
     <motion.section
       ref={heroRef}
-      className="relative isolate overflow-hidden text-white"
-      style={{ backgroundColor: "#000000" }}
+      className="relative isolate overflow-hidden bg-background text-foreground"
       initial="hidden"
       whileInView="visible"
       viewport={{ amount: 0.3, once: true }}
     >
       {/* Base gradient background - Safari-kompatibel mit fester Basis-Farbe */}
       <div
-        className="absolute inset-0 -z-10"
-        style={{ backgroundColor: "#000000" }}
-      />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-900/20 via-transparent to-black/30" />
+        className="absolute inset-0 -z-10 bg-background" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-100/60 via-transparent to-orange-50/30" />
 
       {/* Top center glow - Orange */}
       <div
@@ -123,7 +120,7 @@ export function HeroSection() {
       />
 
       {/* Radial gradient overlay for smoother blending */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(249,115,22,0.12)_0%,transparent_50%),radial-gradient(circle_at_70%_80%,rgba(234,88,12,0.1)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_20%,rgba(25,159,103,0.12)_0%,transparent_50%),radial-gradient(circle_at_70%_80%,rgba(21,136,88,0.1)_0%,transparent_50%)]" />
 
       <AnimatePresence>
         {isMouseInHero && !shouldReduceMotion && (
@@ -139,7 +136,7 @@ export function HeroSection() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <div className="h-full w-full rounded-full bg-[radial-gradient(circle,_rgba(249,115,22,0.2)_0%,_rgba(249,115,22,0.08)_45%,_transparent_70%)]" />
+            <div className="h-full w-full rounded-full bg-[radial-gradient(circle,_rgba(25,159,103,0.2)_0%,_rgba(25,159,103,0.08)_45%,_transparent_70%)]" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -149,7 +146,7 @@ export function HeroSection() {
           <motion.span
             variants={textReveal}
             custom={0}
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-200/90"
+            className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-700"
           >
             Arbeitssicherheit
           </motion.span>
@@ -157,10 +154,10 @@ export function HeroSection() {
           <motion.h1
             variants={textReveal}
             custom={1}
-            className="text-4xl font-semibold leading-tight tracking-tight text-white md:text-5xl lg:text-[3.2rem]"
+            className="text-4xl font-semibold leading-tight tracking-tight text-foreground md:text-5xl lg:text-[3.2rem]"
           >
             Digitale Arbeitssicherheit,
-            <span className="block text-orange-300">
+            <span className="block text-orange-600">
               die mit Ihrem Unternehmen wächst.
             </span>
           </motion.h1>
@@ -168,7 +165,7 @@ export function HeroSection() {
           <motion.p
             variants={textReveal}
             custom={2}
-            className="max-w-xl text-base text-white/90 md:text-lg"
+            className="max-w-xl text-base text-muted-foreground md:text-lg"
           >
             Wir verbinden smarte Softwaremodule mit Praxiswissen, damit
             Arbeitssicherheit in Produktion, Logistik und Verwaltung lebendig
@@ -229,10 +226,10 @@ export function HeroSection() {
                     : { scale: 0.98, transition: { duration: 0.1 } }
                 }
               >
-                <Card className="group relative overflow-hidden border-white/10 bg-white/5 px-4 py-6 text-white shadow-xl shadow-orange-950/40 backdrop-blur-xl transition transform-gpu hover:border-orange-200/40 hover:bg-white/10 hover:shadow-orange-700/40">
+                <Card className="group relative overflow-hidden border-border bg-card px-4 py-6 text-foreground shadow-xl shadow-orange-200/40 transition transform-gpu hover:border-orange-300 hover:bg-orange-50/60 hover:shadow-orange-300/50">
                   <CardContent className="flex items-start gap-4 px-0">
                     <motion.div
-                      className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-orange-200/40 bg-orange-400/20"
+                      className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-orange-200 bg-orange-100"
                       animate={
                         shouldReduceMotion
                           ? undefined
@@ -252,16 +249,16 @@ export function HeroSection() {
                             }
                       }
                     >
-                      <Icon className="h-6 w-6 shrink-0 text-orange-100" />
+                      <Icon className="h-6 w-6 shrink-0 text-orange-700" />
                     </motion.div>
                     <div className="space-y-2">
-                      <span className="inline-flex items-center rounded-full border border-orange-200/40 bg-orange-400/10 px-2 py-1 text-xs uppercase tracking-[0.28em] text-orange-100">
+                      <span className="inline-flex items-center rounded-full border border-orange-300 bg-orange-100 px-2 py-1 text-xs uppercase tracking-[0.28em] text-orange-800">
                         {card.accent}
                       </span>
-                      <h3 className="text-xl font-semibold text-white">
+                      <h3 className="text-xl font-semibold text-foreground">
                         {card.title}
                       </h3>
-                      <p className="text-sm text-orange-50/80 md:text-base">
+                      <p className="text-sm text-muted-foreground md:text-base">
                         {card.description}
                       </p>
                     </div>

@@ -45,18 +45,18 @@ export default function DatenschutzPage() {
     .replace(/<a/g, '<a style="color: #60a5fa; text-decoration: underline;"');
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       <Header />
       <main className="pb-16 pt-32 lg:pt-44">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl font-bold text-white mb-8 text-center">
+            <h1 className="text-4xl font-bold text-foreground mb-8 text-center">
               Datenschutzerklärung
             </h1>
 
-            <div className="bg-slate-800 rounded-lg p-8 space-y-8 shadow-xl">
+            <div className="bg-card border border-border rounded-lg p-8 space-y-8 shadow-xl">
               <div
-                className="text-gray-300 space-y-4"
+                className="text-muted-foreground space-y-4"
                 dangerouslySetInnerHTML={{ __html: cleanedHtml }}
               />
             </div>

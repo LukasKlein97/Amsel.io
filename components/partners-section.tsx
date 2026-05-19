@@ -7,14 +7,14 @@ const partners = [
     name: "CyberForum",
     src: "/partner-cyberforum.svg",
     href: "https://www.cyberforum.de/",
-    whiteLogo: true,
+    whiteLogo: false,
     logoSize: "large" as const,
   },
   {
     name: "CyberLab",
     src: "/partner-cyberlab.svg",
     href: "https://www.cyberlab-karlsruhe.de/",
-    whiteLogo: true,
+    whiteLogo: false,
     logoSize: "large" as const,
   },
   {
@@ -28,19 +28,19 @@ export function PartnersSection() {
   return (
     <section
       id="partners"
-      className="relative overflow-hidden bg-black py-20 text-white"
+      className="relative overflow-hidden bg-background py-20 text-foreground"
     >
-      <div className="absolute inset-x-0 top-0 -z-10 h-64 bg-[radial-gradient(circle,_rgba(249,115,22,0.12)_0%,_transparent_65%)]" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-64 bg-[radial-gradient(circle,_rgba(25,159,103,0.12)_0%,_transparent_65%)]" />
 
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-200/90 mb-6">
+          <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-700 mb-6">
             Partner
           </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Partner und Kooperationen
           </h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Wir arbeiten mit führenden Organisationen zusammen, um digitalen
             Arbeitsschutz voranzutreiben.
           </p>

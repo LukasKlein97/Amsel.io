@@ -112,23 +112,23 @@ export function CoInnovationHero() {
             alt=""
             fill
             priority
-            className="object-cover object-[82%_62%] opacity-[0.48] sm:opacity-[0.54] md:object-[78%_58%] md:opacity-[0.58]"
+            className="object-cover object-[82%_62%] opacity-[0.35] sm:opacity-[0.4] md:object-[78%_58%] md:opacity-[0.45]"
             sizes="100vw"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black from-[6%] via-black/75 via-[40%] to-black/5" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-orange-950/25 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white from-[6%] via-white/90 via-[40%] to-white/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-white/80" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-orange-100/40 via-transparent to-transparent" />
         {/* Sanfter Fade am unteren Rand in den schwarzen Bereich */}
         <div
-          className="absolute inset-x-0 bottom-0 h-[35vh] min-h-[280px] bg-gradient-to-t from-black via-black/60 to-transparent"
+          className="absolute inset-x-0 bottom-0 h-[35vh] min-h-[280px] bg-gradient-to-t from-background via-background/80 to-transparent"
           aria-hidden
         />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <motion.div
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/25 px-4 py-1 text-xs uppercase tracking-[0.35em] text-orange-200/90 backdrop-blur-[2px]"
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-1 text-xs uppercase tracking-[0.35em] text-orange-700 backdrop-blur-[2px]"
           initial={reduceMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -143,7 +143,7 @@ export function CoInnovationHero() {
         </motion.div>
 
         <motion.h1
-          className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight drop-shadow-[0_2px_24px_rgba(0,0,0,0.65)] md:text-5xl lg:text-[3rem]"
+          className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-foreground md:text-5xl lg:text-[3rem]"
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -157,7 +157,7 @@ export function CoInnovationHero() {
           Start-ups“
         </motion.h1>
         <motion.p
-          className="mt-6 max-w-2xl text-lg text-orange-50/90 drop-shadow-[0_1px_16px_rgba(0,0,0,0.5)] md:text-xl"
+          className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl"
           initial={reduceMotion ? false : { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -168,7 +168,7 @@ export function CoInnovationHero() {
           }}
         >
           Wir suchen{" "}
-          <strong className="font-semibold text-orange-100/95">
+          <strong className="font-semibold text-orange-700">
             Co-Innovationspartner
           </strong>
           , um unsere Software um innovative Funktionalitäten zu erweitern –
@@ -200,7 +200,7 @@ export function CoInnovationHero() {
             asChild
             size="lg"
             variant="outline"
-            className="border-white/25 bg-black/30 text-white backdrop-blur-sm hover:bg-black/45 hover:text-white"
+            className="border-orange-300 bg-white/80 text-foreground backdrop-blur-sm hover:bg-orange-50 hover:text-foreground"
           >
             <a
               href={OFFICIAL_PROGRAM_URL}
@@ -216,16 +216,16 @@ export function CoInnovationHero() {
 
         {/* Das Wichtigste auf einen Blick – auf dem Bildhintergrund */}
         <div className="relative mt-16 w-full space-y-6 lg:mt-24">
-          <h2 className="w-full text-2xl font-semibold tracking-tight drop-shadow-[0_1px_12px_rgba(0,0,0,0.6)] md:text-3xl">
+          <h2 className="w-full text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
             Das Wichtigste auf einen Blick
           </h2>
-          <p className="w-full text-orange-50/80 drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]">
+          <p className="w-full text-muted-foreground">
             Die folgenden Kriterien und Zahlen stammen aus der{" "}
             <a
               href={OFFICIAL_PROGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-orange-200/95 underline-offset-4 hover:text-orange-100 hover:underline"
+              className="text-orange-700 underline-offset-4 hover:text-orange-600 hover:underline"
             >
               Darstellung des Ministeriums für Wirtschaft, Arbeit und Tourismus
               Baden-Württemberg
@@ -236,11 +236,11 @@ export function CoInnovationHero() {
 
           <div className="w-full space-y-6">
             <div>
-              <h3 className="text-xl font-semibold tracking-tight text-white drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)] md:text-2xl">
+              <h3 className="text-xl font-semibold tracking-tight text-foreground md:text-2xl">
                 Wer wird gefördert?
               </h3>
-              <p className="mt-3 text-base leading-relaxed text-orange-50/85 drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)]">
-                <strong className="font-semibold text-orange-100">
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                <strong className="font-semibold text-orange-800">
                   Antragsberechtigt sind kleine und mittlere Unternehmen (KMU)
                   der gewerblichen Wirtschaft oder der Freien Berufe
                 </strong>{" "}
@@ -252,34 +252,34 @@ export function CoInnovationHero() {
               {eligibilityTiles.map((tile) => (
                 <div
                   key={tile.label}
-                  className="flex h-full flex-col rounded-2xl border border-white/10 bg-black/40 backdrop-blur-sm p-4 shadow-lg shadow-black/30 ring-1 ring-orange-400/15 sm:p-5"
+                  className="flex h-full flex-col rounded-2xl border border-border bg-card backdrop-blur-sm p-4 shadow-lg shadow-orange-200/30 ring-1 ring-orange-400/15 sm:p-5"
                 >
                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-orange-400/25 bg-orange-500/15">
                     <tile.icon
-                      className="h-5 w-5 text-orange-200"
+                      className="h-5 w-5 text-orange-600"
                       aria-hidden
                     />
                   </div>
-                  <p className="text-xs font-medium uppercase tracking-wider text-orange-200/85">
+                  <p className="text-xs font-medium uppercase tracking-wider text-orange-700">
                     {tile.label}
                   </p>
-                  <p className="mt-2 text-base font-semibold text-white md:text-lg xl:text-xl">
+                  <p className="mt-2 text-base font-semibold text-foreground md:text-lg xl:text-xl">
                     {tile.value}
                   </p>
-                  <p className="mt-2 text-sm leading-relaxed text-orange-50/75">
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {tile.hint}
                   </p>
                 </div>
               ))}
             </div>
 
-            <p className="w-full rounded-xl border border-orange-400/25 bg-black/50 backdrop-blur-sm px-4 py-3 text-sm leading-relaxed text-orange-50/90 drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]">
-              <strong className="text-orange-100">Zusammenspiel:</strong> Die
+            <p className="w-full rounded-xl border border-orange-200 bg-orange-50/80 backdrop-blur-sm px-4 py-3 text-sm leading-relaxed text-muted-foreground">
+              <strong className="text-orange-800">Zusammenspiel:</strong> Die
               Mitarbeitergrenze (max.&nbsp;250 Vollzeitäquivalente) gilt{" "}
-              <strong className="text-white">zusammen mit</strong> einer der
+              <strong className="text-foreground">zusammen mit</strong> einer der
               beiden finanziellen Obergrenzen im Vorjahr:{" "}
-              <strong className="text-white">entweder</strong> Umsatz bis
-              50&nbsp;Mio.&nbsp;€ <strong className="text-white">oder</strong>{" "}
+              <strong className="text-foreground">entweder</strong> Umsatz bis
+              50&nbsp;Mio.&nbsp;€ <strong className="text-foreground">oder</strong>{" "}
               Bilanzsumme bis 43&nbsp;Mio.&nbsp;€ – jeweils laut
               Programmbeschreibung des Landes.
             </p>
@@ -288,70 +288,70 @@ export function CoInnovationHero() {
 
         {/* Wie hoch ist die Förderung? – auf dem Bildhintergrund */}
         <div className="relative mt-12 space-y-6 lg:mt-16">
-          <Card className="w-full border-orange-400/35 bg-black/50 backdrop-blur-md shadow-xl shadow-orange-950/25 ring-1 ring-orange-400/20">
+          <Card className="w-full border-orange-300 bg-card backdrop-blur-md shadow-xl shadow-orange-200/30 ring-1 ring-orange-400/20">
             <CardHeader className="px-6 pt-6">
               <div className="mb-2 flex h-11 w-11 items-center justify-center rounded-xl border border-orange-400/25 bg-orange-500/15">
-                <Euro className="h-5 w-5 text-orange-200" />
+                <Euro className="h-5 w-5 text-orange-600" />
               </div>
-              <CardTitle className="text-xl text-white">
+              <CardTitle className="text-xl text-foreground">
                 Wie hoch ist die Förderung?
               </CardTitle>
-              <CardDescription className="text-orange-50/80">
+              <CardDescription className="text-muted-foreground">
                 Zuschuss für den Erwerb von Leistungen des Start-ups
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4 px-6 pb-6 text-orange-50/90">
+            <CardContent className="space-y-4 px-6 pb-6 text-muted-foreground">
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-xl border border-white/10 bg-black/35 p-4">
-                  <p className="text-xs font-medium uppercase tracking-wider text-orange-200/80">
+                <div className="rounded-xl border border-border bg-orange-50/60 p-4">
+                  <p className="text-xs font-medium uppercase tracking-wider text-orange-600">
                     Zuschuss
                   </p>
-                  <p className="mt-2 text-2xl font-semibold text-white">
+                  <p className="mt-2 text-2xl font-semibold text-foreground">
                     bis 20.000&nbsp;€
                   </p>
-                  <p className="mt-1 text-sm text-orange-50/75">
+                  <p className="mt-1 text-sm text-muted-foreground">
                     Maximale Förderung pro Vorhaben
                   </p>
                 </div>
-                <div className="rounded-xl border border-white/10 bg-black/35 p-4">
-                  <p className="text-xs font-medium uppercase tracking-wider text-orange-200/80">
+                <div className="rounded-xl border border-border bg-orange-50/60 p-4">
+                  <p className="text-xs font-medium uppercase tracking-wider text-orange-600">
                     Fördersatz
                   </p>
-                  <p className="mt-2 text-2xl font-semibold text-white">
+                  <p className="mt-2 text-2xl font-semibold text-foreground">
                     50&nbsp;%
                   </p>
-                  <p className="mt-1 text-sm text-orange-50/75">
+                  <p className="mt-1 text-sm text-muted-foreground">
                     Anteilige Finanzierung der förderfähigen Kosten
                   </p>
                 </div>
               </div>
-              <p className="rounded-xl border border-white/10 bg-black/35 p-4 text-sm leading-relaxed md:text-base">
-                <strong className="font-semibold text-white">
+              <p className="rounded-xl border border-border bg-orange-50/60 p-4 text-sm leading-relaxed md:text-base">
+                <strong className="font-semibold text-foreground">
                   Was wir über den Gutschein abbilden können:
                 </strong>{" "}
                 Im förderfähigen Vorhaben können wir{" "}
-                <strong className="text-orange-100">
+                <strong className="text-orange-800">
                   eine individuelle, maßgeschneiderte Anpassung
                 </strong>{" "}
                 und/oder die{" "}
-                <strong className="text-orange-100">
+                <strong className="text-orange-800">
                   normalen Software-Lizenzkosten für zwei Jahre
                 </strong>{" "}
                 strukturiert als Leistungen von uns (Start-up) abbilden –
                 abgestimmt auf Ihre Nutzung und im Rahmen der Programmvorgaben.
               </p>
-              <p className="rounded-xl border border-orange-400/30 bg-orange-500/10 p-4 text-base leading-relaxed text-white">
-                <strong className="font-semibold text-white">
+              <p className="rounded-xl border border-orange-300 bg-orange-100/80 p-4 text-base leading-relaxed text-foreground">
+                <strong className="font-semibold text-foreground">
                   Beispiel:
                 </strong>{" "}
                 Projektvolumen{" "}
-                <strong className="text-orange-100">40.000&nbsp;€</strong> →
+                <strong className="text-orange-800">40.000&nbsp;€</strong> →
                 Zuschuss{" "}
-                <strong className="text-orange-100">20.000&nbsp;€</strong>{" "}
+                <strong className="text-orange-800">20.000&nbsp;€</strong>{" "}
                 zurück – die Hälfte der förderfähigen Ausgaben (im Rahmen der
                 Programmregeln).
               </p>
-              <p className="text-sm text-orange-50/70">
+              <p className="text-sm text-muted-foreground">
                 Gefördert werden Kosten für vom Start-up erbrachte
                 Dienstleistungen oder gelieferte Produkte im Rahmen eines
                 innovativen Vorhabens; Details und Antrag über die L-Bank bzw.
@@ -361,30 +361,30 @@ export function CoInnovationHero() {
           </Card>
 
           <p
-            className="w-full rounded-2xl border border-orange-400/40 bg-black/50 px-6 py-5 text-center text-lg font-semibold leading-snug tracking-tight text-white shadow-lg shadow-orange-950/30 ring-1 ring-orange-300/20 backdrop-blur-sm md:px-8 md:py-6 md:text-2xl lg:text-[1.65rem]"
+            className="w-full rounded-2xl border border-orange-300 bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-5 text-center text-lg font-semibold leading-snug tracking-tight text-white shadow-lg shadow-orange-300/40 ring-1 ring-orange-400/30 md:px-8 md:py-6 md:text-2xl lg:text-[1.65rem]"
             role="note"
           >
             Sparen Sie{" "}
-            <strong className="font-semibold text-orange-100">
+            <strong className="font-semibold text-orange-50">
               50&nbsp;%
             </strong>{" "}
             der Kosten und bekommen bis zu{" "}
-            <strong className="font-semibold text-orange-100">
+            <strong className="font-semibold text-orange-50">
               20.000&nbsp;€
             </strong>{" "}
             zurück.
           </p>
 
-          <div className="w-full rounded-2xl border border-white/10 bg-black/50 p-6 shadow-lg shadow-black/20 ring-1 ring-orange-400/15 backdrop-blur-sm md:p-8">
+          <motion.div className="w-full rounded-2xl border border-border bg-card p-6 shadow-lg shadow-orange-200/30 ring-1 ring-orange-400/15 md:p-8">
             <div className="mb-6 flex flex-wrap items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-orange-400/25 bg-orange-500/15">
-                <Route className="h-5 w-5 text-orange-200" aria-hidden />
+                <Route className="h-5 w-5 text-orange-600" aria-hidden />
               </div>
               <div>
-                <h3 className="text-lg font-semibold tracking-tight text-white md:text-xl">
+                <h3 className="text-lg font-semibold tracking-tight text-foreground md:text-xl">
                   Roadmap / Zeitleiste
                 </h3>
-                <p className="mt-0.5 text-sm text-orange-50/75">
+                <p className="mt-0.5 text-sm text-muted-foreground">
                   Von der ersten Abstimmung bis zur Auszahlung
                 </p>
               </div>
@@ -397,7 +397,7 @@ export function CoInnovationHero() {
                 return (
                   <li key={item.step} className="flex gap-4 md:gap-5">
                     <div className="flex flex-col items-center">
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-orange-400/45 bg-orange-500/20 text-sm font-semibold tabular-nums text-orange-100">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-orange-400/45 bg-orange-100 text-sm font-semibold tabular-nums text-orange-800">
                         {item.step}
                       </span>
                       {!isLast ? (
@@ -411,10 +411,10 @@ export function CoInnovationHero() {
                       className={
                         isLast
                           ? "min-w-0 flex-1 pt-1"
-                          : "min-w-0 flex-1 border-b border-white/[0.06] pb-8 pt-1"
+                          : "min-w-0 flex-1 border-b border-border pb-8 pt-1"
                       }
                     >
-                      <p className="text-base font-medium leading-snug text-white md:text-lg">
+                      <p className="text-base font-medium leading-snug text-foreground md:text-lg">
                         {item.text}
                       </p>
                     </div>
@@ -422,7 +422,7 @@ export function CoInnovationHero() {
                 );
               })}
             </ol>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

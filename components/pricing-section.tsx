@@ -85,13 +85,13 @@ export function PricingSection() {
   ];
 
   return (
-    <section id="pricing" className="bg-black py-20">
+    <section id="pricing" className="bg-background py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Transparente Preise
           </h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Wählen Sie den Plan, der am besten zu Ihrem Unternehmen passt. Alle
             Pläne beinhalten unsere Kernfunktionen für digitalen Arbeitsschutz.
           </p>
@@ -101,20 +101,20 @@ export function PricingSection() {
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className="relative border border-white/10 bg-white/10 backdrop-blur-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-white ring-2 ring-orange-400/50 scale-105 flex flex-col h-full"
+              className="relative border border-border bg-card backdrop-blur-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-foreground ring-2 ring-orange-400/50 scale-105 flex flex-col h-full"
             >
               <CardHeader className="text-center">
-                <CardTitle className="text-xl mb-2 text-white">
+                <CardTitle className="text-xl mb-2 text-foreground">
                   {plan.name}
                 </CardTitle>
                 <div className="mb-2">
-                  <div className="text-3xl font-bold text-white">
+                  <div className="text-3xl font-bold text-foreground">
                     {plan.price === "Individuell"
                       ? plan.price
                       : `€${plan.price}`}
                   </div>
                   {plan.period && (
-                    <div className="text-sm text-white/70 mt-0.5">
+                    <div className="text-sm text-muted-foreground mt-0.5">
                       {plan.period}
                     </div>
                   )}
@@ -124,7 +124,7 @@ export function PricingSection() {
                         plan.isEnterprise
                           ? "text-sm"
                           : "text-base font-semibold"
-                      } text-white/70 ${
+                      } text-muted-foreground ${
                         plan.isEnterprise ? "mt-0.5" : "mt-1"
                       }`}
                     >
@@ -134,21 +134,21 @@ export function PricingSection() {
                 </div>
                 <div className="mb-3">
                   {plan.pricePerEmployee && (
-                    <p className="text-xs text-white/70 mt-1">
+                    <p className="text-xs text-muted-foreground mt-1">
                       {plan.pricePerEmployee} pro Mitarbeiter
                     </p>
                   )}
                 </div>
               </CardHeader>
-              <CardContent className="text-white flex flex-col flex-1">
+              <CardContent className="text-foreground flex flex-col flex-1">
                 <ul className="space-y-3 mb-8 flex-1">
                   {plan.features.map((feature, featureIndex) => (
                     <li
                       key={featureIndex}
-                      className="flex items-start text-white/90"
+                      className="flex items-start text-foreground/90"
                     >
                       <Check className="h-4 w-4 text-orange-400 mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-white/90">{feature}</span>
+                      <span className="text-sm text-foreground/90">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -167,7 +167,7 @@ export function PricingSection() {
         </div>
 
         <div className="flex flex-col items-center mt-12">
-          <p className="text-white/70 mb-4">
+          <p className="text-muted-foreground mb-4">
             Unsicher, welcher Plan der richtige ist?
           </p>
           <CTAButtons />

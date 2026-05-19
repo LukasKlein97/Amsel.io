@@ -52,20 +52,17 @@ const partnerBenefits = [
 
 export default function CoInnovationPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       <Header />
-      <main className="relative overflow-hidden bg-black text-white">
+      <main className="relative overflow-hidden bg-background text-foreground">
         <ParallaxBackground />
-        <div
-          className="pointer-events-none absolute inset-0 -z-10"
-          style={{ backgroundColor: "#000000" }}
-        />
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-orange-900/25 via-transparent to-black" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-background" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-orange-100/50 via-transparent to-background" />
         <div className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-orange-500/15 blur-3xl" />
 
         <CoInnovationHero />
 
-        <ScrollReveal className="relative border-y border-white/10 bg-white/[0.03] py-20">
+        <ScrollReveal className="relative border-y border-border bg-muted/30 py-20">
           <FloatingOrb
             className="absolute -left-48 top-1/4 h-[280px] w-[280px] rounded-full bg-orange-600/[0.05] blur-[90px]"
             speed={120}
@@ -73,24 +70,24 @@ export default function CoInnovationPage() {
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-start">
               <ParallaxSection offset={40}>
-                <span className="inline-flex items-center gap-2 rounded-full border border-orange-400/30 bg-orange-500/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-orange-200/95">
+                <span className="inline-flex items-center gap-2 rounded-full border border-orange-400/30 bg-orange-500/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-orange-700">
                   <FileStack className="h-3.5 w-3.5" aria-hidden />
                   Entlastung
                 </span>
                 <h2 className="mt-5 text-2xl font-semibold tracking-tight md:text-3xl">
                   Wir kümmern uns um den Papierkram!
                 </h2>
-                <p className="mt-4 text-lg text-orange-50/85">
+                <p className="mt-4 text-lg text-muted-foreground">
                   Anträge, Förderlogik und formale Anforderungen können
                   zeitraubend sein. Wir unterstützen Sie bei der{" "}
-                  <strong className="font-semibold text-white">
+                  <strong className="font-semibold text-foreground">
                     strukturierten Vorbereitung
                   </strong>{" "}
                   des Vorhabens, der Leistungsbeschreibung und der Abstimmung
                   mit dem Förderrahmen – damit Sie sich auf Inhalt und Nutzen
                   konzentrieren können.
                 </p>
-                <p className="mt-4 text-orange-50/75">
+                <p className="mt-4 text-muted-foreground">
                   Die Entscheidung über die Bewilligung liegt ausschließlich bei
                   der zuständigen Förderinstitution; wir ersetzen keine Rechts-
                   oder Steuerberatung.
@@ -98,25 +95,25 @@ export default function CoInnovationPage() {
               </ParallaxSection>
 
               <ParallaxSection offset={55}>
-              <Card className="border-white/10 bg-black/40 text-white shadow-xl shadow-orange-950/30">
+              <Card className="border-border bg-card text-foreground shadow-xl shadow-orange-200/30">
                 <CardHeader>
-                  <div className="flex items-center gap-2 text-orange-200/90">
+                  <div className="flex items-center gap-2 text-orange-700">
                     <Lightbulb className="h-5 w-5" aria-hidden />
                     <span className="text-sm font-medium uppercase tracking-wide">
                       Warum mit Amsel.io?
                     </span>
                   </div>
-                  <CardTitle className="text-xl text-white">
+                  <CardTitle className="text-xl text-foreground">
                     Co-Innovation mit messbarem Mehrwert
                   </CardTitle>
-                  <CardDescription className="text-orange-50/75">
+                  <CardDescription className="text-muted-foreground">
                     Ihre Praxisanforderungen fließen in Produkt und Roadmap ein
                     – statt Einzelprojekte ohne Anschluss.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4 pt-0">
                   {partnerBenefits.map((line) => (
-                    <div key={line} className="flex gap-3 text-orange-50/90">
+                    <div key={line} className="flex gap-3 text-muted-foreground">
                       <CheckCircle2
                         className="mt-0.5 h-5 w-5 shrink-0 text-orange-400/90"
                         aria-hidden
@@ -135,7 +132,7 @@ export default function CoInnovationPage() {
           <h2 className="text-center text-2xl font-semibold tracking-tight md:text-3xl">
             Werden Sie Co-Innovationspartner
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-orange-50/80">
+          <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">
             Sie sind KMU in Baden-Württemberg und möchten unsere Software mit
             uns weiterentwickeln? Schreiben Sie uns kurz Ihre Branche, ungefähre
             Unternehmensgröße und welche Funktionen oder Prozesse Sie
@@ -154,7 +151,7 @@ export default function CoInnovationPage() {
               asChild
               size="lg"
               variant="outline"
-              className="border-white/25 bg-white/5 text-white hover:bg-white/10 hover:text-white"
+              className="border-orange-300 bg-white text-foreground hover:bg-orange-50 hover:text-foreground"
             >
               <a
                 href={OFFICIAL_PROGRAM_URL}

@@ -66,9 +66,9 @@ export function PreviewAppSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-black py-24 text-white"
+      className="relative overflow-hidden bg-background py-24 text-foreground"
     >
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-900/30 via-black to-black" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-100/50 via-background to-background" />
       <div className="absolute left-[-15%] top-1/2 -z-10 hidden h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-orange-500/15 blur-3xl md:block" />
       <div className="absolute right-[-10%] top-[15%] -z-10 h-[380px] w-[380px] rounded-full bg-orange-400/12 blur-3xl" />
 
@@ -79,7 +79,7 @@ export function PreviewAppSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-120px" }}
-          className="order-1 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-200/90 lg:hidden"
+          className="order-1 inline-flex w-fit items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-700 lg:hidden"
         >
           Mobile Plattform
         </motion.span>
@@ -112,7 +112,7 @@ export function PreviewAppSection() {
               alt="Amsel.io App Screenshot"
               width={484}
               height={1024}
-              className="w-full rounded-[32px] shadow-2xl shadow-orange-950/40"
+              className="w-full rounded-[32px] shadow-2xl shadow-orange-200/50"
               priority
             />
           </motion.div>
@@ -128,7 +128,7 @@ export function PreviewAppSection() {
           {/* Badge - hidden on small screens, shown on large screens */}
           <motion.span
             variants={itemVariants}
-            className="hidden inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-200/90 lg:inline-flex"
+            className="hidden inline-flex w-fit items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-700 lg:inline-flex"
           >
             Mobile Plattform
           </motion.span>
@@ -142,7 +142,7 @@ export function PreviewAppSection() {
 
           <motion.p
             variants={itemVariants}
-            className="max-w-xl text-base text-white/85 md:text-lg"
+            className="max-w-xl text-base text-muted-foreground md:text-lg"
           >
             Gefährdungsbeurteilungen, Begehungsprotokolle und Aktionspläne mit
             dem Smartphone erfassen und synchronisieren.
@@ -190,7 +190,7 @@ export function PreviewAppSection() {
               return (
                 <motion.div
                   key={feature.title}
-                  className="group relative flex gap-5 rounded-2xl border border-white/10 bg-white/5 p-5 shadow-lg shadow-orange-950/30 backdrop-blur-xl transition transform-gpu hover:border-orange-200/40 hover:bg-white/10 hover:shadow-orange-700/40"
+                  className="group relative flex gap-5 rounded-2xl border border-border bg-card p-5 shadow-lg shadow-orange-200/30 transition transform-gpu hover:border-orange-300 hover:bg-orange-50/60 hover:shadow-orange-300/50"
                   whileHover={
                     shouldReduceMotion
                       ? undefined
@@ -207,7 +207,7 @@ export function PreviewAppSection() {
                   }
                 >
                   <motion.div
-                    className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/20 bg-orange-400/30"
+                    className="flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-200 bg-orange-100"
                     animate={
                       shouldReduceMotion
                         ? undefined
@@ -227,17 +227,17 @@ export function PreviewAppSection() {
                           }
                     }
                   >
-                    <Icon className="h-6 w-6 text-white" />
+                    <Icon className="h-6 w-6 text-orange-700" />
                   </motion.div>
 
                   <div className="flex flex-1 flex-col gap-2">
-                    <span className="inline-flex w-fit items-center rounded-full border border-white/30 bg-orange-400/30 px-3 py-1 text-[11px] uppercase tracking-[0.3em] text-white">
+                    <span className="inline-flex w-fit items-center rounded-full border border-orange-300 bg-orange-100 px-3 py-1 text-[11px] uppercase tracking-[0.3em] text-orange-800">
                       {feature.badge}
                     </span>
-                    <h3 className="text-lg font-semibold text-white">
+                    <h3 className="text-lg font-semibold text-foreground">
                       {feature.title}
                     </h3>
-                    <p className="text-sm text-orange-50/85 md:text-base">
+                    <p className="text-sm text-muted-foreground md:text-base">
                       {feature.description}
                     </p>
                   </div>

@@ -86,7 +86,7 @@ export function CalendlyWidget() {
 
   if (useIframe) {
     return (
-      <div className="w-full overflow-hidden rounded-xl border border-white/10 bg-black/40">
+      <div className="w-full overflow-hidden rounded-xl border border-border bg-white/90">
         <iframe
           title="Termin – 30 Minuten (Gemeinnützige Vereine)"
           src={GEMEINNUETZIG_EMBED_IFRAME_SRC}

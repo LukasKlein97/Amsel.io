@@ -111,18 +111,17 @@ const comparisonPoints = [
 
 export default function AmselVsExcelPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       <Header />
-      <main className="relative overflow-hidden text-white">
+      <main className="relative overflow-hidden text-foreground">
         <div
           className="absolute inset-0 -z-10"
-          style={{ backgroundColor: "#000000" }}
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-900/25 via-transparent to-black" />
+      />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-100/50 via-transparent to-background" />
         <div className="absolute -top-32 left-1/2 -z-10 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-orange-500/15 blur-3xl" />
 
         <div className="mx-auto max-w-6xl px-4 pb-20 pt-32 sm:px-6 lg:pt-44">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.35em] text-orange-200/90">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-1 text-xs uppercase tracking-[0.35em] text-orange-700">
             <FileSpreadsheet className="h-3.5 w-3.5" aria-hidden />
             Amsel.io vs Excel
           </div>
@@ -131,7 +130,7 @@ export default function AmselVsExcelPage() {
             Excel vs Amsel.io: Warum spezialisierte Software für
             Arbeitssicherheit sinnvoll ist
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-orange-50/85 md:text-xl">
+          <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
             Viele Unternehmen starten mit Excel und Tabellen für
             Gefährdungsbeurteilungen, Begehungen oder Aktionspläne. Das geht –
             aber es kostet Zeit, Nerven und birgt Risiken. Hier die
@@ -155,7 +154,7 @@ export default function AmselVsExcelPage() {
           <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
             Hauptvorteile im Überblick
           </h2>
-          <p className="mt-3 max-w-2xl text-orange-50/80">
+          <p className="mt-3 max-w-2xl text-muted-foreground">
             Amsel.io ist für digitalen Arbeitsschutz gebaut – von der mobilen
             Begehung bis zur revisionssicheren Dokumentation.
           </p>
@@ -164,15 +163,15 @@ export default function AmselVsExcelPage() {
             {comparisonPoints.map((item) => (
               <Card
                 key={item.title}
-                className="overflow-hidden border-white/10 bg-white/[0.04] text-white shadow-lg shadow-orange-950/20 backdrop-blur-sm"
+                className="overflow-hidden border-border bg-card text-foreground shadow-lg shadow-orange-200/30 backdrop-blur-sm"
               >
                 <CardHeader className="pb-4">
                   <div className="flex items-center gap-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-orange-500/10">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-orange-200 bg-orange-50">
                       <item.icon className="h-5 w-5 text-orange-300" />
                     </div>
                     <div>
-                      <CardTitle className="text-lg text-white">
+                      <CardTitle className="text-lg text-foreground">
                         {item.title}
                       </CardTitle>
                     </div>
@@ -185,24 +184,24 @@ export default function AmselVsExcelPage() {
                       aria-hidden
                     />
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-orange-200/90">
+                      <p className="text-xs font-medium uppercase tracking-wider text-orange-700">
                         Amsel.io
                       </p>
-                      <p className="mt-1 text-sm text-orange-50/90 md:text-base">
+                      <p className="mt-1 text-sm text-muted-foreground md:text-base">
                         {item.amsel}
                       </p>
                     </div>
                   </div>
-                  <div className="flex gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                  <div className="flex gap-3 rounded-xl border border-border bg-muted/40 p-4">
                     <XCircle
-                      className="mt-0.5 h-5 w-5 shrink-0 text-white/40"
+                      className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground/60"
                       aria-hidden
                     />
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-white/50">
+                      <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                         Excel / Tabellen
                       </p>
-                      <p className="mt-1 text-sm text-orange-50/70 md:text-base">
+                      <p className="mt-1 text-sm text-muted-foreground md:text-base">
                         {item.excel}
                       </p>
                     </div>
@@ -214,14 +213,14 @@ export default function AmselVsExcelPage() {
         </div>
 
         {/* Summary Banner */}
-        <div className="border-y border-white/10 bg-white/[0.03] py-20">
+        <div className="border-y border-border bg-muted/30 py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="flex flex-col gap-8 rounded-2xl border border-orange-400/30 bg-gradient-to-br from-orange-500/15 via-black/40 to-black/60 p-8 shadow-xl shadow-orange-950/25 md:flex-row md:items-center md:justify-between">
               <div>
-                <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
+                <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
                   Weniger manuell, mehr fürs Wesentliche
                 </h2>
-                <p className="mt-3 max-w-xl text-orange-50/85">
+                <p className="mt-3 max-w-xl text-muted-foreground">
                   Mit Amsel.io sparen Sie Zeit bei der Erfassung und
                   Nachverfolgung – und haben gleichzeitig eine revisionssichere,
                   zentrale Basis für Audits und behördliche Nachweise.
@@ -242,7 +241,7 @@ export default function AmselVsExcelPage() {
           <h2 className="text-center text-2xl font-semibold tracking-tight md:text-3xl">
             Bereit für den Wechsel von Excel?
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-orange-50/80">
+          <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">
             Wir zeigen Ihnen gern, wie Amsel.io in Ihre bestehenden Prozesse
             passt – und wo Sie am meisten Zeit und Aufwand einsparen.
           </p>

@@ -89,7 +89,7 @@ export function CalInlineBen() {
 
   if (useIframe) {
     return (
-      <div className="w-full overflow-hidden rounded-xl border border-white/10 bg-black/40">
+      <div className="w-full overflow-hidden rounded-xl border border-border bg-white/90">
         <iframe
           title="Termin mit Ben – 30 Minuten"
           src={EMBED_IFRAME_SRC}

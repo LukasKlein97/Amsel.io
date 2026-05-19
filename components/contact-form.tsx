@@ -8,10 +8,10 @@ const PIPEDRIVE_WEBFORM_URL =
 export function ContactForm() {
   return (
     <div className="max-w-md w-full">
-      <h3 className="text-lg font-semibold mb-4 text-white">
+      <h3 className="text-lg font-semibold mb-4 text-foreground">
         Kontaktieren Sie uns
       </h3>
-      <p className="text-orange-50/80 mb-6">
+      <p className="text-muted-foreground mb-6">
         Senden Sie uns eine Nachricht und wir melden uns zeitnah bei Ihnen.
       </p>
       <div

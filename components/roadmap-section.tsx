@@ -200,9 +200,9 @@ export function RoadmapSection() {
   return (
     <section
       id="roadmap"
-      className="relative overflow-hidden bg-black py-24 text-white"
+      className="relative overflow-hidden bg-background py-24 text-foreground"
     >
-      <div className="absolute inset-x-0 top-[-20%] -z-10 h-[480px] bg-[radial-gradient(circle,_rgba(249,115,22,0.2)_0%,_transparent_65%)]" />
+      <div className="absolute inset-x-0 top-[-20%] -z-10 h-[480px] bg-[radial-gradient(circle,_rgba(25,159,103,0.2)_0%,_transparent_65%)]" />
       <div className="absolute bottom-0 left-1/2 -z-10 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl" />
       <div className="absolute right-[-10%] top-[30%] -z-10 h-[280px] w-[280px] rounded-full bg-orange-400/10 blur-3xl" />
 
@@ -214,16 +214,16 @@ export function RoadmapSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ type: "spring" as const, stiffness: 180, damping: 26 }}
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-200/90">
+          <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-700">
             Roadmap
           </span>
           <div className="mt-6 flex items-center justify-center gap-4">
-            <Calendar className="h-10 w-10 text-orange-300" />
+            <Calendar className="h-10 w-10 text-orange-600" />
             <h2 className="text-3xl font-semibold leading-tight md:text-4xl">
               Module & Roadmap
             </h2>
           </div>
-          <p className="mt-4 text-base text-white/80 md:text-lg">
+          <p className="mt-4 text-base text-muted-foreground md:text-lg">
             Die Roadmap zeigt umgesetzte sowie geplante Features und Module –
             von den ersten Releases bis zu den kommenden Quartalen.
           </p>
@@ -255,9 +255,9 @@ export function RoadmapSection() {
                       }}
                       className="flex items-center gap-3 md:justify-end"
                     >
-                      <div className="absolute left-8 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-black bg-orange-400 shadow-lg shadow-orange-500/50 md:left-auto md:right-0 md:translate-x-1/2" />
-                      <div className="ml-12 rounded-lg border border-orange-200/30 bg-orange-400/20 px-4 py-2 backdrop-blur-sm md:ml-0 md:mr-12">
-                        <span className="text-sm font-semibold text-orange-100">
+                      <div className="absolute left-8 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-background bg-orange-500 shadow-lg shadow-orange-500/50 md:left-auto md:right-0 md:translate-x-1/2" />
+                      <div className="ml-12 rounded-lg border border-orange-200 bg-orange-100 px-4 py-2 md:ml-0 md:mr-12">
+                        <span className="text-sm font-semibold text-orange-800">
                           {quarterGroup.quarter}
                         </span>
                       </div>
@@ -295,7 +295,7 @@ export function RoadmapSection() {
                               : { scale: 0.98, transition: { duration: 0.1 } }
                           }
                         >
-                          <Card className="group relative h-full overflow-hidden border border-white/10 bg-white/5 shadow-lg shadow-orange-950/30 backdrop-blur-xl transition transform-gpu hover:border-orange-200/40 hover:bg-white/10 hover:shadow-orange-700/40">
+                          <Card className="group relative h-full overflow-hidden border border-border bg-card shadow-lg shadow-orange-200/30 transition transform-gpu hover:border-orange-300 hover:bg-orange-50/60 hover:shadow-orange-300/50">
                             <CardContent className="p-5">
                               <div className="flex items-start gap-3">
                                 <motion.div
@@ -321,21 +321,21 @@ export function RoadmapSection() {
                                         }
                                   }
                                 >
-                                  <Clock className="h-4 w-4 text-orange-200" />
+                                  <Clock className="h-4 w-4 text-orange-700" />
                                 </motion.div>
                                 <div className="flex-1">
-                                  <h3 className="text-base font-semibold text-white">
+                                  <h3 className="text-base font-semibold text-foreground">
                                     {roadmapItem.title}
                                   </h3>
                                   {roadmapItem.description && (
-                                    <p className="mt-2 text-sm text-white/70">
+                                    <p className="mt-2 text-sm text-muted-foreground">
                                       {roadmapItem.description}
                                     </p>
                                   )}
                                   {roadmapItem.implemented && (
                                     <div className="mt-4">
                                       <span
-                                        className="inline-flex items-center gap-1.5 rounded-md border border-orange-200/30 bg-orange-400/20 px-2.5 py-1 text-xs font-medium text-orange-200"
+                                        className="inline-flex items-center gap-1.5 rounded-md border border-orange-200 bg-orange-100 px-2.5 py-1 text-xs font-medium text-orange-800"
                                         title="Umgesetzt"
                                       >
                                         Bereits in der Software ✓

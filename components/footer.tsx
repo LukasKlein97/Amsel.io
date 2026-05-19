@@ -34,9 +34,9 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-black text-white py-16">
+    <footer className="relative overflow-hidden bg-background text-foreground py-16">
       {/* Background gradients */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-900/15 via-black to-black" />
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-50/80 via-background to-background" />
       <div className="absolute top-0 left-1/2 -z-10 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl" />
       <div className="absolute bottom-0 right-0 -z-10 h-96 w-96 translate-x-1/3 bg-orange-400/5 blur-3xl" />
 
@@ -44,22 +44,22 @@ export function Footer() {
         {/* Contact Section */}
         <div id="contact" className="mb-16 pb-12">
           <div className="text-center mb-12">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-200/90 mb-6">
+            <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-700 mb-6">
               Kontakt
             </span>
-            <h2 className="text-3xl lg:text-4xl font-semibold text-white mb-4">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-foreground mb-4">
               {pathname === "/gemeinnuetzige-vereine"
                 ? "Gemeinnützige Vereine – direkt mit uns"
                 : pathname === "/co-innovation"
                   ? "Co-Innovation – sprechen Sie uns an"
                   : "Kontaktieren Sie uns"}
             </h2>
-            <p className="text-lg text-orange-50/80 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               {pathname === "/gemeinnuetzige-vereine" ? (
                 <>
                   Für den 90-%-Rabatt und Ihre Fragen als gemeinnütziger Verein
                   buchen Sie hier einen Termin{" "}
-                  <strong className="font-semibold text-orange-100/95">
+                  <strong className="font-semibold text-orange-700">
                     direkt bei uns
                   </strong>{" "}
                   – oder nutzen Sie das Formular.
@@ -67,7 +67,7 @@ export function Footer() {
               ) : pathname === "/co-innovation" ? (
                 <>
                   Als potenzieller Co-Innovationspartner zum{" "}
-                  <strong className="font-semibold text-orange-100/95">
+                  <strong className="font-semibold text-orange-700">
                     Innovationsgutschein „Mittelstand trifft Start-ups“
                   </strong>{" "}
                   vereinbaren Sie mit Ben einen Termin – oder nutzen Sie das
@@ -76,7 +76,7 @@ export function Footer() {
               ) : (
                 <>
                   Buchen Sie einen Termin bei{" "}
-                  <strong className="font-semibold text-orange-100/95">
+                  <strong className="font-semibold text-orange-700">
                     Ben
                   </strong>{" "}
                   – oder schreiben Sie uns eine Nachricht.
@@ -97,7 +97,7 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/10 mb-12"></div>
+        <div className="border-t border-border mb-12"></div>
 
         {/* Partner Logos & Trust Badges */}
         <div className="mb-12">
@@ -127,7 +127,7 @@ export function Footer() {
               />
             </div>
             {/* Trust Badges: 256-Bit-SSL, DSGVO, Gehostet, EU-DSGVO, ISO, Mobile Apps, SSO */}
-            <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12 text-white/90">
+            <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12 text-foreground/90">
               <div className="flex items-center gap-2">
                 <Lock className="h-5 w-5 shrink-0" />
                 <span className="text-sm font-medium">
@@ -165,7 +165,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mb-12"></div>
+        <div className="border-t border-border mb-12"></div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-12">
           {/* Company Info */}
@@ -175,21 +175,21 @@ export function Footer() {
               onClick={navigateToMainPage}
             >
               <Image
-                src="/amsel-footer-logo.png"
-                alt="Amsel.io"
-                width={120}
-                height={120}
-                className="h-20 w-auto"
+                src="/ams-go-logo.png"
+                alt="AMS GO"
+                width={1024}
+                height={263}
+                className="h-12 w-auto sm:h-14"
               />
             </div>
-            <p className="text-orange-50/80 mb-6 leading-relaxed">
+            <p className="text-muted-foreground mb-6 leading-relaxed">
               Die Software-Lösung für digitalen Arbeitsschutz
             </p>
-            <p className="mb-6 space-y-2 text-sm text-orange-50/70">
+            <p className="mb-6 space-y-2 text-sm text-muted-foreground">
               <span className="block">
                 <Link
                   href="/gemeinnuetzige-vereine"
-                  className="text-orange-200/90 underline-offset-4 transition-colors hover:text-orange-100 hover:underline"
+                  className="text-orange-700 underline-offset-4 transition-colors hover:text-orange-600 hover:underline"
                 >
                   Gemeinnützige Vereine: 90&nbsp;% Rabatt
                 </Link>
@@ -197,7 +197,7 @@ export function Footer() {
               <span className="block">
                 <Link
                   href="/co-innovation"
-                  className="text-orange-200/90 underline-offset-4 transition-colors hover:text-orange-100 hover:underline"
+                  className="text-orange-700 underline-offset-4 transition-colors hover:text-orange-600 hover:underline"
                 >
                   Co-Innovation: Innovationsgutschein BW
                 </Link>
@@ -205,7 +205,7 @@ export function Footer() {
               <span className="block">
                 <Link
                   href="/amsel-vs-excel"
-                  className="text-orange-200/90 underline-offset-4 transition-colors hover:text-orange-100 hover:underline"
+                  className="text-orange-700 underline-offset-4 transition-colors hover:text-orange-600 hover:underline"
                 >
                   Amsel.io vs Excel
                 </Link>
@@ -247,12 +247,12 @@ export function Footer() {
 
           {/* Module */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Module</h3>
-            <ul className="space-y-3 text-orange-50/80">
+            <h3 className="text-lg font-semibold mb-6 text-foreground">Module</h3>
+            <ul className="space-y-3 text-muted-foreground">
               <li>
                 <Link
                   href="/gefaehrdungsbeurteilungen"
-                  className="hover:text-orange-200 transition-colors"
+                  className="hover:text-orange-600 transition-colors"
                 >
                   Gefährdungsbeurteilungen
                 </Link>
@@ -260,7 +260,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/betriebsanweisungen"
-                  className="hover:text-orange-200 transition-colors"
+                  className="hover:text-orange-600 transition-colors"
                 >
                   Betriebsanweisungen
                 </Link>
@@ -268,7 +268,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/begehungsprotokolle"
-                  className="hover:text-orange-200 transition-colors"
+                  className="hover:text-orange-600 transition-colors"
                 >
                   Begehungsprotokolle
                 </Link>
@@ -276,7 +276,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/aktionsplan"
-                  className="hover:text-orange-200 transition-colors"
+                  className="hover:text-orange-600 transition-colors"
                 >
                   Aktionsplan
                 </Link>
@@ -284,7 +284,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/besuchermanagement"
-                  className="hover:text-orange-200 transition-colors"
+                  className="hover:text-orange-600 transition-colors"
                 >
                   Besuchermanagement
                 </Link>
@@ -292,7 +292,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/gefahrstoffmanagement"
-                  className="hover:text-orange-200 transition-colors"
+                  className="hover:text-orange-600 transition-colors"
                 >
                   Gefahrstoffmanagement
                 </Link>
@@ -302,23 +302,23 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Kontakt</h3>
-            <div className="space-y-4 text-orange-50/80">
+            <h3 className="text-lg font-semibold mb-6 text-foreground">Kontakt</h3>
+            <div className="space-y-4 text-muted-foreground">
               <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-orange-200/80" />
-                <span className="hover:text-orange-200 transition-colors">
+                <Mail className="h-5 w-5 text-orange-600" />
+                <span className="hover:text-orange-600 transition-colors">
                   hallo@amsel.io
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-orange-200/80" />
-                <span className="hover:text-orange-200 transition-colors">
+                <Phone className="h-5 w-5 text-orange-600" />
+                <span className="hover:text-orange-600 transition-colors">
                   +49 2359 2967311
                 </span>
               </div>
               <div className="flex items-center gap-3">
-                <MapPin className="h-5 w-5 text-orange-200/80" />
-                <span className="hover:text-orange-200 transition-colors">
+                <MapPin className="h-5 w-5 text-orange-600" />
+                <span className="hover:text-orange-600 transition-colors">
                   Wolzenburg 2
                   <br />
                   58566 Kierspe
@@ -329,22 +329,22 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-orange-50/60 text-sm">
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-muted-foreground text-sm">
           <p>&copy; 2026 Amsel.io GmbH. Alle Rechte vorbehalten.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <button
               onClick={navigateToImpressum}
-              className="hover:text-orange-200 transition-colors cursor-pointer"
+              className="hover:text-orange-600 transition-colors cursor-pointer"
             >
               Impressum
             </button>
             <button
               onClick={navigateToDatenschutz}
-              className="hover:text-orange-200 transition-colors cursor-pointer"
+              className="hover:text-orange-600 transition-colors cursor-pointer"
             >
               Datenschutz
             </button>
-            <a href="#" className="hover:text-orange-200 transition-colors">
+            <a href="#" className="hover:text-orange-600 transition-colors">
               AGB
             </a>
           </div>

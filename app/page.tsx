@@ -14,7 +14,7 @@ import { Analytics } from "@vercel/analytics/next";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       <Header />
       <main>
         <Analytics />

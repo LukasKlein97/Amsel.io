@@ -92,7 +92,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Amsel.io GmbH",
   url: "https://Amsel.io",
-  logo: "https://Amsel.io/amsel-bund.png",
+  logo: "https://Amsel.io/ams-go-logo.png",
   description:
     "Digitale Arbeitssicherheit mit smarten Softwaremodulen für Unternehmen.",
   address: {

@@ -13,19 +13,19 @@ export const metadata: Metadata = {
 
 export default function ImpressumPage() {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-background">
       <Header />
       <main className="pb-16 pt-32 lg:pt-44">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl font-bold text-white mb-8 text-center">
+            <h1 className="text-4xl font-bold text-foreground mb-8 text-center">
               Impressum
             </h1>
 
-            <div className="bg-slate-800 rounded-lg p-8 space-y-8 shadow-xl">
-              <div className="text-gray-300 space-y-4">
+            <div className="bg-card border border-border rounded-lg p-8 space-y-8 shadow-xl">
+              <div className="text-muted-foreground space-y-4">
                 <p className="text-lg">
-                  <strong className="text-white">Amsel.io GmbH</strong>
+                  <strong className="text-foreground">Amsel.io GmbH</strong>
                   <br />
                   Wolzenburg 2
                   <br />
@@ -33,12 +33,12 @@ export default function ImpressumPage() {
                 </p>
 
                 <p className="text-lg">
-                  <strong className="text-white">Vertreten durch:</strong>
+                  <strong className="text-foreground">Vertreten durch:</strong>
                   <br />
                   Kim Marius Gräfe
                 </p>
 
-                <h2 className="text-2xl font-semibold text-white mt-8 mb-4">
+                <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">
                   Handelsregister
                 </h2>
                 <p className="text-lg">
@@ -47,7 +47,7 @@ export default function ImpressumPage() {
                   Registergericht: Amtsgericht Iserlohn
                 </p>
 
-                <h2 className="text-2xl font-semibold text-white mt-8 mb-4">
+                <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">
                   Umsatzsteuer
                 </h2>
                 <p className="text-lg">
@@ -58,7 +58,7 @@ export default function ImpressumPage() {
                   </span>
                 </p>
 
-                <h2 className="text-2xl font-semibold text-white mt-8 mb-4">
+                <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">
                   Kontakt
                 </h2>
                 <p className="text-lg">
@@ -73,7 +73,7 @@ export default function ImpressumPage() {
                   </a>
                 </p>
 
-                <h2 className="text-2xl font-semibold text-white mt-8 mb-4">
+                <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">
                   EU-Streitschlichtung
                 </h2>
                 <p className="text-lg">
@@ -92,7 +92,7 @@ export default function ImpressumPage() {
                   Unsere E-Mail-Adresse finden Sie oben im Impressum.
                 </p>
 
-                <h2 className="text-2xl font-semibold text-white mt-8 mb-4">
+                <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">
                   Verbraucherstreitbeilegung/Universalschlichtungsstelle
                 </h2>
                 <p className="text-lg">
