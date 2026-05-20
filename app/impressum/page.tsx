@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Impressum",
-  description: "Impressum der Amsel.io GmbH",
+  description: "Impressum der AMS Go GmbH",
   robots: {
     index: false,
     follow: true,
@@ -25,17 +25,23 @@ export default function ImpressumPage() {
             <div className="bg-card border border-border rounded-lg p-8 space-y-8 shadow-xl">
               <div className="text-muted-foreground space-y-4">
                 <p className="text-lg">
-                  <strong className="text-foreground">Amsel.io GmbH</strong>
+                  <strong className="text-foreground">AMS Go GmbH</strong>
                   <br />
-                  Wolzenburg 2
+                  Alter Schlachthof 33
                   <br />
-                  58566 Kierspe
+                  76131 Karlsruhe
                 </p>
 
                 <p className="text-lg">
                   <strong className="text-foreground">Vertreten durch:</strong>
                   <br />
                   Kim Marius Gräfe
+                  <br />
+                  Benjamin Kostrzewa
+                  <br />
+                  Lukas Klein
+                  <br />
+                  Frank Hufnagel
                 </p>
 
                 <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">
@@ -66,10 +72,10 @@ export default function ImpressumPage() {
                   <br />
                   E-Mail:{" "}
                   <a
-                    href="mailto:hallo@amsel.io"
+                    href="mailto:hallo@amsgo.de"
                     className="text-blue-400 hover:text-blue-300"
                   >
-                    hallo@amsel.io
+                    hallo@amsgo.de
                   </a>
                 </p>
 
@@ -89,7 +95,7 @@ export default function ImpressumPage() {
                   </a>
                   .
                   <br />
-                  Unsere E-Mail-Adresse finden Sie oben im Impressum.
+                  Unsere E-Mail-Adresse findest du oben im Impressum.
                 </p>
 
                 <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">

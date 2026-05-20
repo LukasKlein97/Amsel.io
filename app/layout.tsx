@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://Amsel.io"),
   title: {
-    default: "Amsel.io - Digitale Arbeitssicherheit für Unternehmen",
-    template: "%s | Amsel.io ",
+    default: "AMS Go - Digitale Arbeitssicherheit für Unternehmen",
+    template: "%s | AMS Go ",
   },
   description:
     "Digitale Arbeitssicherheit mit smarten Softwaremodulen. Mobile Begehungen, Compliance-Management und KI-gestützte Auswertungen für Produktion, Logistik und Verwaltung.",
@@ -28,11 +28,11 @@ export const metadata: Metadata = {
     "Arbeitsschutz Software",
     "Sicherheitsmanagement",
     "Mobile Begehungen",
-    "Amsel.io",
+    "AMS Go",
   ],
-  authors: [{ name: "Amsel.io GmbH" }],
-  creator: "Amsel.io GmbH",
-  publisher: "Amsel.io GmbH",
+  authors: [{ name: "AMS Go GmbH" }],
+  creator: "AMS Go GmbH",
+  publisher: "AMS Go GmbH",
   formatDetection: {
     email: false,
     address: false,
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_DE",
     url: "https://Amsel.io",
-    siteName: "Amsel.io ",
-    title: "Amsel.io - Digitale Arbeitssicherheit für Unternehmen",
+    siteName: "AMS Go ",
+    title: "AMS Go - Digitale Arbeitssicherheit für Unternehmen",
     description:
       "Digitale Arbeitssicherheit mit smarten Softwaremodulen. Mobile Begehungen, Compliance-Management und KI-gestützte Auswertungen.",
     images: [
@@ -51,13 +51,13 @@ export const metadata: Metadata = {
         url: "/images/web.png",
         width: 1200,
         height: 630,
-        alt: "Amsel.io - Digitale Arbeitssicherheit",
+        alt: "AMS Go - Digitale Arbeitssicherheit",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amsel.io - Digitale Arbeitssicherheit",
+    title: "AMS Go - Digitale Arbeitssicherheit",
     description:
       "Digitale Arbeitssicherheit mit smarten Softwaremodulen für Unternehmen.",
     images: ["/images/web.png"],
@@ -75,12 +75,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", rel: "shortcut icon" },
+      { url: "/favicon/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon/favicon.ico", rel: "shortcut icon" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
-    other: [{ rel: "manifest", url: "/site.webmanifest" }],
+    apple: [{ url: "/favicon/apple-touch-icon.png", sizes: "180x180" }],
+    other: [{ rel: "manifest", url: "/favicon/site.webmanifest" }],
   },
   alternates: {
     canonical: "https://Amsel.io",
@@ -90,23 +90,23 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Amsel.io GmbH",
+  name: "AMS Go GmbH",
   url: "https://Amsel.io",
   logo: "https://Amsel.io/ams-go-logo.png",
   description:
     "Digitale Arbeitssicherheit mit smarten Softwaremodulen für Unternehmen.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Wolzenburg 2",
-    addressLocality: "Kierspe",
-    postalCode: "58566",
+    streetAddress: "Alter Schlachthof 33",
+    addressLocality: "Karlsruhe",
+    postalCode: "76131",
     addressCountry: "DE",
   },
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+49-2359-2967311",
     contactType: "customer service",
-    email: "hallo@amsel.io",
+    email: "hallo@amsgo.de",
   },
 };
 

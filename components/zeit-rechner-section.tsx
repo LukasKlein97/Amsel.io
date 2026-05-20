@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Calculator, Clock, TrendingUp, Users } from "lucide-react";
+import { Calculator, Clock, Euro, TrendingUp, Users } from "lucide-react";
 import { CTAButtons } from "@/components/cta-buttons";
 import { motion } from "framer-motion";
 
@@ -35,28 +35,91 @@ const AKTUELLE_LOESUNG = [
 // Pro SiFa: Begehungen, GBUs, Betriebsanweisungen, Sicherheitsdatenblätter
 const BASIS_STUNDEN_PRO_MA = 0.8;
 const BASIS_STUNDEN_PRO_SIFA = 12;
+const DEFAULT_PERSONENTAG_KOSTEN = 650;
 
-function formatHours(hours: number): string {
+type ParsedHours =
+  | { type: "std"; hours: number }
+  | { type: "personentage"; days: number; restHours: number | null };
+
+function parseHours(hours: number): ParsedHours {
   if (hours >= 8) {
-    const personentage = Math.floor(hours / 8);
+    const days = Math.floor(hours / 8);
     const rest = Math.round(hours % 8);
-    const tagLabel = personentage === 1 ? "Personentag" : "Personentage";
-    if (rest === 0) return `${personentage} ${tagLabel}`;
-    return `${personentage} ${tagLabel} ${rest} Std`;
+    const showRest = days <= 10 && rest > 0;
+    return { type: "personentage", days, restHours: showRest ? rest : null };
   }
-  return `${Math.round(hours)} Std`;
+  return { type: "std", hours: Math.round(hours) };
+}
+
+function formatHoursCompact(hours: number): string {
+  const parsed = parseHours(hours);
+  if (parsed.type === "std") return `${parsed.hours} Std`;
+  const label = parsed.days === 1 ? "Personentag" : "Personentage";
+  if (parsed.restHours !== null) {
+    return `${parsed.days} ${label} ${parsed.restHours} Std`;
+  }
+  return `${parsed.days} ${label}`;
+}
+
+function HoursDisplay({ hours }: { hours: number }) {
+  const parsed = parseHours(hours);
+  if (parsed.type === "std") {
+    return (
+      <p className="mt-3 text-3xl font-bold text-foreground md:text-4xl">
+        {parsed.hours} Std
+      </p>
+    );
+  }
+  const label = parsed.days === 1 ? "Personentag" : "Personentage";
+  return (
+    <p className="mt-3 flex flex-wrap items-baseline gap-x-2 gap-y-0">
+      <span className="text-3xl font-bold text-foreground md:text-4xl">
+        {parsed.days}
+      </span>
+      <span className="text-base font-medium text-foreground/90 md:text-lg">
+        {label}
+      </span>
+      {parsed.restHours !== null && (
+        <span className="text-xl font-semibold text-foreground md:text-2xl">
+          {parsed.restHours} Std
+        </span>
+      )}
+    </p>
+  );
+}
+
+function hoursToEuro(hours: number, personentagKosten: number): number {
+  return (hours / 8) * personentagKosten;
+}
+
+function formatEuro(amount: number): string {
+  return new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "EUR",
+    maximumFractionDigits: 0,
+  }).format(amount);
 }
 
 export function ZeitRechnerSection() {
-  const [maDisplay, setMaDisplay] = useState("50");
+  const [maDisplay, setMaDisplay] = useState("200");
   const [sifasDisplay, setSifasDisplay] = useState("2");
   const [branche, setBranche] =
     useState<(typeof BRANCHEN)[number]["value"]>("produktion");
   const [loesung, setLoesung] =
     useState<(typeof AKTUELLE_LOESUNG)[number]["value"]>("excel");
+  const [personentagKostenDisplay, setPersonentagKostenDisplay] = useState(
+    String(DEFAULT_PERSONENTAG_KOSTEN),
+  );
 
   const ma = Math.max(1, Math.min(10000, parseInt(maDisplay, 10) || 1));
   const sifas = Math.max(0, Math.min(100, parseInt(sifasDisplay, 10) || 0));
+  const personentagKosten = Math.max(
+    50,
+    Math.min(
+      5000,
+      parseInt(personentagKostenDisplay, 10) || DEFAULT_PERSONENTAG_KOSTEN,
+    ),
+  );
 
   const berechnung = useMemo(() => {
     const brancheData = BRANCHEN.find((b) => b.value === branche)!;
@@ -70,13 +133,18 @@ export function ZeitRechnerSection() {
     const ersparnisProzent = loesungData.ersparnisProzent;
     const gesparteStunden = basisAufwand * (ersparnisProzent / 100);
 
+    const proJahr = gesparteStunden * 12;
+
     return {
       basisAufwand,
       gesparteStunden,
       ersparnisProzent,
-      proJahr: gesparteStunden * 12,
+      proJahr,
+      gesparteEuroProMonat: hoursToEuro(gesparteStunden, personentagKosten),
+      gesparteEuroProJahr: hoursToEuro(proJahr, personentagKosten),
+      basisAufwandEuro: hoursToEuro(basisAufwand, personentagKosten),
     };
-  }, [ma, sifas, branche, loesung]);
+  }, [ma, sifas, branche, loesung, personentagKosten]);
 
   return (
     <section
@@ -101,13 +169,13 @@ export function ZeitRechnerSection() {
           <div className="mt-6 flex items-center justify-center gap-4">
             <Calculator className="h-10 w-10 text-orange-600" />
             <h2 className="text-3xl font-semibold leading-tight md:text-4xl">
-              Wie viel Zeit spart Amsel.io in Ihrem Betrieb?
+              Wie viel Zeit spart AMS Go in deinem Betrieb?
             </h2>
           </div>
           <p className="mt-4 text-base text-muted-foreground md:text-lg">
             Alles an einem Ort, mobile App ohne Medienbrüche, KI für
             Betriebsanweisungen und GBUs, automatische
-            Sicherheitsdatenblatt-Erfassung – berechnen Sie Ihre potenzielle
+            Sicherheitsdatenblatt-Erfassung – berechne deine potenzielle
             Zeitersparnis.
           </p>
         </motion.div>
@@ -116,9 +184,9 @@ export function ZeitRechnerSection() {
           {/* Eingabefelder */}
           <Card className="lg:col-span-2 border border-border bg-card shadow-xl shadow-orange-200/30">
             <CardHeader>
-              <CardTitle className="text-foreground">Ihre Parameter</CardTitle>
+              <CardTitle className="text-foreground">Deine Parameter</CardTitle>
               <CardDescription className="text-muted-foreground">
-                Passen Sie die Werte an Ihr Unternehmen an.
+                Passe die Werte an dein Unternehmen an.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -164,9 +232,7 @@ export function ZeitRechnerSection() {
                     if (sifasDisplay === "" || isNaN(n)) {
                       setSifasDisplay("0");
                     } else {
-                      setSifasDisplay(
-                        String(Math.max(0, Math.min(100, n)))
-                      );
+                      setSifasDisplay(String(Math.max(0, Math.min(100, n))));
                     }
                   }}
                   className="border-input bg-background text-foreground placeholder:text-muted-foreground"
@@ -214,6 +280,45 @@ export function ZeitRechnerSection() {
                   ))}
                 </select>
               </div>
+              <div className="space-y-2">
+                <Label htmlFor="personentag-kosten" className="text-foreground">
+                  Personentag Kosten
+                </Label>
+                <div className="relative">
+                  <Input
+                    id="personentag-kosten"
+                    type="text"
+                    inputMode="numeric"
+                    value={personentagKostenDisplay}
+                    onChange={(e) => {
+                      const v = e.target.value.replace(/\D/g, "");
+                      setPersonentagKostenDisplay(v);
+                    }}
+                    onBlur={() => {
+                      const n = parseInt(personentagKostenDisplay, 10);
+                      if (personentagKostenDisplay === "" || isNaN(n)) {
+                        setPersonentagKostenDisplay(
+                          String(DEFAULT_PERSONENTAG_KOSTEN),
+                        );
+                      } else {
+                        setPersonentagKostenDisplay(
+                          String(Math.max(50, Math.min(5000, n))),
+                        );
+                      }
+                    }}
+                    className="border-input bg-background pr-10 text-foreground placeholder:text-muted-foreground"
+                  />
+                  <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">
+                    €
+                  </span>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Interner Tagessatz für Arbeitsschutz-Aufgaben{" "}
+                  <span className="whitespace-nowrap">
+                    (Standard: {DEFAULT_PERSONENTAG_KOSTEN}€)
+                  </span>
+                </p>
+              </div>
             </CardContent>
           </Card>
 
@@ -223,11 +328,11 @@ export function ZeitRechnerSection() {
               <CardHeader>
                 <CardTitle className="text-foreground flex items-center gap-2">
                   <TrendingUp className="h-6 w-6 text-orange-300" />
-                  Geschätzte Zeitersparnis
+                  Geschätzte Zeit- & Kostenersparnis
                 </CardTitle>
                 <CardDescription className="text-muted-foreground">
-                  Basierend auf typischen Arbeitsschutz-Prozessen in Ihrer
-                  Branche.
+                  Basierend auf typischen Arbeitsschutz-Prozessen in deiner
+                  Branche ({personentagKosten}€ pro Personentag).
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-8">
@@ -239,8 +344,10 @@ export function ZeitRechnerSection() {
                         Pro Monat
                       </span>
                     </div>
-                    <p className="mt-3 text-3xl font-bold text-foreground md:text-4xl">
-                      {formatHours(berechnung.gesparteStunden)}
+                    <HoursDisplay hours={berechnung.gesparteStunden} />
+                    <p className="mt-2 flex items-center gap-2 text-xl font-semibold text-orange-700">
+                      <Euro className="h-5 w-5 shrink-0" />
+                      {formatEuro(berechnung.gesparteEuroProMonat)}
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground">
                       ca. {berechnung.ersparnisProzent}% weniger Aufwand
@@ -253,8 +360,10 @@ export function ZeitRechnerSection() {
                         Pro Jahr
                       </span>
                     </div>
-                    <p className="mt-3 text-3xl font-bold text-foreground md:text-4xl">
-                      {formatHours(berechnung.proJahr)}
+                    <HoursDisplay hours={berechnung.proJahr} />
+                    <p className="mt-2 flex items-center gap-2 text-xl font-semibold text-orange-700">
+                      <Euro className="h-5 w-5 shrink-0" />
+                      {formatEuro(berechnung.gesparteEuroProJahr)}
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground">
                       für Arbeitsschutz-Aufgaben
@@ -303,10 +412,12 @@ export function ZeitRechnerSection() {
                   <div>
                     <p className="font-medium text-foreground">
                       Aktueller Aufwand ohne AMS: ca.{" "}
-                      {formatHours(berechnung.basisAufwand)} pro Monat
+                      {formatHoursCompact(berechnung.basisAufwand)} pro Monat (
+                      {formatEuro(berechnung.basisAufwandEuro)})
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      Mit Amsel.io reduziert sich dieser Aufwand deutlich.
+                      Mit AMS Go reduziert sich dieser Aufwand deutlich – in
+                      Zeit und Kosten.
                     </p>
                   </div>
                 </div>

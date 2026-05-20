@@ -21,16 +21,16 @@ import {
 
 export const metadata: Metadata = {
   title:
-    "Amsel.io vs Excel – Warum spezialisierte Software für Arbeitssicherheit",
+    "AMS Go vs Excel – Warum spezialisierte Software für Arbeitssicherheit",
   description:
-    "Vergleich: Amsel.io vs Excel für Arbeitssicherheit. Mobile Begehungen, revisionssichere Dokumentation, automatische Zuweisungen und KI – statt verstreuter Tabellen und manueller Nachverfolgung.",
+    "Vergleich: AMS Go vs Excel für Arbeitssicherheit. Mobile Begehungen, revisionssichere Dokumentation, automatische Zuweisungen und KI – statt verstreuter Tabellen und manueller Nachverfolgung.",
   alternates: {
     canonical: "https://Amsel.io/amsel-vs-excel",
   },
   openGraph: {
-    title: "Amsel.io vs Excel | Digitale Arbeitssicherheit",
+    title: "AMS Go vs Excel | Digitale Arbeitssicherheit",
     description:
-      "Hauptvorteile von Amsel.io gegenüber Excel: mobil, revisionssicher, zentral, mit KI – für Ihren Arbeitsschutz.",
+      "Hauptvorteile von AMS Go gegenüber Excel: mobil, revisionssicher, zentral, mit KI – für deinen Arbeitsschutz.",
     url: "https://Amsel.io/amsel-vs-excel",
     locale: "de_DE",
   },
@@ -73,7 +73,7 @@ const comparisonPoints = [
     icon: Shield,
     title: "Speziell für Arbeitssicherheit",
     amsel:
-      "Module für Gefährdungsbeurteilungen, Begehungsprotokolle, Betriebsanweisungen, Gefahrstoffe – von uns auf Ihre Branche abgestimmt.",
+      "Module für Gefährdungsbeurteilungen, Begehungsprotokolle, Betriebsanweisungen, Gefahrstoffe – von uns auf deine Branche abgestimmt.",
     excel:
       "Universelle Tabellen. Jede Liste, jedes Formular muss manuell aufgesetzt und gepflegt werden.",
   },
@@ -123,18 +123,18 @@ export default function AmselVsExcelPage() {
         <div className="mx-auto max-w-6xl px-4 pb-20 pt-32 sm:px-6 lg:pt-44">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-1 text-xs uppercase tracking-[0.35em] text-orange-700">
             <FileSpreadsheet className="h-3.5 w-3.5" aria-hidden />
-            Amsel.io vs Excel
+            AMS Go vs Excel
           </div>
 
           <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-[3rem]">
-            Excel vs Amsel.io: Warum spezialisierte Software für
+            Excel vs AMS Go: Warum spezialisierte Software für
             Arbeitssicherheit sinnvoll ist
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
             Viele Unternehmen starten mit Excel und Tabellen für
             Gefährdungsbeurteilungen, Begehungen oder Aktionspläne. Das geht –
             aber es kostet Zeit, Nerven und birgt Risiken. Hier die
-            Hauptvorteile von Amsel.io.
+            Hauptvorteile von AMS Go.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -155,7 +155,7 @@ export default function AmselVsExcelPage() {
             Hauptvorteile im Überblick
           </h2>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Amsel.io ist für digitalen Arbeitsschutz gebaut – von der mobilen
+            AMS Go ist für digitalen Arbeitsschutz gebaut – von der mobilen
             Begehung bis zur revisionssicheren Dokumentation.
           </p>
 
@@ -185,7 +185,7 @@ export default function AmselVsExcelPage() {
                     />
                     <div>
                       <p className="text-xs font-medium uppercase tracking-wider text-orange-700">
-                        Amsel.io
+                        AMS Go
                       </p>
                       <p className="mt-1 text-sm text-muted-foreground md:text-base">
                         {item.amsel}
@@ -221,7 +221,7 @@ export default function AmselVsExcelPage() {
                   Weniger manuell, mehr fürs Wesentliche
                 </h2>
                 <p className="mt-3 max-w-xl text-muted-foreground">
-                  Mit Amsel.io sparen Sie Zeit bei der Erfassung und
+                  Mit AMS Go sparst du Zeit bei der Erfassung und
                   Nachverfolgung – und haben gleichzeitig eine revisionssichere,
                   zentrale Basis für Audits und behördliche Nachweise.
                 </p>
@@ -242,8 +242,8 @@ export default function AmselVsExcelPage() {
             Bereit für den Wechsel von Excel?
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">
-            Wir zeigen Ihnen gern, wie Amsel.io in Ihre bestehenden Prozesse
-            passt – und wo Sie am meisten Zeit und Aufwand einsparen.
+            Wir zeigen dir gern, wie AMS Go in deine bestehenden Prozesse
+            passt – und wo du am meisten Zeit und Aufwand einsparst.
           </p>
           <div className="mt-8 flex justify-center">
             <Button asChild size="lg">

@@ -10,11 +10,10 @@ declare global {
   }
 }
 
-const EMBED_IFRAME_SRC =
-  "https://app.cal.eu/benjaminkostrzewa/30min/embed";
+const EMBED_IFRAME_SRC = "https://app.cal.com/amscockpit/demo/embed";
 
-const INLINE_CONTAINER_ID = "my-cal-inline-ben-30min";
-const CAL_NAMESPACE = "ben30";
+const INLINE_CONTAINER_ID = "my-cal-inline-demo";
+const CAL_NAMESPACE = "demo";
 
 function hasForeignCalScriptLoaded(): boolean {
   if (typeof document === "undefined") return false;
@@ -22,7 +21,7 @@ function hasForeignCalScriptLoaded(): boolean {
     (s) =>
       /\/embed\/embed\.js/.test(s.src) &&
       s.src.length > 0 &&
-      !s.src.includes("cal.eu"),
+      !s.src.includes("cal.com"),
   );
 }
 
@@ -68,9 +67,9 @@ export function CalInlineBen() {
           }
           p(cal, ar);
         };
-    })(window, "https://app.cal.eu/embed/embed.js", "init");
+    })(window, "https://app.cal.com/embed/embed.js", "init");
 
-    window.Cal("init", CAL_NAMESPACE, { origin: "https://app.cal.eu" });
+    window.Cal("init", CAL_NAMESPACE, { origin: "https://app.cal.com" });
 
     window.Cal.ns[CAL_NAMESPACE]("inline", {
       elementOrSelector: `#${INLINE_CONTAINER_ID}`,
@@ -78,7 +77,7 @@ export function CalInlineBen() {
         layout: "month_view",
         useSlotsViewOnSmallScreen: "true",
       },
-      calLink: "benjaminkostrzewa/30min",
+      calLink: "amscockpit/demo",
     });
 
     window.Cal.ns[CAL_NAMESPACE]("ui", {
@@ -91,7 +90,7 @@ export function CalInlineBen() {
     return (
       <div className="w-full overflow-hidden rounded-xl border border-border bg-white/90">
         <iframe
-          title="Termin mit Ben – 30 Minuten"
+          title="Termin buchen"
           src={EMBED_IFRAME_SRC}
           className="h-[min(85vh,900px)] w-full min-h-[600px] border-0"
           allow="camera; microphone; fullscreen; payment; clipboard-write"

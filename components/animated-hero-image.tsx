@@ -1,21 +1,43 @@
 "use client";
 
+import { type RefObject } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from "framer-motion";
 
 type AnimatedHeroImageProps = {
   src: string;
   alt?: string;
+  targetRef: RefObject<HTMLElement | null>;
+  mirror?: boolean;
 };
 
-export function AnimatedHeroImage({ src, alt = "Screenshot der mobilen App" }: AnimatedHeroImageProps) {
+export function AnimatedHeroImage({
+  src,
+  alt = "Screenshot der mobilen App",
+  targetRef,
+  mirror = false,
+}: AnimatedHeroImageProps) {
   const shouldReduceMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
-    offset: ["start start", "end start"],
+    target: targetRef,
+    offset: ["start end", "end start"],
   });
 
-  const phoneRotateY = useTransform(scrollYProgress, [0, 0.12, 0.35], [0, 45, 75]);
+  const rotateRange = mirror ? [55, 0, -55] : [-55, 0, 55];
+  const phoneRotateY = useTransform(scrollYProgress, [0, 0.5, 1], rotateRange);
+  const phoneOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.25, 0.5, 0.75, 1],
+    [0.5, 1, 1, 1, 0.5],
+  );
+  const phoneScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.94, 1, 0.94]);
+  const phoneY = useTransform(scrollYProgress, [0, 0.5, 1], [24, 0, -24]);
 
   return (
     <div
@@ -29,6 +51,9 @@ export function AnimatedHeroImage({ src, alt = "Screenshot der mobilen App" }: A
             ? undefined
             : {
                 rotateY: phoneRotateY,
+                opacity: phoneOpacity,
+                scale: phoneScale,
+                y: phoneY,
                 transformStyle: "preserve-3d",
               }
         }
@@ -39,7 +64,6 @@ export function AnimatedHeroImage({ src, alt = "Screenshot der mobilen App" }: A
           width={275}
           height={563}
           className="w-full object-contain drop-shadow-2xl"
-          priority
         />
       </motion.div>
     </div>

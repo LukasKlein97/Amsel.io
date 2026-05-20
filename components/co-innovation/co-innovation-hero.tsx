@@ -172,7 +172,7 @@ export function CoInnovationHero() {
             Co-Innovationspartner
           </strong>
           , um unsere Software um innovative Funktionalitäten zu erweitern –
-          maßgeschneidert auf Ihre Anforderungen und die Ihrer Branche. Gefördert
+          maßgeschneidert auf deine Anforderungen und die deiner Branche. Gefördert
           wird die Zusammenarbeit etablierter KMU mit Start-ups über das
           Programm des Landes Baden-Württemberg.
         </motion.p>
@@ -338,7 +338,7 @@ export function CoInnovationHero() {
                   normalen Software-Lizenzkosten für zwei Jahre
                 </strong>{" "}
                 strukturiert als Leistungen von uns (Start-up) abbilden –
-                abgestimmt auf Ihre Nutzung und im Rahmen der Programmvorgaben.
+                abgestimmt auf deine Nutzung und im Rahmen der Programmvorgaben.
               </p>
               <p className="rounded-xl border border-orange-300 bg-orange-100/80 p-4 text-base leading-relaxed text-foreground">
                 <strong className="font-semibold text-foreground">
@@ -364,7 +364,7 @@ export function CoInnovationHero() {
             className="w-full rounded-2xl border border-orange-300 bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-5 text-center text-lg font-semibold leading-snug tracking-tight text-white shadow-lg shadow-orange-300/40 ring-1 ring-orange-400/30 md:px-8 md:py-6 md:text-2xl lg:text-[1.65rem]"
             role="note"
           >
-            Sparen Sie{" "}
+            Spare{" "}
             <strong className="font-semibold text-orange-50">
               50&nbsp;%
             </strong>{" "}

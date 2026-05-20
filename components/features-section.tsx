@@ -25,50 +25,42 @@ const features = [
     title: "Gefährdungsbeurteilungen",
     description:
       "Gefährdungsbeurteilungen strukturiert erfassen, versionieren und mit individuellen Maßnahmen verzahnen.",
-    accent: "Sicherheit",
-    href: "/gefaehrdungsbeurteilungen",
+    href: "/module#gefaehrdungsbeurteilungen",
   },
   {
     icon: ClipboardList,
     title: "Betriebsanweisungen",
     description:
       "Betriebsanweisungen digital erstellen, verwalten und Mitarbeitern zugänglich machen. Versionierung für eine lückenlose Dokumentation.",
-    accent: "Schutz",
-    href: "/betriebsanweisungen",
+    href: "/module#betriebsanweisungen",
   },
   {
     icon: CheckCircle,
     title: "Begehungsprotokolle",
     description:
       "Mobile Checklisten, Fotodokumentation und Sofortzuweisung von Aufgaben direkt vom Werksgelände.",
-    accent: "Mobil",
-    href: "/begehungsprotokolle",
+    href: "/module#begehungsprotokolle",
   },
   {
     icon: FileText,
     title: "Aktionsplan",
     description:
       "Teamübergreifende Aktionspläne mit Prioritäten, Deadlines und Verantwortlichkeiten für alle Beteiligten.",
-    accent: "Koordination",
-    href: "/aktionsplan",
+    href: "/module#aktionsplan",
   },
   {
     icon: UserPlus,
     title: "Besuchermanagement",
     description:
       "Besucher und Externe erfassen, verwalten und mit Sicherheitsunterweisungen sowie Zugangsberechtigungen verknüpfen.",
-    accent: "Sicherheit",
-    beta: true,
-    href: "/besuchermanagement",
+    href: "/module#besuchermanagement",
   },
   {
     icon: Beaker,
     title: "Gefahrstoffmanagement",
     description:
       "Gefahrstoffe revisionssicher verwalten, Sicherheitsdatenblätter synchronisieren und Freigaben steuern.",
-    accent: "Dokumentation",
-    beta: true,
-    href: "/gefahrstoffmanagement",
+    href: "/module#gefahrstoffmanagement",
   },
 ];
 
@@ -116,16 +108,13 @@ export function ModuleSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ type: "spring" as const, stiffness: 180, damping: 26 }}
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-1 text-xs uppercase tracking-[0.4em] text-orange-700">
-            Module
-          </span>
-          <h2 className="mt-6 text-3xl font-semibold leading-tight md:text-4xl">
-            Die modulare Arbeitssicherheits-Struktur für Ihre Branche
+          <h2 className="text-3xl font-semibold leading-tight md:text-4xl">
+            Unsere Module
           </h2>
           <p className="mt-4 text-base text-muted-foreground md:text-lg">
-            Jedes Modul lässt sich flexibel kombinieren, sodass Sie genau den
-            Funktionsumfang nutzen, den Ihr Unternehmen im Alltag braucht –
-            heute und in Zukunft.
+            Beginne mit genau dem Modul, das du heute brauchst, und erweitere
+            flexibel Schritt für Schritt – wenn neue Aufgaben dazukommen, ohne
+            Umstellung und ohne Ballast.
           </p>
           <div className="mt-8 flex justify-center">
             <CTAButtons />
@@ -160,53 +149,44 @@ export function ModuleSection() {
             >
               <Link href={feature.href} className="block h-full">
                 <Card className="group relative h-full overflow-hidden border border-border bg-card shadow-xl shadow-orange-200/40 transition transform-gpu hover:border-orange-300 hover:bg-orange-50/60 hover:shadow-orange-300/50">
-                {feature.beta && (
-                  <div className="absolute right-6 top-6 rounded-full border border-amber-400/50 bg-amber-400/30 px-3 py-1 text-xs uppercase tracking-[0.28em] text-amber-200">
-                    Beta
-                  </div>
-                )}
+                  <CardHeader className="flex flex-col gap-4">
+                    <motion.div
+                      className="flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-200 bg-orange-100"
+                      animate={
+                        shouldReduceMotion
+                          ? undefined
+                          : {
+                              rotate: [-1.4, 1.4, -1.4],
+                              y: [0, -3, 0],
+                            }
+                      }
+                      transition={
+                        shouldReduceMotion
+                          ? undefined
+                          : {
+                              repeat: Infinity,
+                              repeatType: "mirror",
+                              duration: 5.8,
+                              delay: index * 0.35,
+                            }
+                      }
+                    >
+                      <feature.icon className="h-6 w-6 text-orange-700" />
+                    </motion.div>
 
-                <CardHeader className="flex flex-col gap-4">
-                  <motion.div
-                    className="flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-200 bg-orange-100"
-                    animate={
-                      shouldReduceMotion
-                        ? undefined
-                        : {
-                            rotate: [-1.4, 1.4, -1.4],
-                            y: [0, -3, 0],
-                          }
-                    }
-                    transition={
-                      shouldReduceMotion
-                        ? undefined
-                        : {
-                            repeat: Infinity,
-                            repeatType: "mirror",
-                            duration: 5.8,
-                            delay: index * 0.35,
-                          }
-                    }
-                  >
-                    <feature.icon className="h-6 w-6 text-orange-700" />
-                  </motion.div>
+                    <div className="flex flex-col gap-2">
+                      <CardTitle className="text-xl font-semibold text-foreground">
+                        {feature.title}
+                      </CardTitle>
+                    </div>
+                  </CardHeader>
 
-                  <div className="flex flex-col gap-2">
-                    <span className="inline-flex w-fit items-center rounded-full border border-orange-300 bg-orange-100 px-3 py-1 text-xs uppercase tracking-[0.3em] text-orange-800">
-                      {feature.accent}
-                    </span>
-                    <CardTitle className="text-xl font-semibold text-foreground">
-                      {feature.title}
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-
-                <CardContent className="pb-6">
-                  <CardDescription className="text-sm text-muted-foreground md:text-base">
-                    {feature.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                  <CardContent className="pb-6">
+                    <CardDescription className="text-sm text-muted-foreground md:text-base">
+                      {feature.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
               </Link>
             </motion.div>
           ))}

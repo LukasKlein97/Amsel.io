@@ -52,7 +52,7 @@ export function SolutionsSection() {
       icon: ShieldCheck,
       title: "SSO / Active Directory",
       description:
-        "Nahtlose Integration in Ihre bestehende Authentifizierungsinfrastruktur.",
+        "Nahtlose Integration in deine bestehende Authentifizierungsinfrastruktur.",
       isOptional: false,
     },
     {
@@ -66,14 +66,14 @@ export function SolutionsSection() {
       icon: Code,
       title: "API-Zugriff",
       description:
-        "Vollständiger Zugriff auf Daten per API für Ihre eigenen Anwendungen und Workflows.",
+        "Vollständiger Zugriff auf Daten per API für deine eigenen Anwendungen und Workflows.",
       isOptional: false,
     },
     {
       icon: Database,
       title: "On-Premise Datenbank",
       description:
-        "Optional: Hosting der Datenbank in Ihrer eigenen Serverlandschaft.",
+        "Optional: Hosting der Datenbank in deiner eigenen Serverlandschaft.",
       isOptional: true,
     },
     {
@@ -87,22 +87,22 @@ export function SolutionsSection() {
       icon: Server,
       title: "On-Premise Hosting",
       description:
-        "Optional: Hosting der gesamten Lösung in Ihrer eigenen Serverlandschaft.",
+        "Optional: Hosting der gesamten Lösung in deiner eigenen Serverlandschaft.",
       isOptional: true,
     },
     {
       icon: Settings,
       title: "Individuelle Anpassungen",
       description:
-        "Maßgeschneiderte Features und Anpassungen nach Ihren spezifischen Anforderungen.",
+        "Maßgeschneiderte Features und Anpassungen nach deinen spezifischen Anforderungen.",
       isOptional: false,
     },
   ];
 
   return (
     <section
-      id="solutions"
-      className="relative overflow-hidden bg-background py-24 text-foreground"
+      id="integration"
+      className="relative scroll-mt-28 overflow-hidden bg-background py-24 text-foreground"
     >
       <div className="absolute inset-x-0 top-[-20%] -z-10 h-[480px] bg-[radial-gradient(circle,_rgba(25,159,103,0.2)_0%,_transparent_65%)]" />
       <div className="absolute bottom-0 left-1/2 -z-10 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl" />
@@ -123,7 +123,7 @@ export function SolutionsSection() {
             Integration in bestehende Infrastruktur
           </h2>
           <p className="mt-4 text-base text-muted-foreground md:text-lg">
-            Amsel.io integriert sich nahtlos in Ihre bestehende IT-Infrastruktur
+            AMS Go integriert sich nahtlos in deine bestehende IT-Infrastruktur
             und bietet flexible Lösungen für größere Unternehmen.
           </p>
         </motion.div>

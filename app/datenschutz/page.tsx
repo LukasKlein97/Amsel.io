@@ -6,7 +6,7 @@ import path from "path";
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung",
-  description: "Datenschutzerklärung der Amsel.io GmbH",
+  description: "Datenschutzerklärung der AMS Go GmbH",
   robots: {
     index: false,
     follow: true,

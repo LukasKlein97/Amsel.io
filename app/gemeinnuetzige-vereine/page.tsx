@@ -21,14 +21,14 @@ import {
 export const metadata: Metadata = {
   title: "Gemeinnützige Vereine – 90 % Rabatt",
   description:
-    "Sonderkonditionen für gemeinnützige Vereine: bis zu 90 % Rabatt auf Amsel.io. Digitale Arbeitssicherheit für Ehrenamt, Vereinsheim und Veranstaltungen – fair und überschaubar.",
+    "Sonderkonditionen für gemeinnützige Vereine: bis zu 90 % Rabatt auf AMS Go. Digitale Arbeitssicherheit für Ehrenamt, Vereinsheim und Veranstaltungen – fair und überschaubar.",
   alternates: {
     canonical: "https://Amsel.io/gemeinnuetzige-vereine",
   },
   openGraph: {
-    title: "Gemeinnützige Vereine – 90 % Rabatt | Amsel.io",
+    title: "Gemeinnützige Vereine – 90 % Rabatt | AMS Go",
     description:
-      "Arbeitssicherheit für Vereine mit stark reduzierten Kosten. Beantragen Sie die Sonderkondition für Ihren gemeinnützigen Verein.",
+      "Arbeitssicherheit für Vereine mit stark reduzierten Kosten. Beantrage die Sonderkondition für deinen gemeinnützigen Verein.",
     url: "https://Amsel.io/gemeinnuetzige-vereine",
     locale: "de_DE",
   },
@@ -104,7 +104,7 @@ export default function GemeinnuetzigeVereinePage() {
 
         <div className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
           <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            Wo Vereine mit Amsel.io starten
+            Wo Vereine mit AMS Go starten
           </h2>
           <p className="mt-3 max-w-2xl text-muted-foreground">
             Die gleichen Bausteine wie in Unternehmen – nur auf den
@@ -151,7 +151,7 @@ export default function GemeinnuetzigeVereinePage() {
                   </strong>{" "}
                   im Sinne der deutschen Gemeinnützigkeitsregelung. In der Regel
                   reicht ein Nachweis (z.&nbsp;B. Freistellungsbescheid oder
-                  vergleichbare Anerkennung) – Details klären wir mit Ihnen im
+                  vergleichbare Anerkennung) – Details klären wir mit dir im
                   Gespräch.
                 </p>
                 <p className="mt-4 text-muted-foreground">
@@ -194,11 +194,11 @@ export default function GemeinnuetzigeVereinePage() {
 
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
           <h2 className="text-center text-2xl font-semibold tracking-tight md:text-3xl">
-            Rabatt für Ihren Verein sichern
+            Rabatt für deinen Verein sichern
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">
-            Schreiben Sie uns kurz, wer Sie sind und welche gemeinnützige
-            Rechtsform Sie haben. Wir melden uns mit den nächsten Schritten und
+            Schreib uns kurz, wer du bist und welche gemeinnützige
+            Rechtsform du hast. Wir melden uns mit den nächsten Schritten und
             einem unverbindlichen Überblick.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

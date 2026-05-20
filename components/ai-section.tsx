@@ -19,21 +19,21 @@ export function AISection() {
       icon: Sparkles,
       title: "KI-generierte\nGefährdungsfaktoren",
       description:
-        'Erweitern Sie bestehende Gefährdungsbeurteilungen automatisch:\nFormulieren Sie ein Szenario (z.B. "Gefahren auf dem Parkplatz") und die KI generiert relevante Gefährdungsfaktoren inklusive Situationsbeschreibungen und passender Schutzmaßnahmen.',
+        'Erweitere bestehende Gefährdungsbeurteilungen automatisch:\nFormuliere ein Szenario (z.B. "Gefahren auf dem Parkplatz") und die KI generiert relevante Gefährdungsfaktoren inklusive Situationsbeschreibungen und passender Schutzmaßnahmen.',
       features: [
         "Prompt-basierte Generierung von Gefährdungsfaktoren",
         "Situationsbeschreibungen und Schutzmaßnahmen",
         "Selektive Übernahme in die GBU",
       ],
       example:
-        'Prompt: "Gefahren auf dem Parkplatz" → KI generiert relevante Gefährdungsfaktoren → Sie wählen aus, welche in die GBU übernommen werden',
+        'Prompt: "Gefahren auf dem Parkplatz" → KI generiert relevante Gefährdungsfaktoren → du wählst aus, welche in die GBU übernommen werden',
       accent: "Gefährdungsbeurteilungen",
     },
     {
       icon: FileText,
       title: "Automatische\nDatenblatt-Erfassung",
       description:
-        "Die KI liest automatisch alle notwendigen Informationen aus Sicherheitsdatenblättern aus und überführt sie direkt ins System. Sie müssen nur noch bestätigen und sehen dabei genau, aus welcher Stelle im Datenblatt welche Information gezogen wurde.",
+        "Die KI liest automatisch alle notwendigen Informationen aus Sicherheitsdatenblättern aus und überführt sie direkt ins System. Du musst nur noch bestätigen und siehst dabei genau, aus welcher Stelle im Datenblatt welche Information gezogen wurde.",
       features: [
         "Automatisches Auslesen von Sicherheitsdatenblättern",
         "Direkte Überführung ins System",
@@ -41,7 +41,7 @@ export function AISection() {
         "Überprüfung der Informationen direkt im Dokument",
       ],
       example:
-        "Sicherheitsdatenblatt hochladen → KI extrahiert alle relevanten Informationen → Sie bestätigen die Übernahme → System zeigt Quellenangaben",
+        "Sicherheitsdatenblatt hochladen → KI extrahiert alle relevanten Informationen → du bestätigst die Übernahme → System zeigt Quellenangaben",
       accent: "Gefahrstoffmanagement",
       soon: false,
     },
@@ -49,7 +49,7 @@ export function AISection() {
       icon: ClipboardList,
       title: "KI-generierte\nBetriebsanweisungen",
       description:
-        "Erstellen Sie vollständige Betriebsanweisungen mit nur einer Beschreibung: Die KI generiert automatisch alle erforderlichen Inhalte, angepasst an die gewählte Kategorie.",
+        "Erstelle vollständige Betriebsanweisungen mit nur einer Beschreibung: Die KI generiert automatisch alle erforderlichen Inhalte, angepasst an die gewählte Kategorie.",
       features: [
         "Automatische Generierung von Gefahren und Schutzmaßnahmen",
         "Intelligente Auswahl passender Warn-, Verbots- und Gebotszeichen",
@@ -57,7 +57,7 @@ export function AISection() {
         "Kategoriebezogene Anpassung (Gefahrstoffe, Brandschutz, etc.)",
       ],
       example:
-        "Beschreibung eingeben → Kategorie wählen → KI erstellt vollständige Betriebsanweisung → Sie prüfen und bestätigen",
+        "Beschreibung eingeben → Kategorie wählen → KI erstellt vollständige Betriebsanweisung → du prüfst und bestätigst",
       accent: "Betriebsanweisungen",
       soon: false,
     },
@@ -89,8 +89,8 @@ export function AISection() {
 
   return (
     <section
-      id="ai-section"
-      className="relative overflow-hidden bg-background py-24 text-foreground"
+      id="ki-features"
+      className="relative scroll-mt-28 overflow-hidden bg-background py-24 text-foreground"
     >
       <div className="absolute inset-x-0 top-[-20%] -z-10 h-[480px] bg-[radial-gradient(circle,_rgba(25,159,103,0.2)_0%,_transparent_65%)]" />
       <div className="absolute bottom-0 left-1/2 -z-10 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-3xl" />
@@ -114,9 +114,9 @@ export function AISection() {
             </h2>
           </div>
           <p className="mt-4 text-base text-muted-foreground md:text-lg">
-            Nutzen Sie künstliche Intelligenz, um Gefährdungsbeurteilungen und
+            Nutze künstliche Intelligenz, um Gefährdungsbeurteilungen und
             Begehungen effizienter und präziser durchzuführen. Unsere
-            KI-Features vereinfachen Ihre Arbeitsschutz-Prozesse erheblich.
+            KI-Features vereinfachen deine Arbeitsschutz-Prozesse erheblich.
           </p>
         </motion.div>
 
@@ -239,20 +239,18 @@ export function AISection() {
             delay: 0.3,
           }}
         >
-          <div className="relative bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 p-10 rounded-3xl overflow-hidden group">
-            {/* Animated background elements */}
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-600/50 via-orange-500/50 to-orange-600/50 animate-pulse"></div>
-            <div className="absolute -top-20 -right-20 w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-1000"></div>
-            <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-1000 delay-300"></div>
+          <div className="relative overflow-hidden rounded-3xl border border-orange-200 bg-gradient-to-br from-orange-50 via-white to-orange-100/60 p-10 shadow-xl shadow-orange-200/40">
+            <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-orange-200/40 blur-2xl" />
+            <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-full bg-orange-100/60 blur-2xl" />
 
             <div className="relative z-10">
-              <h3 className="text-3xl font-bold text-white mb-6">
-                Revolutionieren Sie Ihren Arbeitsschutz mit KI
+              <h3 className="mb-6 text-3xl font-bold text-foreground">
+                Revolutioniere deinen Arbeitsschutz mit KI
               </h3>
-              <p className="text-orange-50 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
-                Sparen Sie wertvolle Zeit bei der Durchführung von
-                Gefährdungsbeurteilungen und Begehungen. Unsere KI schafft Sie
-                bei der Identifikation von Risiken und schlägt automatisch
+              <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-muted-foreground">
+                Spare wertvolle Zeit bei der Durchführung von
+                Gefährdungsbeurteilungen und Begehungen. Unsere KI unterstützt
+                dich bei der Identifikation von Risiken und schlägt automatisch
                 passende Schutzmaßnahmen vor.
               </p>
               <CTAButtons className="justify-center" />

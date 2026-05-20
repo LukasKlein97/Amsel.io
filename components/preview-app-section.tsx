@@ -65,8 +65,9 @@ export function PreviewAppSection() {
 
   return (
     <section
+      id="mobile-app"
       ref={sectionRef}
-      className="relative overflow-hidden bg-background py-24 text-foreground"
+      className="relative scroll-mt-28 overflow-hidden bg-background py-24 text-foreground"
     >
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-100/50 via-background to-background" />
       <div className="absolute left-[-15%] top-1/2 -z-10 hidden h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-orange-500/15 blur-3xl md:block" />
@@ -109,7 +110,7 @@ export function PreviewAppSection() {
           >
             <Image
               src="/images/app-iphone.png"
-              alt="Amsel.io App Screenshot"
+              alt="AMS Go App Screenshot"
               width={484}
               height={1024}
               className="w-full rounded-[32px] shadow-2xl shadow-orange-200/50"

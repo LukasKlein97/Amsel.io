@@ -59,7 +59,7 @@ export function PreviewWebSection() {
   return (
     <section
       id="web-app"
-      className="relative overflow-hidden bg-background py-24 text-foreground"
+      className="relative scroll-mt-28 overflow-hidden bg-background py-24 text-foreground"
     >
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-background via-background to-background" />
       <div className="absolute left-[-15%] top-1/2 -z-10 hidden h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-orange-500/15 blur-3xl md:block" />
@@ -84,15 +84,15 @@ export function PreviewWebSection() {
             variants={itemVariants}
             className="text-3xl font-semibold leading-tight md:text-4xl"
           >
-            Alles was Sie brauchen – direkt im Browser
+            Alles, was du brauchst – direkt im Browser
           </motion.h2>
 
           <motion.p
             variants={itemVariants}
             className="max-w-3xl text-base text-muted-foreground md:text-lg"
           >
-            Die vollständige Amsel.io Software als Web-App: Verwalten Sie
-            Dokumente, koordinieren Sie Aufgaben und steuern Sie alle Module
+            Die vollständige AMS Go Software als Web-App: Verwalte
+            Dokumente, koordiniere Aufgaben und steuere alle Module
             bequem von jedem Computer aus – ohne Installation.
           </motion.p>
         </motion.div>
@@ -180,7 +180,7 @@ export function PreviewWebSection() {
             <div className="relative flex w-full items-center justify-center">
               <Image
                 src="/images/web.png"
-                alt="Amsel.io Web-App Screenshot"
+                alt="AMS Go Web-App Screenshot"
                 width={1920}
                 height={1080}
                 className="w-full rounded-2xl shadow-2xl shadow-orange-200/50"

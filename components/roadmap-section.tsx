@@ -1,11 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { CTAButtons } from "@/components/cta-buttons";
 import { Calendar, Clock } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
-import { usePathname } from "next/navigation";
 import type { Variants } from "framer-motion";
 
 const roadmapItems = [
@@ -177,19 +175,8 @@ const item: Variants = {
 };
 
 export function RoadmapSection() {
-  const pathname = usePathname();
-  const [isMounted, setIsMounted] = useState(false);
   const shouldReduceMotion = useReducedMotion();
   const uniqueQuarters = getUniqueQuarters();
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  // Nur auf der Hauptseite anzeigen, nicht auf Impressum, Datenschutz etc.
-  if (!isMounted || pathname !== "/") {
-    return null;
-  }
 
   // Group items by quarter for timeline display
   const itemsByQuarter = uniqueQuarters.map((quarter) => ({

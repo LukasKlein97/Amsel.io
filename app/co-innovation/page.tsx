@@ -30,13 +30,13 @@ const OFFICIAL_PROGRAM_URL =
 export const metadata: Metadata = {
   title: "Co-Innovation – Innovationsgutschein Mittelstand trifft Start-ups",
   description:
-    "Kooperieren Sie mit Amsel.io über den Innovationsgutschein „Mittelstand trifft Start-ups“: bis zu 20.000 € Zuschuss (50 %) für innovative Erweiterungen unserer Software – für KMU in Baden-Württemberg.",
+    "Kooperiere mit AMS Go über den Innovationsgutschein „Mittelstand trifft Start-ups“: bis zu 20.000 € Zuschuss (50 %) für innovative Erweiterungen unserer Software – für KMU in Baden-Württemberg.",
   alternates: {
     canonical: "https://Amsel.io/co-innovation",
   },
   openGraph: {
     title:
-      "Co-Innovation – Innovationsgutschein Mittelstand trifft Start-ups | Amsel.io",
+      "Co-Innovation – Innovationsgutschein Mittelstand trifft Start-ups | AMS Go",
     description:
       "Wir suchen Co-Innovationspartner in BW: Förderung mit bis zu 20.000 €, wir unterstützen beim Antrag.",
     url: "https://Amsel.io/co-innovation",
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
 };
 
 const partnerBenefits = [
-  "Gemeinsam definieren wir ein innovatives Vorhaben: neue Funktionen, die Ihren Alltag in Arbeitssicherheit und Compliance wirklich entlasten.",
-  "Sie bleiben strategischer Sparringspartner – wir liefern Produkt, Umsetzung und enge Abstimmung mit Ihren Prozessen.",
+  "Gemeinsam definieren wir ein innovatives Vorhaben: neue Funktionen, die deinen Alltag in Arbeitssicherheit und Compliance wirklich entlasten.",
+  "Du bleibst strategischer Sparringspartner – wir liefern Produkt, Umsetzung und enge Abstimmung mit deinen Prozessen.",
   "Transparente Planung von Umfang, Meilensteinen und abrechenbaren Leistungen im Rahmen des Förderprogramms.",
 ];
 
@@ -79,13 +79,13 @@ export default function CoInnovationPage() {
                 </h2>
                 <p className="mt-4 text-lg text-muted-foreground">
                   Anträge, Förderlogik und formale Anforderungen können
-                  zeitraubend sein. Wir unterstützen Sie bei der{" "}
+                  zeitraubend sein. Wir unterstützen dich bei der{" "}
                   <strong className="font-semibold text-foreground">
                     strukturierten Vorbereitung
                   </strong>{" "}
                   des Vorhabens, der Leistungsbeschreibung und der Abstimmung
-                  mit dem Förderrahmen – damit Sie sich auf Inhalt und Nutzen
-                  konzentrieren können.
+                  mit dem Förderrahmen – damit du dich auf Inhalt und Nutzen
+                  konzentrieren kannst.
                 </p>
                 <p className="mt-4 text-muted-foreground">
                   Die Entscheidung über die Bewilligung liegt ausschließlich bei
@@ -100,14 +100,14 @@ export default function CoInnovationPage() {
                   <div className="flex items-center gap-2 text-orange-700">
                     <Lightbulb className="h-5 w-5" aria-hidden />
                     <span className="text-sm font-medium uppercase tracking-wide">
-                      Warum mit Amsel.io?
+                      Warum mit AMS Go?
                     </span>
                   </div>
                   <CardTitle className="text-xl text-foreground">
                     Co-Innovation mit messbarem Mehrwert
                   </CardTitle>
                   <CardDescription className="text-muted-foreground">
-                    Ihre Praxisanforderungen fließen in Produkt und Roadmap ein
+                    Deine Praxisanforderungen fließen in Produkt und Roadmap ein
                     – statt Einzelprojekte ohne Anschluss.
                   </CardDescription>
                 </CardHeader>
@@ -130,13 +130,13 @@ export default function CoInnovationPage() {
 
         <ScrollReveal className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
           <h2 className="text-center text-2xl font-semibold tracking-tight md:text-3xl">
-            Werden Sie Co-Innovationspartner
+            Werde Co-Innovationspartner
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">
-            Sie sind KMU in Baden-Württemberg und möchten unsere Software mit
-            uns weiterentwickeln? Schreiben Sie uns kurz Ihre Branche, ungefähre
-            Unternehmensgröße und welche Funktionen oder Prozesse Sie
-            adressieren möchten – wir melden uns mit den nächsten Schritten.
+            Du bist KMU in Baden-Württemberg und möchtest unsere Software mit
+            uns weiterentwickeln? Schreib uns kurz deine Branche, ungefähre
+            Unternehmensgröße und welche Funktionen oder Prozesse du
+            adressieren möchtest – wir melden uns mit den nächsten Schritten.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button asChild size="lg" className="group">

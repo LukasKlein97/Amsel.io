@@ -13,9 +13,7 @@ import {
   Smartphone,
   Key,
 } from "lucide-react";
-import { ContactForm } from "./contact-form";
-import { CalendlyWidget } from "./calendly-widget";
-import { CalInlineBen } from "./cal-inline-ben";
+import { ContactSection } from "./contact-section";
 
 export function Footer() {
   const router = useRouter();
@@ -51,18 +49,18 @@ export function Footer() {
               {pathname === "/gemeinnuetzige-vereine"
                 ? "Gemeinnützige Vereine – direkt mit uns"
                 : pathname === "/co-innovation"
-                  ? "Co-Innovation – sprechen Sie uns an"
-                  : "Kontaktieren Sie uns"}
+                  ? "Co-Innovation – sprich uns an"
+                  : "Kontaktiere uns"}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               {pathname === "/gemeinnuetzige-vereine" ? (
                 <>
-                  Für den 90-%-Rabatt und Ihre Fragen als gemeinnütziger Verein
-                  buchen Sie hier einen Termin{" "}
+                  Für den 90-%-Rabatt und deine Fragen als gemeinnütziger Verein
+                  buch hier einen Termin{" "}
                   <strong className="font-semibold text-orange-700">
                     direkt bei uns
                   </strong>{" "}
-                  – oder nutzen Sie das Formular.
+                  – oder nutz das Formular.
                 </>
               ) : pathname === "/co-innovation" ? (
                 <>
@@ -70,30 +68,25 @@ export function Footer() {
                   <strong className="font-semibold text-orange-700">
                     Innovationsgutschein „Mittelstand trifft Start-ups“
                   </strong>{" "}
-                  vereinbaren Sie mit Ben einen Termin – oder nutzen Sie das
-                  Formular für eine erste Nachricht.
+                  vereinbare mit Ben einen Termin – oder nutz das Formular für
+                  eine erste Nachricht.
                 </>
               ) : (
                 <>
-                  Buchen Sie einen Termin bei{" "}
-                  <strong className="font-semibold text-orange-700">
-                    Ben
-                  </strong>{" "}
-                  – oder schreiben Sie uns eine Nachricht.
+                  Buch einen Termin bei{" "}
+                  <strong className="font-semibold text-orange-700">Ben</strong>{" "}
+                  – oder schreib uns eine Nachricht.
                 </>
               )}
             </p>
           </div>
-          <div className="max-w-6xl mx-auto space-y-12">
-            {pathname === "/gemeinnuetzige-vereine" ? (
-              <CalendlyWidget />
-            ) : (
-              <CalInlineBen />
-            )}
-            <div className="flex justify-center">
-              <ContactForm />
-            </div>
-          </div>
+          <ContactSection
+            variant={
+              pathname === "/gemeinnuetzige-vereine"
+                ? "gemeinnuetzige-vereine"
+                : "default"
+            }
+          />
         </div>
 
         {/* Divider */}
@@ -175,11 +168,11 @@ export function Footer() {
               onClick={navigateToMainPage}
             >
               <Image
-                src="/ams-go-logo.png"
+                src="/logo-go.png"
                 alt="AMS GO"
-                width={1024}
-                height={263}
-                className="h-12 w-auto sm:h-14"
+                width={150}
+                height={150}
+                className="h-12 w-12 sm:h-14 sm:w-14"
               />
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -207,7 +200,15 @@ export function Footer() {
                   href="/amsel-vs-excel"
                   className="text-orange-700 underline-offset-4 transition-colors hover:text-orange-600 hover:underline"
                 >
-                  Amsel.io vs Excel
+                  AMS Go vs Excel
+                </Link>
+              </span>
+              <span className="block">
+                <Link
+                  href="/preise"
+                  className="text-orange-700 underline-offset-4 transition-colors hover:text-orange-600 hover:underline"
+                >
+                  Preise & Tarife
                 </Link>
               </span>
             </p>
@@ -247,11 +248,13 @@ export function Footer() {
 
           {/* Module */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-foreground">Module</h3>
+            <h3 className="text-lg font-semibold mb-6 text-foreground">
+              Module
+            </h3>
             <ul className="space-y-3 text-muted-foreground">
               <li>
                 <Link
-                  href="/gefaehrdungsbeurteilungen"
+                  href="/module#gefaehrdungsbeurteilungen"
                   className="hover:text-orange-600 transition-colors"
                 >
                   Gefährdungsbeurteilungen
@@ -259,7 +262,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/betriebsanweisungen"
+                  href="/module#betriebsanweisungen"
                   className="hover:text-orange-600 transition-colors"
                 >
                   Betriebsanweisungen
@@ -267,7 +270,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/begehungsprotokolle"
+                  href="/module#begehungsprotokolle"
                   className="hover:text-orange-600 transition-colors"
                 >
                   Begehungsprotokolle
@@ -275,7 +278,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/aktionsplan"
+                  href="/module#aktionsplan"
                   className="hover:text-orange-600 transition-colors"
                 >
                   Aktionsplan
@@ -283,7 +286,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/besuchermanagement"
+                  href="/module#besuchermanagement"
                   className="hover:text-orange-600 transition-colors"
                 >
                   Besuchermanagement
@@ -291,7 +294,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/gefahrstoffmanagement"
+                  href="/module#gefahrstoffmanagement"
                   className="hover:text-orange-600 transition-colors"
                 >
                   Gefahrstoffmanagement
@@ -302,12 +305,14 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-foreground">Kontakt</h3>
+            <h3 className="text-lg font-semibold mb-6 text-foreground">
+              Kontakt
+            </h3>
             <div className="space-y-4 text-muted-foreground">
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-orange-600" />
                 <span className="hover:text-orange-600 transition-colors">
-                  hallo@amsel.io
+                  hallo@amsgo.de
                 </span>
               </div>
               <div className="flex items-center gap-3">
@@ -319,9 +324,9 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-orange-600" />
                 <span className="hover:text-orange-600 transition-colors">
-                  Wolzenburg 2
+                  Alter Schlachthof 33
                   <br />
-                  58566 Kierspe
+                  76131 Karlsruhe
                 </span>
               </div>
             </div>
@@ -330,7 +335,7 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-muted-foreground text-sm">
-          <p>&copy; 2026 Amsel.io GmbH. Alle Rechte vorbehalten.</p>
+          <p>&copy; 2026 AMS Go GmbH. Alle Rechte vorbehalten.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <button
               onClick={navigateToImpressum}

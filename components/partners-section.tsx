@@ -5,22 +5,27 @@ import Image from "next/image";
 const partners = [
   {
     name: "CyberForum",
-    src: "/partner-cyberforum.svg",
+    src: "/partner-cyberforum.png",
     href: "https://www.cyberforum.de/",
-    whiteLogo: false,
     logoSize: "large" as const,
+    width: 207,
+    height: 150,
+    colorLogo: true,
   },
   {
     name: "CyberLab",
-    src: "/partner-cyberlab.svg",
+    src: "/partner-cyberlab-rgb.png",
     href: "https://www.cyberlab-karlsruhe.de/",
-    whiteLogo: false,
     logoSize: "large" as const,
+    width: 170,
+    height: 150,
+    colorLogo: true,
   },
   {
-    name: "STATUS3 academy",
-    src: "/partner-status3.png",
-    href: "https://status3.academy",
+    name: "DHBW",
+    src: "/partner-dhbw.png",
+    href: "https://www.dhbw.de/",
+    colorLogo: true,
   },
 ];
 
@@ -53,12 +58,12 @@ export function PartnersSection() {
               href={partner.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center justify-center opacity-80 hover:opacity-100 transition-all duration-300 hover:scale-105 ${
+              className={`flex items-center justify-center rounded-xl bg-white p-4 opacity-90 hover:opacity-100 transition-all duration-300 hover:scale-105 ${
                 "logoSize" in partner && partner.logoSize === "large"
-                  ? "w-64 h-28"
+                  ? "h-28 min-w-[12rem]"
                   : "w-48 h-20"
               } ${
-                "whiteLogo" in partner && partner.whiteLogo
+                "colorLogo" in partner && partner.colorLogo
                   ? ""
                   : "grayscale hover:grayscale-0"
               } ${"rau" in partner && partner.rau ? "contrast-[1.2] saturate-90" : ""}`}
@@ -66,13 +71,9 @@ export function PartnersSection() {
               <Image
                 src={partner.src}
                 alt={`${partner.name} Logo`}
-                width={192}
-                height={80}
-                className={`w-full h-full object-contain ${
-                  "whiteLogo" in partner && partner.whiteLogo
-                    ? "opacity-90"
-                    : ""
-                } ${
+                width={"width" in partner ? partner.width : 192}
+                height={"height" in partner ? partner.height : 80}
+                className={`h-full w-auto max-w-full object-contain ${
                   "rau" in partner && partner.rau
                     ? "drop-shadow-[0_0_1px_rgba(255,255,255,0.3)]"
                     : ""

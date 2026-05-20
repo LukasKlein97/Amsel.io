@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     canonical: "https://Amsel.io/automotive",
   },
   openGraph: {
-    title: "Automotive & Zulieferindustrie | Amsel.io",
+    title: "Automotive & Zulieferindustrie | AMS Go",
     description:
       "Arbeitssicherheitssoftware für die Automobilbranche – mit messbarem Mehrwert im Alltag, u. a. bei Knipping.",
     url: "https://Amsel.io/automotive",
@@ -253,7 +253,7 @@ export default function AutomotivePage() {
             Bereit für den nächsten Schritt?
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-center text-muted-foreground">
-            Wir zeigen Ihnen gern anhand Ihrer Prozesse, wie Amsel.io in
+            Wir zeigen dir gern anhand deiner Prozesse, wie AMS Go in
             Produktion und Verwaltung zusammenspielt – inklusive Erfahrungen aus
             Projekten wie bei Knipping.
           </p>

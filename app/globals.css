@@ -199,6 +199,7 @@
   }
   html {
     background-color: #ffffff;
+    scrollbar-gutter: stable;
   }
   body {
     @apply bg-background text-foreground;

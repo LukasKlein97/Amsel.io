@@ -1,9 +1,10 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { CTAButtons } from "@/components/cta-buttons";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
+
+const REGISTER_URL = "https://app.ams-cockpit.de/register";
 
 export function PricingSection() {
   const scrollToContact = () => {
@@ -26,9 +27,9 @@ export function PricingSection() {
         "Begehungsprotokolle",
         "Aktionsplan",
         "Statistik und Kennzahlen",
-        "Gefahrstoffmanagement (Beta)",
+        "Gefahrstoffmanagement",
         "Betriebsanweisungen",
-        "Besuchermanagement (Beta)",
+        "Besuchermanagement",
         "Mobile App",
         "E-Mail Support",
       ],
@@ -46,9 +47,9 @@ export function PricingSection() {
         "Begehungsprotokolle",
         "Aktionsplan",
         "Statistik und Kennzahlen",
-        "Gefahrstoffmanagement (Beta)",
+        "Gefahrstoffmanagement",
         "Betriebsanweisungen",
-        "Besuchermanagement (Beta)",
+        "Besuchermanagement",
         "Mobile App",
         "Nutzerverwaltung",
         "E-Mail Support",
@@ -68,9 +69,9 @@ export function PricingSection() {
         "Begehungsprotokolle",
         "Aktionsplan",
         "Statistik und Kennzahlen",
-        "Gefahrstoffmanagement (Beta)",
+        "Gefahrstoffmanagement",
         "Betriebsanweisungen",
-        "Besuchermanagement (Beta)",
+        "Besuchermanagement",
         "Mobile App",
         "Nutzerverwaltung",
         "Telfonischer Support",
@@ -92,7 +93,7 @@ export function PricingSection() {
             Transparente Preise
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Wählen Sie den Plan, der am besten zu Ihrem Unternehmen passt. Alle
+            Wähle den Plan, der am besten zu deinem Unternehmen passt. Alle
             Pläne beinhalten unsere Kernfunktionen für digitalen Arbeitsschutz.
           </p>
         </div>
@@ -103,38 +104,26 @@ export function PricingSection() {
               key={index}
               className="relative border border-border bg-card backdrop-blur-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-foreground ring-2 ring-orange-400/50 scale-105 flex flex-col h-full"
             >
-              <CardHeader className="text-center">
-                <CardTitle className="text-xl mb-2 text-foreground">
+              <CardHeader className="text-center pb-0">
+                <CardTitle className="text-xl h-8 flex items-center justify-center mb-2 text-foreground">
                   {plan.name}
                 </CardTitle>
-                <div className="mb-2">
-                  <div className="text-3xl font-bold text-foreground">
-                    {plan.price === "Individuell"
-                      ? plan.price
-                      : `€${plan.price}`}
+                <div className="space-y-1">
+                  <div className="h-10 flex items-center justify-center">
+                    <div className="text-3xl font-bold text-foreground leading-none">
+                      {plan.price === "Individuell"
+                        ? plan.price
+                        : `€${plan.price}`}
+                    </div>
                   </div>
-                  {plan.period && (
-                    <div className="text-sm text-muted-foreground mt-0.5">
-                      {plan.period}
-                    </div>
-                  )}
-                  {plan.employees && (
-                    <div
-                      className={`${
-                        plan.isEnterprise
-                          ? "text-sm"
-                          : "text-base font-semibold"
-                      } text-muted-foreground ${
-                        plan.isEnterprise ? "mt-0.5" : "mt-1"
-                      }`}
-                    >
-                      {plan.employees}
-                    </div>
-                  )}
-                </div>
-                <div className="mb-3">
+                  <div className="h-5 flex items-center justify-center text-sm text-muted-foreground">
+                    {plan.period || "\u00a0"}
+                  </div>
+                  <div className="h-6 flex items-center justify-center text-base font-semibold text-muted-foreground">
+                    {plan.employees}
+                  </div>
                   {plan.pricePerEmployee && (
-                    <p className="text-xs text-muted-foreground mt-1">
+                    <p className="text-xs text-muted-foreground">
                       {plan.pricePerEmployee} pro Mitarbeiter
                     </p>
                   )}
@@ -152,25 +141,28 @@ export function PricingSection() {
                     </li>
                   ))}
                 </ul>
-                <Button
-                  className="w-full mt-auto"
-                  variant="default"
-                  onClick={scrollToContact}
-                >
-                  {plan.showContactButton
-                    ? "Kontakt aufnehmen"
-                    : "Jetzt starten"}
-                </Button>
+                {plan.showContactButton ? (
+                  <Button
+                    className="w-full mt-auto"
+                    variant="default"
+                    onClick={scrollToContact}
+                  >
+                    Kontakt aufnehmen
+                  </Button>
+                ) : (
+                  <Button className="w-full mt-auto" variant="default" asChild>
+                    <a
+                      href={REGISTER_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Jetzt starten
+                    </a>
+                  </Button>
+                )}
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className="flex flex-col items-center mt-12">
-          <p className="text-muted-foreground mb-4">
-            Unsicher, welcher Plan der richtige ist?
-          </p>
-          <CTAButtons />
         </div>
       </div>
     </section>
