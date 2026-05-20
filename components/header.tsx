@@ -168,9 +168,7 @@ export function Header() {
       className="fixed inset-x-0 top-0 z-50 backdrop-blur-xl"
       initial={false}
       animate={{
-        backgroundColor: isScrolled
-          ? "rgba(255, 255, 255, 0.97)"
-          : "rgba(255, 255, 255, 0)",
+        backgroundColor: "rgba(255, 255, 255, 0)",
         borderBottomColor: isScrolled
           ? "rgba(229, 231, 235, 1)"
           : "rgba(229, 231, 235, 0)",
@@ -178,6 +176,24 @@ export function Header() {
       transition={headerSpring}
       style={{ borderBottomWidth: 1, borderBottomStyle: "solid" }}
     >
+      <AnimatePresence>
+        {isScrolled && (
+          <motion.div
+            key="header-bg"
+            className="pointer-events-none absolute inset-0 overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={headerSpring}
+          >
+            <div className="absolute inset-0 bg-white/97 backdrop-blur-2xl" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(25,159,103,0.1),_transparent_55%)]" />
+            <div className="absolute -left-28 top-1/2 hidden h-40 w-40 -translate-y-1/2 rounded-full bg-orange-500/14 blur-3xl sm:block" />
+            <div className="absolute -right-20 top-0 hidden h-32 w-32 rounded-full bg-orange-400/10 blur-3xl sm:block" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <motion.div
         className="relative z-10 mx-auto w-full max-w-[1200px]"
         initial={{ y: -40, opacity: 0 }}
@@ -196,16 +212,20 @@ export function Header() {
       >
         <motion.div
           className={[
-            "relative flex items-center justify-between overflow-hidden border border-border bg-white px-5 py-3 backdrop-blur-2xl",
+            "relative flex items-center justify-between px-5 backdrop-blur-2xl",
             isScrolled
-              ? "rounded-none border-x-0 border-t-0 border-orange-200/80 py-2.5 shadow-md shadow-orange-200/30"
-              : "rounded-2xl shadow-lg shadow-orange-200/40",
+              ? "border-0 bg-transparent py-2.5 shadow-none"
+              : "overflow-hidden rounded-2xl border border-border bg-white py-3 shadow-lg shadow-orange-200/40",
           ].join(" ")}
           transition={headerSpring}
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(25,159,103,0.1),_transparent_55%)]" />
-          <div className="absolute -left-28 top-1/2 hidden h-40 w-40 -translate-y-1/2 rounded-full bg-orange-500/14 blur-3xl sm:block" />
-          <div className="absolute -right-20 top-0 hidden h-32 w-32 rounded-full bg-orange-400/10 blur-3xl sm:block" />
+          {!isScrolled && (
+            <>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(25,159,103,0.1),_transparent_55%)]" />
+              <div className="absolute -left-28 top-1/2 hidden h-40 w-40 -translate-y-1/2 rounded-full bg-orange-500/14 blur-3xl sm:block" />
+              <div className="absolute -right-20 top-0 hidden h-32 w-32 rounded-full bg-orange-400/10 blur-3xl sm:block" />
+            </>
+          )}
 
           <div className="relative flex items-center gap-3">
             <button
