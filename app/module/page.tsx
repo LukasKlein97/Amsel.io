@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { ModuleSection } from "@/components/module-page-layout";
-import { modules } from "@/lib/modules";
+import { ModulePageContent } from "@/components/module-page-content";
 
 export const metadata: Metadata = {
   title: "Module",
@@ -25,14 +24,7 @@ export default function ModulePage() {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="relative overflow-hidden pt-24 text-foreground">
-        {modules.map((module, index) => (
-          <ModuleSection
-            key={module.sectionId}
-            {...module}
-            isFirst={index === 0}
-            mirrorHero={index % 2 === 1}
-          />
-        ))}
+        <ModulePageContent />
       </main>
       <Footer />
     </div>
