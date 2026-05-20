@@ -74,7 +74,7 @@ export function Footer() {
               ) : (
                 <>
                   Buch einen Termin bei{" "}
-                  <strong className="font-semibold text-orange-700">Ben</strong>{" "}
+                  <strong className="font-semibold text-orange-700">uns</strong>{" "}
                   – oder schreib uns eine Nachricht.
                 </>
               )}
