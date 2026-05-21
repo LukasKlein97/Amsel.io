@@ -132,6 +132,7 @@ export default function RootLayout({
           src="https://t.contentsquare.net/uxa/71e3a27cb9f67.js"
           strategy="afterInteractive"
         />
+        {/* Pipedrive LeadBooster Chat – vorübergehend deaktiviert
         <Script id="pipedrive-leadbooster-config" strategy="afterInteractive">
           {`
             window.pipedriveLeadboosterConfig = {
@@ -163,6 +164,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           async
         />
+        */}
         {children}
       </body>
     </html>
