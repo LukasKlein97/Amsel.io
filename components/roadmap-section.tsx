@@ -2,7 +2,8 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { CTAButtons } from "@/components/cta-buttons";
-import { Calendar, Clock } from "lucide-react";
+import { Calendar, CheckCircle2, Clock } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
 
@@ -69,14 +70,15 @@ const roadmapItems = [
     quarterNumber: 1,
     implemented: true,
   },
+  // Q2 2026
   {
     title: "Schulungsmatrix",
     description: "Planung und Nachweis von Schulungen und Unterweisungen",
-    quarter: "Q1 2026",
+    quarter: "Q2 2026",
     year: 2026,
-    quarterNumber: 1,
+    quarterNumber: 2,
+    implemented: true,
   },
-
   {
     title: "Prüfverzeichnis",
     description: "Organisation von Prüfintervallen und Prüfnachweisen",
@@ -84,52 +86,69 @@ const roadmapItems = [
     year: 2026,
     quarterNumber: 2,
   },
+  // Q3 2026
   {
     title: "ASA-Protokolle",
     description: "Einfache Erstellung von Sitzungsprotokollen",
-    quarter: "Q2 2026",
+    quarter: "Q3 2026",
     year: 2026,
-    quarterNumber: 2,
+    quarterNumber: 3,
   },
   {
     title: "Unfallmanagement",
     description: "Ableiten von Maßnahmen, Statistiken und Kennzahlen",
-    quarter: "Q2 2026",
+    quarter: "Q3 2026",
     year: 2026,
-    quarterNumber: 2,
+    quarterNumber: 3,
   },
+  {
+    title: "Brandschutz",
+    description: "Organisation von Brandschutzunterweisungen und -begehungen",
+    quarter: "Q3 2026",
+    year: 2026,
+    quarterNumber: 3,
+  },
+  // Q4 2026
   {
     title: "PSA-Katalog",
     description: "Verwaltung der eingesetzten Persönlichen Schutzausrüstung",
-    quarter: "Q3 2026",
-    year: 2026,
-    quarterNumber: 3,
-  },
-
-  {
-    title: "Vorsorgekatei",
-    description: "Verwaltung von arbeitsmedizinischen Vorsorgeuntersuchungen",
-    quarter: "Q3 2026",
-    year: 2026,
-    quarterNumber: 3,
-  },
-
-  {
-    title: "Rechtskataster",
-    description: "Übersicht und Verwaltung relevanter Gesetze und Vorschriften",
-    quarter: "Q3 2026",
-    year: 2026,
-    quarterNumber: 3,
-  },
-  {
-    title: "Aushangsmanagement",
-    description:
-      "Verwaltung und Überwachung von gesetzlich vorgeschriebenen Aushängen",
     quarter: "Q4 2026",
     year: 2026,
     quarterNumber: 4,
   },
+  {
+    title: "Vorsorgekatei",
+    description: "Verwaltung von arbeitsmedizinischen Vorsorgeuntersuchungen",
+    quarter: "Q4 2026",
+    year: 2026,
+    quarterNumber: 4,
+  },
+  // 2027
+  {
+    title: "Aushangsmanagement",
+    description:
+      "Verwaltung und Überwachung von gesetzlich vorgeschriebenen Aushängen",
+    quarter: "2027",
+    year: 2027,
+    quarterNumber: 1,
+  },
+  {
+    title: "Rechtskataster",
+    description: "Übersicht und Verwaltung relevanter Gesetze und Vorschriften",
+    quarter: "2027",
+    year: 2027,
+    quarterNumber: 1,
+  },
 ];
+
+type RoadmapItem = (typeof roadmapItems)[number];
+
+const getQuarterStatus = (items: RoadmapItem[]) => {
+  const implementedCount = items.filter((item) => item.implemented).length;
+  if (implementedCount === items.length) return "implemented" as const;
+  if (implementedCount === 0) return "planned" as const;
+  return "mixed" as const;
+};
 
 // Helper function to get unique quarters in chronologischer Reihenfolge
 const getUniqueQuarters = () => {
@@ -211,135 +230,240 @@ export function RoadmapSection() {
             </h2>
           </div>
           <p className="mt-4 text-base text-muted-foreground md:text-lg">
-            Die Roadmap zeigt umgesetzte sowie geplante Features und Module –
-            von den ersten Releases bis zu den kommenden Quartalen.
+            Grün markierte Module sind bereits verfügbar – orange Einträge
+            zeigen, was als Nächstes kommt.
           </p>
+
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-800">
+              <CheckCircle2 className="h-3.5 w-3.5" />
+              Bereits umgesetzt
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3 py-1.5 text-xs font-medium text-orange-800">
+              <Clock className="h-3.5 w-3.5" />
+              Geplant
+            </span>
+          </div>
+
           <div className="mt-8 flex justify-center">
             <CTAButtons />
           </div>
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-400/40 via-orange-500/30 to-orange-400/20 md:left-1/2 md:-translate-x-0.5" />
+        <div className="relative isolate">
+          {/* Timeline line – grün für Vergangenheit, orange für Zukunft */}
+          <div className="pointer-events-none absolute left-8 top-0 bottom-0 z-0 w-0.5 bg-gradient-to-b from-emerald-500/50 via-emerald-400/30 to-orange-400/40 md:left-1/2 md:-translate-x-0.5" />
 
-          <div className="space-y-12">
-            {itemsByQuarter.map((quarterGroup, quarterGroupIndex) => (
-              <div key={quarterGroup.quarter} className="relative">
-                {/* Quarter marker */}
-                <div className="relative flex flex-col md:flex-row md:items-start md:gap-8">
-                  {/* Quarter label - left side on desktop */}
-                  <div className="sticky top-8 z-10 mb-6 flex-shrink-0 md:top-24 md:w-48 md:mb-0">
+          <div className="relative z-[1] space-y-12">
+            {itemsByQuarter.map((quarterGroup, quarterGroupIndex) => {
+              const quarterStatus = getQuarterStatus(quarterGroup.items);
+              const isFirstPlannedQuarter =
+                quarterStatus === "planned" &&
+                getQuarterStatus(
+                  itemsByQuarter[quarterGroupIndex - 1]?.items ?? [],
+                ) !== "planned";
+
+              return (
+                <div key={quarterGroup.quarter} className="relative">
+                  {isFirstPlannedQuarter && (
                     <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-50px" }}
                       transition={{
                         type: "spring" as const,
                         stiffness: 180,
                         damping: 26,
                       }}
-                      className="flex items-center gap-3 md:justify-end"
+                      className="mb-10 flex items-center gap-4 md:pl-[calc(12rem+2rem)]"
                     >
-                      <div className="absolute left-8 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-background bg-orange-500 shadow-lg shadow-orange-500/50 md:left-auto md:right-0 md:translate-x-1/2" />
-                      <div className="ml-12 rounded-lg border border-orange-200 bg-orange-100 px-4 py-2 md:ml-0 md:mr-12">
-                        <span className="text-sm font-semibold text-orange-800">
-                          {quarterGroup.quarter}
-                        </span>
-                      </div>
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-orange-300/60 to-transparent" />
+                      <span className="shrink-0 rounded-full border border-orange-200 bg-orange-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-orange-700">
+                        Ab hier geplant
+                      </span>
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-orange-300/60 to-transparent" />
                     </motion.div>
-                  </div>
+                  )}
 
-                  {/* Features grid - right side on desktop */}
-                  <div className="ml-12 flex-1 md:ml-0">
-                    <motion.div
-                      className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-                      variants={container}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, margin: "-80px" }}
-                    >
-                      {quarterGroup.items.map((roadmapItem, itemIndex) => (
-                        <motion.div
-                          key={roadmapItem.title}
-                          variants={item}
-                          whileHover={
-                            shouldReduceMotion
-                              ? undefined
-                              : {
-                                  scale: 1.03,
-                                  y: -4,
-                                  transition: {
-                                    duration: 0.18,
-                                    ease: "easeOut",
-                                  },
-                                }
-                          }
-                          whileTap={
-                            shouldReduceMotion
-                              ? undefined
-                              : { scale: 0.98, transition: { duration: 0.1 } }
-                          }
+                  {/* Quarter marker */}
+                  <div className="relative flex flex-col md:flex-row md:items-start md:gap-8">
+                    {/* Quarter label - left side on desktop */}
+                    <div className="sticky top-8 z-10 mb-6 flex-shrink-0 md:top-24 md:w-48 md:mb-0">
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{
+                          type: "spring" as const,
+                          stiffness: 180,
+                          damping: 26,
+                        }}
+                        className="flex items-center gap-3 md:justify-end"
+                      >
+                        <div
+                          className={cn(
+                            "absolute left-8 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-background shadow-lg md:left-auto md:right-0 md:translate-x-1/2",
+                            quarterStatus === "implemented"
+                              ? "bg-emerald-500 shadow-emerald-500/50"
+                              : quarterStatus === "mixed"
+                                ? "bg-gradient-to-br from-emerald-500 to-orange-500 shadow-orange-500/40"
+                                : "bg-orange-500 shadow-orange-500/50",
+                          )}
+                        />
+                        <div
+                          className={cn(
+                            "ml-12 rounded-lg border px-4 py-2 md:ml-0 md:mr-12",
+                            quarterStatus === "implemented"
+                              ? "border-emerald-200 bg-emerald-50"
+                              : quarterStatus === "mixed"
+                                ? "border-border bg-muted/50"
+                                : "border-orange-200 bg-orange-100",
+                          )}
                         >
-                          <Card className="group relative h-full overflow-hidden border border-border bg-card shadow-lg shadow-orange-200/30 transition transform-gpu hover:border-orange-300 hover:bg-orange-50/60 hover:shadow-orange-300/50">
-                            <CardContent className="p-5">
-                              <div className="flex items-start gap-3">
-                                <motion.div
-                                  className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-orange-200/40 bg-orange-400/20"
-                                  animate={
-                                    shouldReduceMotion
-                                      ? undefined
-                                      : {
-                                          rotate: [-1, 1, -1],
-                                          y: [0, -2, 0],
+                          <span
+                            className={cn(
+                              "block text-sm font-semibold",
+                              quarterStatus === "implemented"
+                                ? "text-emerald-800"
+                                : quarterStatus === "mixed"
+                                  ? "text-foreground"
+                                  : "text-orange-800",
+                            )}
+                          >
+                            {quarterGroup.quarter}
+                          </span>
+                          <span
+                            className={cn(
+                              "mt-0.5 block text-[11px] font-medium uppercase tracking-wide",
+                              quarterStatus === "implemented"
+                                ? "text-emerald-600"
+                                : quarterStatus === "mixed"
+                                  ? "text-muted-foreground"
+                                  : "text-orange-600",
+                            )}
+                          >
+                            {quarterStatus === "implemented"
+                              ? "Bereits umgesetzt"
+                              : quarterStatus === "mixed"
+                                ? "Teilweise umgesetzt"
+                                : "Geplant"}
+                          </span>
+                        </div>
+                      </motion.div>
+                    </div>
+
+                    {/* Features grid - right side on desktop */}
+                    <div className="ml-12 flex-1 md:ml-0">
+                      <motion.div
+                        className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+                        variants={container}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-80px" }}
+                      >
+                        {quarterGroup.items.map((roadmapItem, itemIndex) => {
+                          const isImplemented = Boolean(roadmapItem.implemented);
+
+                          return (
+                            <motion.div
+                              key={roadmapItem.title}
+                              variants={item}
+                              whileHover={
+                                shouldReduceMotion
+                                  ? undefined
+                                  : {
+                                      scale: 1.03,
+                                      y: -4,
+                                      transition: {
+                                        duration: 0.18,
+                                        ease: "easeOut",
+                                      },
+                                    }
+                              }
+                              whileTap={
+                                shouldReduceMotion
+                                  ? undefined
+                                  : {
+                                      scale: 0.98,
+                                      transition: { duration: 0.1 },
+                                    }
+                              }
+                            >
+                              <Card
+                                className={cn(
+                                  "group relative h-full overflow-hidden transition transform-gpu",
+                                  isImplemented
+                                    ? "border-emerald-200/80 bg-emerald-50/40 shadow-lg shadow-emerald-200/30 hover:border-emerald-300 hover:bg-emerald-50/70 hover:shadow-emerald-300/40"
+                                    : "border-orange-200/60 border-dashed bg-card shadow-lg shadow-orange-200/20 hover:border-orange-300 hover:bg-orange-50/60 hover:shadow-orange-300/50",
+                                )}
+                              >
+                                <CardContent className="p-5">
+                                  <div className="flex items-start gap-3">
+                                    {isImplemented ? (
+                                      <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-emerald-200/60 bg-emerald-100/80">
+                                        <CheckCircle2 className="h-4 w-4 text-emerald-700" />
+                                      </div>
+                                    ) : (
+                                      <motion.div
+                                        className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-orange-200/40 bg-orange-400/20"
+                                        animate={
+                                          shouldReduceMotion
+                                            ? undefined
+                                            : {
+                                                rotate: [-1, 1, -1],
+                                                y: [0, -2, 0],
+                                              }
                                         }
-                                  }
-                                  transition={
-                                    shouldReduceMotion
-                                      ? undefined
-                                      : {
-                                          repeat: Infinity,
-                                          repeatType: "mirror",
-                                          duration: 4,
-                                          delay:
-                                            quarterGroupIndex * 0.2 +
-                                            itemIndex * 0.1,
+                                        transition={
+                                          shouldReduceMotion
+                                            ? undefined
+                                            : {
+                                                repeat: Infinity,
+                                                repeatType: "mirror",
+                                                duration: 4,
+                                                delay:
+                                                  quarterGroupIndex * 0.2 +
+                                                  itemIndex * 0.1,
+                                              }
                                         }
-                                  }
-                                >
-                                  <Clock className="h-4 w-4 text-orange-700" />
-                                </motion.div>
-                                <div className="flex-1">
-                                  <h3 className="text-base font-semibold text-foreground">
-                                    {roadmapItem.title}
-                                  </h3>
-                                  {roadmapItem.description && (
-                                    <p className="mt-2 text-sm text-muted-foreground">
-                                      {roadmapItem.description}
-                                    </p>
-                                  )}
-                                  {roadmapItem.implemented && (
-                                    <div className="mt-4">
-                                      <span
-                                        className="inline-flex items-center gap-1.5 rounded-md border border-orange-200 bg-orange-100 px-2.5 py-1 text-xs font-medium text-orange-800"
-                                        title="Umgesetzt"
                                       >
-                                        Bereits in der Software ✓
-                                      </span>
+                                        <Clock className="h-4 w-4 text-orange-700" />
+                                      </motion.div>
+                                    )}
+                                    <div className="flex-1">
+                                      <h3 className="text-base font-semibold text-foreground">
+                                        {roadmapItem.title}
+                                      </h3>
+                                      {roadmapItem.description && (
+                                        <p className="mt-2 text-sm text-muted-foreground">
+                                          {roadmapItem.description}
+                                        </p>
+                                      )}
+                                      <div className="mt-4">
+                                        {isImplemented ? (
+                                          <span className="inline-flex items-center gap-1.5 rounded-md border border-emerald-200 bg-emerald-100 px-2.5 py-1 text-xs font-medium text-emerald-800">
+                                            Bereits in der Software
+                                          </span>
+                                        ) : (
+                                          <span className="inline-flex items-center gap-1.5 rounded-md border border-orange-200 bg-orange-50 px-2.5 py-1 text-xs font-medium text-orange-700">
+                                            Geplant
+                                          </span>
+                                        )}
+                                      </div>
                                     </div>
-                                  )}
-                                </div>
-                              </div>
-                            </CardContent>
-                          </Card>
-                        </motion.div>
-                      ))}
-                    </motion.div>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                            </motion.div>
+                          );
+                        })}
+                      </motion.div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
