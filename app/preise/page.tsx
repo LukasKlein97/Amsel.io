@@ -6,7 +6,7 @@ import { PricingSection } from "@/components/pricing-section";
 export const metadata: Metadata = {
   title: "Preise",
   description:
-    "Transparente Preise für AMS Go: Basic, Pro und Enterprise – Pläne für digitalen Arbeitsschutz pro Standort.",
+    "Transparente Preise für AMS Go: Basic, Pro, Business und Enterprise – Pläne für digitalen Arbeitsschutz pro Standort.",
   alternates: {
     canonical: "https://amsel.io/preise",
   },
